@@ -308,9 +308,9 @@ Tab3:AddCheckbox("VX_flag_2", {
 	Text = "Auto Unsprint",
 	Default = false,
 	Callback = function(state, arg9)
+		getgenv().SM_Threshold = tonumber(state)
 	end
 })
-getgenv().SM_Threshold = tonumber(state)
 Tab3:AddInput("VX_flag_3", {
 	Text = "Unsprint at Stamina",
 	Placeholder = "10",
@@ -364,13 +364,13 @@ Tab3:AddCheckbox("VX_flag_5", {
 		end
 	end
 })
-getgenv()._SharedSprintMod = module3
-getgenv()._SharedMouseMod = module4
 task.spawn(function(...)
 	local module3 = require(ReplicatedStorage.Systems.Character.Game.Sprinting)
 	local module4 = require(ReplicatedStorage.Systems.Player.Miscellaneous.GetPlayerMousePosition)
-end)
+getgenv()._SharedSprintMod = module3
+getgenv()._SharedMouseMod = module4
 getgenv().SprintModule = module3
+end)
 getgenv().SprintDefaults = {}
 getgenv().StaminaStats = { MaxStamina = 100, MinStamina = 0, SprintSpeed = 26, StaminaGain = 20, StaminaLoss = 10 }
 getgenv().StaminaToggles = {
@@ -2721,6 +2721,7 @@ task.spawn(function(...)
 	Min = 0,
 	Rounding = 0,
 	Callback = function(arg144, arg145)
+		getgenv().VX_ESP.fillTransparency = arg144 / 100 -- [[deobf: реконструкция по утечке трейса]]
 		end
 })
 	Tab7:AddSlider("VX_flag_58", {
@@ -2761,7 +2762,7 @@ task.spawn(function(...)
 	colorKiller = false,
 	colorSurvivor = false,
 	fakeNoliEnabled = false,
-	fillTransparency = (arg144 / 100),
+	fillTransparency = 0.8, -- [[deobf: default 80/100, обновляется колбэком VX_flag_57]],
 	generatorsEnabled = false,
 	healthConns = {},
 	itemsEnabled = false,
@@ -4552,1074 +4553,1075 @@ Tab19:AddCheckbox("VX_flag_152", {
 	Callback = function(state, arg465)
 		if state then
 			task.spawn(function(...)
+				local __L = {}
 				getgenv().autoDeleteShadowsTI = state
 				getgenv().antiPuddleLastFolder = nil
 				workspace:FindFirstChild("Map")
-				local Ingame66 = workspace.Map:FindFirstChild("Ingame")
-				local child = Ingame66:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child
-				local descendants12 = child:GetDescendants()
-				for k18, v172 in pairs(descendants12) do
+				__L.Ingame66 = workspace.Map:FindFirstChild("Ingame")
+				__L.child = __L.Ingame66:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child
+				__L.descendants12 = __L.child:GetDescendants()
+				for k18, v172 in pairs(__L.descendants12) do
 					v172.CanTouch = false
 				end
 				connection48:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection49 = child.DescendantAdded:Connect(function(descendant11)
+				__L.connection49 = __L.child.DescendantAdded:Connect(function(descendant11)
 					descendant11.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection49
-				local children131 = Ingame66:GetChildren()
-				for k19, v173 in pairs(children131) do
+				getgenv().antiPuddleConn = __L.connection49
+				__L.children131 = __L.Ingame66:GetChildren()
+				for k19, v173 in pairs(__L.children131) do
 					local result10 = v173.Name:lower()
 					result10:find("shadow")
 					v173.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame67 = workspace.Map:FindFirstChild("Ingame")
-				local child2 = Ingame67:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child2
-				local descendants13 = child2:GetDescendants()
-				for k20, v174 in pairs(descendants13) do
+				__L.Ingame67 = workspace.Map:FindFirstChild("Ingame")
+				__L.child2 = __L.Ingame67:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child2
+				__L.descendants13 = __L.child2:GetDescendants()
+				for k20, v174 in pairs(__L.descendants13) do
 					v174.CanTouch = false
 				end
-				connection49:Disconnect()
+				__L.connection49:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection50 = child2.DescendantAdded:Connect(function(descendant12)
+				__L.connection50 = __L.child2.DescendantAdded:Connect(function(descendant12)
 					descendant12.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection50
-				local children132 = Ingame67:GetChildren()
-				for k21, v175 in pairs(children132) do
+				getgenv().antiPuddleConn = __L.connection50
+				__L.children132 = __L.Ingame67:GetChildren()
+				for k21, v175 in pairs(__L.children132) do
 					local result11 = v175.Name:lower()
 					result11:find("shadow")
 					v175.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame68 = workspace.Map:FindFirstChild("Ingame")
-				local child3 = Ingame68:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child3
-				local descendants14 = child3:GetDescendants()
-				for k22, v176 in pairs(descendants14) do
+				__L.Ingame68 = workspace.Map:FindFirstChild("Ingame")
+				__L.child3 = __L.Ingame68:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child3
+				__L.descendants14 = __L.child3:GetDescendants()
+				for k22, v176 in pairs(__L.descendants14) do
 					v176.CanTouch = false
 				end
-				connection50:Disconnect()
+				__L.connection50:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection51 = child3.DescendantAdded:Connect(function(descendant13)
+				__L.connection51 = __L.child3.DescendantAdded:Connect(function(descendant13)
 					descendant13.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection51
-				local children133 = Ingame68:GetChildren()
-				for k23, v177 in pairs(children133) do
+				getgenv().antiPuddleConn = __L.connection51
+				__L.children133 = __L.Ingame68:GetChildren()
+				for k23, v177 in pairs(__L.children133) do
 					local result12 = v177.Name:lower()
 					result12:find("shadow")
 					v177.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame69 = workspace.Map:FindFirstChild("Ingame")
-				local child4 = Ingame69:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child4
-				local descendants15 = child4:GetDescendants()
-				for k24, v178 in pairs(descendants15) do
+				__L.Ingame69 = workspace.Map:FindFirstChild("Ingame")
+				__L.child4 = __L.Ingame69:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child4
+				__L.descendants15 = __L.child4:GetDescendants()
+				for k24, v178 in pairs(__L.descendants15) do
 					v178.CanTouch = false
 				end
-				connection51:Disconnect()
+				__L.connection51:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection52 = child4.DescendantAdded:Connect(function(descendant14)
+				__L.connection52 = __L.child4.DescendantAdded:Connect(function(descendant14)
 					descendant14.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection52
-				local children134 = Ingame69:GetChildren()
-				for k25, v179 in pairs(children134) do
+				getgenv().antiPuddleConn = __L.connection52
+				__L.children134 = __L.Ingame69:GetChildren()
+				for k25, v179 in pairs(__L.children134) do
 					local result13 = v179.Name:lower()
 					result13:find("shadow")
 					v179.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame70 = workspace.Map:FindFirstChild("Ingame")
-				local child5 = Ingame70:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child5
-				local descendants16 = child5:GetDescendants()
-				for k26, v180 in pairs(descendants16) do
+				__L.Ingame70 = workspace.Map:FindFirstChild("Ingame")
+				__L.child5 = __L.Ingame70:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child5
+				__L.descendants16 = __L.child5:GetDescendants()
+				for k26, v180 in pairs(__L.descendants16) do
 					v180.CanTouch = false
 				end
-				connection52:Disconnect()
+				__L.connection52:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection53 = child5.DescendantAdded:Connect(function(descendant15)
+				__L.connection53 = __L.child5.DescendantAdded:Connect(function(descendant15)
 					descendant15.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection53
-				local children135 = Ingame70:GetChildren()
-				for k27, v181 in pairs(children135) do
+				getgenv().antiPuddleConn = __L.connection53
+				__L.children135 = __L.Ingame70:GetChildren()
+				for k27, v181 in pairs(__L.children135) do
 					local result14 = v181.Name:lower()
 					result14:find("shadow")
 					v181.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame71 = workspace.Map:FindFirstChild("Ingame")
-				local child6 = Ingame71:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child6
-				local descendants17 = child6:GetDescendants()
-				for k28, v182 in pairs(descendants17) do
+				__L.Ingame71 = workspace.Map:FindFirstChild("Ingame")
+				__L.child6 = __L.Ingame71:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child6
+				__L.descendants17 = __L.child6:GetDescendants()
+				for k28, v182 in pairs(__L.descendants17) do
 					v182.CanTouch = false
 				end
-				connection53:Disconnect()
+				__L.connection53:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection54 = child6.DescendantAdded:Connect(function(descendant16)
+				__L.connection54 = __L.child6.DescendantAdded:Connect(function(descendant16)
 					descendant16.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection54
-				local children136 = Ingame71:GetChildren()
-				for k29, v183 in pairs(children136) do
+				getgenv().antiPuddleConn = __L.connection54
+				__L.children136 = __L.Ingame71:GetChildren()
+				for k29, v183 in pairs(__L.children136) do
 					local result15 = v183.Name:lower()
 					result15:find("shadow")
 					v183.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame72 = workspace.Map:FindFirstChild("Ingame")
-				local child7 = Ingame72:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child7
-				local descendants18 = child7:GetDescendants()
-				for k30, v184 in pairs(descendants18) do
+				__L.Ingame72 = workspace.Map:FindFirstChild("Ingame")
+				__L.child7 = __L.Ingame72:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child7
+				__L.descendants18 = __L.child7:GetDescendants()
+				for k30, v184 in pairs(__L.descendants18) do
 					v184.CanTouch = false
 				end
-				connection54:Disconnect()
+				__L.connection54:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection55 = child7.DescendantAdded:Connect(function(descendant17)
+				__L.connection55 = __L.child7.DescendantAdded:Connect(function(descendant17)
 					descendant17.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection55
-				local children137 = Ingame72:GetChildren()
-				for k31, v185 in pairs(children137) do
+				getgenv().antiPuddleConn = __L.connection55
+				__L.children137 = __L.Ingame72:GetChildren()
+				for k31, v185 in pairs(__L.children137) do
 					local result16 = v185.Name:lower()
 					result16:find("shadow")
 					v185.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame73 = workspace.Map:FindFirstChild("Ingame")
-				local child8 = Ingame73:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child8
-				local descendants19 = child8:GetDescendants()
-				for k32, v186 in pairs(descendants19) do
+				__L.Ingame73 = workspace.Map:FindFirstChild("Ingame")
+				__L.child8 = __L.Ingame73:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child8
+				__L.descendants19 = __L.child8:GetDescendants()
+				for k32, v186 in pairs(__L.descendants19) do
 					v186.CanTouch = false
 				end
-				connection55:Disconnect()
+				__L.connection55:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection56 = child8.DescendantAdded:Connect(function(descendant18)
+				__L.connection56 = __L.child8.DescendantAdded:Connect(function(descendant18)
 					descendant18.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection56
-				local children138 = Ingame73:GetChildren()
-				for k33, v187 in pairs(children138) do
+				getgenv().antiPuddleConn = __L.connection56
+				__L.children138 = __L.Ingame73:GetChildren()
+				for k33, v187 in pairs(__L.children138) do
 					local result17 = v187.Name:lower()
 					result17:find("shadow")
 					v187.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame74 = workspace.Map:FindFirstChild("Ingame")
-				local child9 = Ingame74:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child9
-				local descendants20 = child9:GetDescendants()
-				for k34, v188 in pairs(descendants20) do
+				__L.Ingame74 = workspace.Map:FindFirstChild("Ingame")
+				__L.child9 = __L.Ingame74:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child9
+				__L.descendants20 = __L.child9:GetDescendants()
+				for k34, v188 in pairs(__L.descendants20) do
 					v188.CanTouch = false
 				end
-				connection56:Disconnect()
+				__L.connection56:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection57 = child9.DescendantAdded:Connect(function(descendant19)
+				__L.connection57 = __L.child9.DescendantAdded:Connect(function(descendant19)
 					descendant19.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection57
-				local children139 = Ingame74:GetChildren()
-				for k35, v189 in pairs(children139) do
+				getgenv().antiPuddleConn = __L.connection57
+				__L.children139 = __L.Ingame74:GetChildren()
+				for k35, v189 in pairs(__L.children139) do
 					local result18 = v189.Name:lower()
 					result18:find("shadow")
 					v189.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame75 = workspace.Map:FindFirstChild("Ingame")
-				local child10 = Ingame75:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child10
-				local descendants21 = child10:GetDescendants()
-				for k36, v190 in pairs(descendants21) do
+				__L.Ingame75 = workspace.Map:FindFirstChild("Ingame")
+				__L.child10 = __L.Ingame75:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child10
+				__L.descendants21 = __L.child10:GetDescendants()
+				for k36, v190 in pairs(__L.descendants21) do
 					v190.CanTouch = false
 				end
-				connection57:Disconnect()
+				__L.connection57:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection58 = child10.DescendantAdded:Connect(function(descendant20)
+				__L.connection58 = __L.child10.DescendantAdded:Connect(function(descendant20)
 					descendant20.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection58
-				local children140 = Ingame75:GetChildren()
-				for k37, v191 in pairs(children140) do
+				getgenv().antiPuddleConn = __L.connection58
+				__L.children140 = __L.Ingame75:GetChildren()
+				for k37, v191 in pairs(__L.children140) do
 					local result19 = v191.Name:lower()
 					result19:find("shadow")
 					v191.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame76 = workspace.Map:FindFirstChild("Ingame")
-				local child11 = Ingame76:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child11
-				local descendants22 = child11:GetDescendants()
-				for k38, v192 in pairs(descendants22) do
+				__L.Ingame76 = workspace.Map:FindFirstChild("Ingame")
+				__L.child11 = __L.Ingame76:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child11
+				__L.descendants22 = __L.child11:GetDescendants()
+				for k38, v192 in pairs(__L.descendants22) do
 					v192.CanTouch = false
 				end
-				connection58:Disconnect()
+				__L.connection58:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection59 = child11.DescendantAdded:Connect(function(descendant21)
+				__L.connection59 = __L.child11.DescendantAdded:Connect(function(descendant21)
 					descendant21.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection59
-				local children141 = Ingame76:GetChildren()
-				for k39, v193 in pairs(children141) do
+				getgenv().antiPuddleConn = __L.connection59
+				__L.children141 = __L.Ingame76:GetChildren()
+				for k39, v193 in pairs(__L.children141) do
 					local result20 = v193.Name:lower()
 					result20:find("shadow")
 					v193.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame77 = workspace.Map:FindFirstChild("Ingame")
-				local child12 = Ingame77:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child12
-				local descendants23 = child12:GetDescendants()
-				for k40, v194 in pairs(descendants23) do
+				__L.Ingame77 = workspace.Map:FindFirstChild("Ingame")
+				__L.child12 = __L.Ingame77:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child12
+				__L.descendants23 = __L.child12:GetDescendants()
+				for k40, v194 in pairs(__L.descendants23) do
 					v194.CanTouch = false
 				end
-				connection59:Disconnect()
+				__L.connection59:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection60 = child12.DescendantAdded:Connect(function(descendant22)
+				__L.connection60 = __L.child12.DescendantAdded:Connect(function(descendant22)
 					descendant22.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection60
-				local children142 = Ingame77:GetChildren()
-				for k41, v195 in pairs(children142) do
+				getgenv().antiPuddleConn = __L.connection60
+				__L.children142 = __L.Ingame77:GetChildren()
+				for k41, v195 in pairs(__L.children142) do
 					local result21 = v195.Name:lower()
 					result21:find("shadow")
 					v195.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame78 = workspace.Map:FindFirstChild("Ingame")
-				local child13 = Ingame78:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child13
-				local descendants24 = child13:GetDescendants()
-				for k42, v196 in pairs(descendants24) do
+				__L.Ingame78 = workspace.Map:FindFirstChild("Ingame")
+				__L.child13 = __L.Ingame78:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child13
+				__L.descendants24 = __L.child13:GetDescendants()
+				for k42, v196 in pairs(__L.descendants24) do
 					v196.CanTouch = false
 				end
-				connection60:Disconnect()
+				__L.connection60:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection61 = child13.DescendantAdded:Connect(function(descendant23)
+				__L.connection61 = __L.child13.DescendantAdded:Connect(function(descendant23)
 					descendant23.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection61
-				local children143 = Ingame78:GetChildren()
-				for k43, v197 in pairs(children143) do
+				getgenv().antiPuddleConn = __L.connection61
+				__L.children143 = __L.Ingame78:GetChildren()
+				for k43, v197 in pairs(__L.children143) do
 					local result22 = v197.Name:lower()
 					result22:find("shadow")
 					v197.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame79 = workspace.Map:FindFirstChild("Ingame")
-				local child14 = Ingame79:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child14
-				local descendants25 = child14:GetDescendants()
-				for k44, v198 in pairs(descendants25) do
+				__L.Ingame79 = workspace.Map:FindFirstChild("Ingame")
+				__L.child14 = __L.Ingame79:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child14
+				__L.descendants25 = __L.child14:GetDescendants()
+				for k44, v198 in pairs(__L.descendants25) do
 					v198.CanTouch = false
 				end
-				connection61:Disconnect()
+				__L.connection61:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection62 = child14.DescendantAdded:Connect(function(descendant24)
+				__L.connection62 = __L.child14.DescendantAdded:Connect(function(descendant24)
 					descendant24.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection62
-				local children144 = Ingame79:GetChildren()
-				for k45, v199 in pairs(children144) do
+				getgenv().antiPuddleConn = __L.connection62
+				__L.children144 = __L.Ingame79:GetChildren()
+				for k45, v199 in pairs(__L.children144) do
 					local result23 = v199.Name:lower()
 					result23:find("shadow")
 					v199.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame80 = workspace.Map:FindFirstChild("Ingame")
-				local child15 = Ingame80:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child15
-				local descendants26 = child15:GetDescendants()
-				for k46, v200 in pairs(descendants26) do
+				__L.Ingame80 = workspace.Map:FindFirstChild("Ingame")
+				__L.child15 = __L.Ingame80:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child15
+				__L.descendants26 = __L.child15:GetDescendants()
+				for k46, v200 in pairs(__L.descendants26) do
 					v200.CanTouch = false
 				end
-				connection62:Disconnect()
+				__L.connection62:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection63 = child15.DescendantAdded:Connect(function(descendant25)
+				__L.connection63 = __L.child15.DescendantAdded:Connect(function(descendant25)
 					descendant25.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection63
-				local children145 = Ingame80:GetChildren()
-				for k47, v201 in pairs(children145) do
+				getgenv().antiPuddleConn = __L.connection63
+				__L.children145 = __L.Ingame80:GetChildren()
+				for k47, v201 in pairs(__L.children145) do
 					local result24 = v201.Name:lower()
 					result24:find("shadow")
 					v201.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame81 = workspace.Map:FindFirstChild("Ingame")
-				local child16 = Ingame81:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child16
-				local descendants27 = child16:GetDescendants()
-				for k48, v202 in pairs(descendants27) do
+				__L.Ingame81 = workspace.Map:FindFirstChild("Ingame")
+				__L.child16 = __L.Ingame81:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child16
+				__L.descendants27 = __L.child16:GetDescendants()
+				for k48, v202 in pairs(__L.descendants27) do
 					v202.CanTouch = false
 				end
-				connection63:Disconnect()
+				__L.connection63:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection64 = child16.DescendantAdded:Connect(function(descendant26)
+				__L.connection64 = __L.child16.DescendantAdded:Connect(function(descendant26)
 					descendant26.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection64
-				local children146 = Ingame81:GetChildren()
-				for k49, v203 in pairs(children146) do
+				getgenv().antiPuddleConn = __L.connection64
+				__L.children146 = __L.Ingame81:GetChildren()
+				for k49, v203 in pairs(__L.children146) do
 					local result25 = v203.Name:lower()
 					result25:find("shadow")
 					v203.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame82 = workspace.Map:FindFirstChild("Ingame")
-				local child17 = Ingame82:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child17
-				local descendants28 = child17:GetDescendants()
-				for k50, v204 in pairs(descendants28) do
+				__L.Ingame82 = workspace.Map:FindFirstChild("Ingame")
+				__L.child17 = __L.Ingame82:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child17
+				__L.descendants28 = __L.child17:GetDescendants()
+				for k50, v204 in pairs(__L.descendants28) do
 					v204.CanTouch = false
 				end
-				connection64:Disconnect()
+				__L.connection64:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection65 = child17.DescendantAdded:Connect(function(descendant27)
+				__L.connection65 = __L.child17.DescendantAdded:Connect(function(descendant27)
 					descendant27.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection65
-				local children147 = Ingame82:GetChildren()
-				for k51, v205 in pairs(children147) do
+				getgenv().antiPuddleConn = __L.connection65
+				__L.children147 = __L.Ingame82:GetChildren()
+				for k51, v205 in pairs(__L.children147) do
 					local result26 = v205.Name:lower()
 					result26:find("shadow")
 					v205.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame83 = workspace.Map:FindFirstChild("Ingame")
-				local child18 = Ingame83:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child18
-				local descendants29 = child18:GetDescendants()
-				for k52, v206 in pairs(descendants29) do
+				__L.Ingame83 = workspace.Map:FindFirstChild("Ingame")
+				__L.child18 = __L.Ingame83:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child18
+				__L.descendants29 = __L.child18:GetDescendants()
+				for k52, v206 in pairs(__L.descendants29) do
 					v206.CanTouch = false
 				end
-				connection65:Disconnect()
+				__L.connection65:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection66 = child18.DescendantAdded:Connect(function(descendant28)
+				__L.connection66 = __L.child18.DescendantAdded:Connect(function(descendant28)
 					descendant28.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection66
-				local children148 = Ingame83:GetChildren()
-				for k53, v207 in pairs(children148) do
+				getgenv().antiPuddleConn = __L.connection66
+				__L.children148 = __L.Ingame83:GetChildren()
+				for k53, v207 in pairs(__L.children148) do
 					local result27 = v207.Name:lower()
 					result27:find("shadow")
 					v207.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame84 = workspace.Map:FindFirstChild("Ingame")
-				local child19 = Ingame84:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child19
-				local descendants30 = child19:GetDescendants()
-				for k54, v208 in pairs(descendants30) do
+				__L.Ingame84 = workspace.Map:FindFirstChild("Ingame")
+				__L.child19 = __L.Ingame84:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child19
+				__L.descendants30 = __L.child19:GetDescendants()
+				for k54, v208 in pairs(__L.descendants30) do
 					v208.CanTouch = false
 				end
-				connection66:Disconnect()
+				__L.connection66:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection67 = child19.DescendantAdded:Connect(function(descendant29)
+				__L.connection67 = __L.child19.DescendantAdded:Connect(function(descendant29)
 					descendant29.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection67
-				local children149 = Ingame84:GetChildren()
-				for k55, v209 in pairs(children149) do
+				getgenv().antiPuddleConn = __L.connection67
+				__L.children149 = __L.Ingame84:GetChildren()
+				for k55, v209 in pairs(__L.children149) do
 					local result28 = v209.Name:lower()
 					result28:find("shadow")
 					v209.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame85 = workspace.Map:FindFirstChild("Ingame")
-				local child20 = Ingame85:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child20
-				local descendants31 = child20:GetDescendants()
-				for k56, v210 in pairs(descendants31) do
+				__L.Ingame85 = workspace.Map:FindFirstChild("Ingame")
+				__L.child20 = __L.Ingame85:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child20
+				__L.descendants31 = __L.child20:GetDescendants()
+				for k56, v210 in pairs(__L.descendants31) do
 					v210.CanTouch = false
 				end
-				connection67:Disconnect()
+				__L.connection67:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection68 = child20.DescendantAdded:Connect(function(descendant30)
+				__L.connection68 = __L.child20.DescendantAdded:Connect(function(descendant30)
 					descendant30.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection68
-				local children150 = Ingame85:GetChildren()
-				for k57, v211 in pairs(children150) do
+				getgenv().antiPuddleConn = __L.connection68
+				__L.children150 = __L.Ingame85:GetChildren()
+				for k57, v211 in pairs(__L.children150) do
 					local result29 = v211.Name:lower()
 					result29:find("shadow")
 					v211.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame86 = workspace.Map:FindFirstChild("Ingame")
-				local child21 = Ingame86:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child21
-				local descendants32 = child21:GetDescendants()
-				for k58, v212 in pairs(descendants32) do
+				__L.Ingame86 = workspace.Map:FindFirstChild("Ingame")
+				__L.child21 = __L.Ingame86:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child21
+				__L.descendants32 = __L.child21:GetDescendants()
+				for k58, v212 in pairs(__L.descendants32) do
 					v212.CanTouch = false
 				end
-				connection68:Disconnect()
+				__L.connection68:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection69 = child21.DescendantAdded:Connect(function(descendant31)
+				__L.connection69 = __L.child21.DescendantAdded:Connect(function(descendant31)
 					descendant31.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection69
-				local children151 = Ingame86:GetChildren()
-				for k59, v213 in pairs(children151) do
+				getgenv().antiPuddleConn = __L.connection69
+				__L.children151 = __L.Ingame86:GetChildren()
+				for k59, v213 in pairs(__L.children151) do
 					local result30 = v213.Name:lower()
 					result30:find("shadow")
 					v213.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame87 = workspace.Map:FindFirstChild("Ingame")
-				local child22 = Ingame87:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child22
-				local descendants33 = child22:GetDescendants()
-				for k60, v214 in pairs(descendants33) do
+				__L.Ingame87 = workspace.Map:FindFirstChild("Ingame")
+				__L.child22 = __L.Ingame87:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child22
+				__L.descendants33 = __L.child22:GetDescendants()
+				for k60, v214 in pairs(__L.descendants33) do
 					v214.CanTouch = false
 				end
-				connection69:Disconnect()
+				__L.connection69:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection70 = child22.DescendantAdded:Connect(function(descendant32)
+				__L.connection70 = __L.child22.DescendantAdded:Connect(function(descendant32)
 					descendant32.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection70
-				local children152 = Ingame87:GetChildren()
-				for k61, v215 in pairs(children152) do
+				getgenv().antiPuddleConn = __L.connection70
+				__L.children152 = __L.Ingame87:GetChildren()
+				for k61, v215 in pairs(__L.children152) do
 					local result31 = v215.Name:lower()
 					result31:find("shadow")
 					v215.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame88 = workspace.Map:FindFirstChild("Ingame")
-				local child23 = Ingame88:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child23
-				local descendants34 = child23:GetDescendants()
-				for k62, v216 in pairs(descendants34) do
+				__L.Ingame88 = workspace.Map:FindFirstChild("Ingame")
+				__L.child23 = __L.Ingame88:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child23
+				__L.descendants34 = __L.child23:GetDescendants()
+				for k62, v216 in pairs(__L.descendants34) do
 					v216.CanTouch = false
 				end
-				connection70:Disconnect()
+				__L.connection70:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection71 = child23.DescendantAdded:Connect(function(descendant33)
+				__L.connection71 = __L.child23.DescendantAdded:Connect(function(descendant33)
 					descendant33.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection71
-				local children153 = Ingame88:GetChildren()
-				for k63, v217 in pairs(children153) do
+				getgenv().antiPuddleConn = __L.connection71
+				__L.children153 = __L.Ingame88:GetChildren()
+				for k63, v217 in pairs(__L.children153) do
 					local result32 = v217.Name:lower()
 					result32:find("shadow")
 					v217.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame89 = workspace.Map:FindFirstChild("Ingame")
-				local child24 = Ingame89:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child24
-				local descendants35 = child24:GetDescendants()
-				for k64, v218 in pairs(descendants35) do
+				__L.Ingame89 = workspace.Map:FindFirstChild("Ingame")
+				__L.child24 = __L.Ingame89:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child24
+				__L.descendants35 = __L.child24:GetDescendants()
+				for k64, v218 in pairs(__L.descendants35) do
 					v218.CanTouch = false
 				end
-				connection71:Disconnect()
+				__L.connection71:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection72 = child24.DescendantAdded:Connect(function(descendant34)
+				__L.connection72 = __L.child24.DescendantAdded:Connect(function(descendant34)
 					descendant34.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection72
-				local children154 = Ingame89:GetChildren()
-				for k65, v219 in pairs(children154) do
+				getgenv().antiPuddleConn = __L.connection72
+				__L.children154 = __L.Ingame89:GetChildren()
+				for k65, v219 in pairs(__L.children154) do
 					local result33 = v219.Name:lower()
 					result33:find("shadow")
 					v219.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame90 = workspace.Map:FindFirstChild("Ingame")
-				local child25 = Ingame90:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child25
-				local descendants36 = child25:GetDescendants()
-				for k66, v220 in pairs(descendants36) do
+				__L.Ingame90 = workspace.Map:FindFirstChild("Ingame")
+				__L.child25 = __L.Ingame90:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child25
+				__L.descendants36 = __L.child25:GetDescendants()
+				for k66, v220 in pairs(__L.descendants36) do
 					v220.CanTouch = false
 				end
-				connection72:Disconnect()
+				__L.connection72:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection73 = child25.DescendantAdded:Connect(function(descendant35)
+				__L.connection73 = __L.child25.DescendantAdded:Connect(function(descendant35)
 					descendant35.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection73
-				local children155 = Ingame90:GetChildren()
-				for k67, v221 in pairs(children155) do
+				getgenv().antiPuddleConn = __L.connection73
+				__L.children155 = __L.Ingame90:GetChildren()
+				for k67, v221 in pairs(__L.children155) do
 					local result34 = v221.Name:lower()
 					result34:find("shadow")
 					v221.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame91 = workspace.Map:FindFirstChild("Ingame")
-				local child26 = Ingame91:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child26
-				local descendants37 = child26:GetDescendants()
-				for k68, v222 in pairs(descendants37) do
+				__L.Ingame91 = workspace.Map:FindFirstChild("Ingame")
+				__L.child26 = __L.Ingame91:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child26
+				__L.descendants37 = __L.child26:GetDescendants()
+				for k68, v222 in pairs(__L.descendants37) do
 					v222.CanTouch = false
 				end
-				connection73:Disconnect()
+				__L.connection73:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection74 = child26.DescendantAdded:Connect(function(descendant36)
+				__L.connection74 = __L.child26.DescendantAdded:Connect(function(descendant36)
 					descendant36.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection74
-				local children156 = Ingame91:GetChildren()
-				for k69, v223 in pairs(children156) do
+				getgenv().antiPuddleConn = __L.connection74
+				__L.children156 = __L.Ingame91:GetChildren()
+				for k69, v223 in pairs(__L.children156) do
 					local result35 = v223.Name:lower()
 					result35:find("shadow")
 					v223.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame92 = workspace.Map:FindFirstChild("Ingame")
-				local child27 = Ingame92:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child27
-				local descendants38 = child27:GetDescendants()
-				for k70, v224 in pairs(descendants38) do
+				__L.Ingame92 = workspace.Map:FindFirstChild("Ingame")
+				__L.child27 = __L.Ingame92:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child27
+				__L.descendants38 = __L.child27:GetDescendants()
+				for k70, v224 in pairs(__L.descendants38) do
 					v224.CanTouch = false
 				end
-				connection74:Disconnect()
+				__L.connection74:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection75 = child27.DescendantAdded:Connect(function(descendant37)
+				__L.connection75 = __L.child27.DescendantAdded:Connect(function(descendant37)
 					descendant37.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection75
-				local children157 = Ingame92:GetChildren()
-				for k71, v225 in pairs(children157) do
+				getgenv().antiPuddleConn = __L.connection75
+				__L.children157 = __L.Ingame92:GetChildren()
+				for k71, v225 in pairs(__L.children157) do
 					local result36 = v225.Name:lower()
 					result36:find("shadow")
 					v225.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame93 = workspace.Map:FindFirstChild("Ingame")
-				local child28 = Ingame93:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child28
-				local descendants39 = child28:GetDescendants()
-				for k72, v226 in pairs(descendants39) do
+				__L.Ingame93 = workspace.Map:FindFirstChild("Ingame")
+				__L.child28 = __L.Ingame93:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child28
+				__L.descendants39 = __L.child28:GetDescendants()
+				for k72, v226 in pairs(__L.descendants39) do
 					v226.CanTouch = false
 				end
-				connection75:Disconnect()
+				__L.connection75:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection76 = child28.DescendantAdded:Connect(function(descendant38)
+				__L.connection76 = __L.child28.DescendantAdded:Connect(function(descendant38)
 					descendant38.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection76
-				local children158 = Ingame93:GetChildren()
-				for k73, v227 in pairs(children158) do
+				getgenv().antiPuddleConn = __L.connection76
+				__L.children158 = __L.Ingame93:GetChildren()
+				for k73, v227 in pairs(__L.children158) do
 					local result37 = v227.Name:lower()
 					result37:find("shadow")
 					v227.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame94 = workspace.Map:FindFirstChild("Ingame")
-				local child29 = Ingame94:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child29
-				local descendants40 = child29:GetDescendants()
-				for k74, v228 in pairs(descendants40) do
+				__L.Ingame94 = workspace.Map:FindFirstChild("Ingame")
+				__L.child29 = __L.Ingame94:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child29
+				__L.descendants40 = __L.child29:GetDescendants()
+				for k74, v228 in pairs(__L.descendants40) do
 					v228.CanTouch = false
 				end
-				connection76:Disconnect()
+				__L.connection76:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection77 = child29.DescendantAdded:Connect(function(descendant39)
+				__L.connection77 = __L.child29.DescendantAdded:Connect(function(descendant39)
 					descendant39.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection77
-				local children159 = Ingame94:GetChildren()
-				for k75, v229 in pairs(children159) do
+				getgenv().antiPuddleConn = __L.connection77
+				__L.children159 = __L.Ingame94:GetChildren()
+				for k75, v229 in pairs(__L.children159) do
 					local result38 = v229.Name:lower()
 					result38:find("shadow")
 					v229.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame95 = workspace.Map:FindFirstChild("Ingame")
-				local child30 = Ingame95:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child30
-				local descendants41 = child30:GetDescendants()
-				for k76, v230 in pairs(descendants41) do
+				__L.Ingame95 = workspace.Map:FindFirstChild("Ingame")
+				__L.child30 = __L.Ingame95:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child30
+				__L.descendants41 = __L.child30:GetDescendants()
+				for k76, v230 in pairs(__L.descendants41) do
 					v230.CanTouch = false
 				end
-				connection77:Disconnect()
+				__L.connection77:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection78 = child30.DescendantAdded:Connect(function(descendant40)
+				__L.connection78 = __L.child30.DescendantAdded:Connect(function(descendant40)
 					descendant40.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection78
-				local children160 = Ingame95:GetChildren()
-				for k77, v231 in pairs(children160) do
+				getgenv().antiPuddleConn = __L.connection78
+				__L.children160 = __L.Ingame95:GetChildren()
+				for k77, v231 in pairs(__L.children160) do
 					local result39 = v231.Name:lower()
 					result39:find("shadow")
 					v231.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame96 = workspace.Map:FindFirstChild("Ingame")
-				local child31 = Ingame96:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child31
-				local descendants42 = child31:GetDescendants()
-				for k78, v232 in pairs(descendants42) do
+				__L.Ingame96 = workspace.Map:FindFirstChild("Ingame")
+				__L.child31 = __L.Ingame96:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child31
+				__L.descendants42 = __L.child31:GetDescendants()
+				for k78, v232 in pairs(__L.descendants42) do
 					v232.CanTouch = false
 				end
-				connection78:Disconnect()
+				__L.connection78:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection79 = child31.DescendantAdded:Connect(function(descendant41)
+				__L.connection79 = __L.child31.DescendantAdded:Connect(function(descendant41)
 					descendant41.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection79
-				local children161 = Ingame96:GetChildren()
-				for k79, v233 in pairs(children161) do
+				getgenv().antiPuddleConn = __L.connection79
+				__L.children161 = __L.Ingame96:GetChildren()
+				for k79, v233 in pairs(__L.children161) do
 					local result40 = v233.Name:lower()
 					result40:find("shadow")
 					v233.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame97 = workspace.Map:FindFirstChild("Ingame")
-				local child32 = Ingame97:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child32
-				local descendants43 = child32:GetDescendants()
-				for k80, v234 in pairs(descendants43) do
+				__L.Ingame97 = workspace.Map:FindFirstChild("Ingame")
+				__L.child32 = __L.Ingame97:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child32
+				__L.descendants43 = __L.child32:GetDescendants()
+				for k80, v234 in pairs(__L.descendants43) do
 					v234.CanTouch = false
 				end
-				connection79:Disconnect()
+				__L.connection79:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection80 = child32.DescendantAdded:Connect(function(descendant42)
+				__L.connection80 = __L.child32.DescendantAdded:Connect(function(descendant42)
 					descendant42.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection80
-				local children162 = Ingame97:GetChildren()
-				for k81, v235 in pairs(children162) do
+				getgenv().antiPuddleConn = __L.connection80
+				__L.children162 = __L.Ingame97:GetChildren()
+				for k81, v235 in pairs(__L.children162) do
 					local result41 = v235.Name:lower()
 					result41:find("shadow")
 					v235.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame98 = workspace.Map:FindFirstChild("Ingame")
-				local child33 = Ingame98:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child33
-				local descendants44 = child33:GetDescendants()
-				for k82, v236 in pairs(descendants44) do
+				__L.Ingame98 = workspace.Map:FindFirstChild("Ingame")
+				__L.child33 = __L.Ingame98:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child33
+				__L.descendants44 = __L.child33:GetDescendants()
+				for k82, v236 in pairs(__L.descendants44) do
 					v236.CanTouch = false
 				end
-				connection80:Disconnect()
+				__L.connection80:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection81 = child33.DescendantAdded:Connect(function(descendant43)
+				__L.connection81 = __L.child33.DescendantAdded:Connect(function(descendant43)
 					descendant43.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection81
-				local children163 = Ingame98:GetChildren()
-				for k83, v237 in pairs(children163) do
+				getgenv().antiPuddleConn = __L.connection81
+				__L.children163 = __L.Ingame98:GetChildren()
+				for k83, v237 in pairs(__L.children163) do
 					local result42 = v237.Name:lower()
 					result42:find("shadow")
 					v237.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame99 = workspace.Map:FindFirstChild("Ingame")
-				local child34 = Ingame99:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child34
-				local descendants45 = child34:GetDescendants()
-				for k84, v238 in pairs(descendants45) do
+				__L.Ingame99 = workspace.Map:FindFirstChild("Ingame")
+				__L.child34 = __L.Ingame99:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child34
+				__L.descendants45 = __L.child34:GetDescendants()
+				for k84, v238 in pairs(__L.descendants45) do
 					v238.CanTouch = false
 				end
-				connection81:Disconnect()
+				__L.connection81:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection82 = child34.DescendantAdded:Connect(function(descendant44)
+				__L.connection82 = __L.child34.DescendantAdded:Connect(function(descendant44)
 					descendant44.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection82
-				local children164 = Ingame99:GetChildren()
-				for k85, v239 in pairs(children164) do
+				getgenv().antiPuddleConn = __L.connection82
+				__L.children164 = __L.Ingame99:GetChildren()
+				for k85, v239 in pairs(__L.children164) do
 					local result43 = v239.Name:lower()
 					result43:find("shadow")
 					v239.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame100 = workspace.Map:FindFirstChild("Ingame")
-				local child35 = Ingame100:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child35
-				local descendants46 = child35:GetDescendants()
-				for k86, v240 in pairs(descendants46) do
+				__L.Ingame100 = workspace.Map:FindFirstChild("Ingame")
+				__L.child35 = __L.Ingame100:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child35
+				__L.descendants46 = __L.child35:GetDescendants()
+				for k86, v240 in pairs(__L.descendants46) do
 					v240.CanTouch = false
 				end
-				connection82:Disconnect()
+				__L.connection82:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection83 = child35.DescendantAdded:Connect(function(descendant45)
+				__L.connection83 = __L.child35.DescendantAdded:Connect(function(descendant45)
 					descendant45.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection83
-				local children165 = Ingame100:GetChildren()
-				for k87, v241 in pairs(children165) do
+				getgenv().antiPuddleConn = __L.connection83
+				__L.children165 = __L.Ingame100:GetChildren()
+				for k87, v241 in pairs(__L.children165) do
 					local result44 = v241.Name:lower()
 					result44:find("shadow")
 					v241.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame101 = workspace.Map:FindFirstChild("Ingame")
-				local child36 = Ingame101:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child36
-				local descendants47 = child36:GetDescendants()
-				for k88, v242 in pairs(descendants47) do
+				__L.Ingame101 = workspace.Map:FindFirstChild("Ingame")
+				__L.child36 = __L.Ingame101:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child36
+				__L.descendants47 = __L.child36:GetDescendants()
+				for k88, v242 in pairs(__L.descendants47) do
 					v242.CanTouch = false
 				end
-				connection83:Disconnect()
+				__L.connection83:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection84 = child36.DescendantAdded:Connect(function(descendant46)
+				__L.connection84 = __L.child36.DescendantAdded:Connect(function(descendant46)
 					descendant46.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection84
-				local children166 = Ingame101:GetChildren()
-				for k89, v243 in pairs(children166) do
+				getgenv().antiPuddleConn = __L.connection84
+				__L.children166 = __L.Ingame101:GetChildren()
+				for k89, v243 in pairs(__L.children166) do
 					local result45 = v243.Name:lower()
 					result45:find("shadow")
 					v243.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame102 = workspace.Map:FindFirstChild("Ingame")
-				local child37 = Ingame102:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child37
-				local descendants48 = child37:GetDescendants()
-				for k90, v244 in pairs(descendants48) do
+				__L.Ingame102 = workspace.Map:FindFirstChild("Ingame")
+				__L.child37 = __L.Ingame102:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child37
+				__L.descendants48 = __L.child37:GetDescendants()
+				for k90, v244 in pairs(__L.descendants48) do
 					v244.CanTouch = false
 				end
-				connection84:Disconnect()
+				__L.connection84:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection85 = child37.DescendantAdded:Connect(function(descendant47)
+				__L.connection85 = __L.child37.DescendantAdded:Connect(function(descendant47)
 					descendant47.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection85
-				local children167 = Ingame102:GetChildren()
-				for k91, v245 in pairs(children167) do
+				getgenv().antiPuddleConn = __L.connection85
+				__L.children167 = __L.Ingame102:GetChildren()
+				for k91, v245 in pairs(__L.children167) do
 					local result46 = v245.Name:lower()
 					result46:find("shadow")
 					v245.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame103 = workspace.Map:FindFirstChild("Ingame")
-				local child38 = Ingame103:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child38
-				local descendants49 = child38:GetDescendants()
-				for k92, v246 in pairs(descendants49) do
+				__L.Ingame103 = workspace.Map:FindFirstChild("Ingame")
+				__L.child38 = __L.Ingame103:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child38
+				__L.descendants49 = __L.child38:GetDescendants()
+				for k92, v246 in pairs(__L.descendants49) do
 					v246.CanTouch = false
 				end
-				connection85:Disconnect()
+				__L.connection85:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection86 = child38.DescendantAdded:Connect(function(descendant48)
+				__L.connection86 = __L.child38.DescendantAdded:Connect(function(descendant48)
 					descendant48.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection86
-				local children168 = Ingame103:GetChildren()
-				for k93, v247 in pairs(children168) do
+				getgenv().antiPuddleConn = __L.connection86
+				__L.children168 = __L.Ingame103:GetChildren()
+				for k93, v247 in pairs(__L.children168) do
 					local result47 = v247.Name:lower()
 					result47:find("shadow")
 					v247.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame104 = workspace.Map:FindFirstChild("Ingame")
-				local child39 = Ingame104:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child39
-				local descendants50 = child39:GetDescendants()
-				for k94, v248 in pairs(descendants50) do
+				__L.Ingame104 = workspace.Map:FindFirstChild("Ingame")
+				__L.child39 = __L.Ingame104:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child39
+				__L.descendants50 = __L.child39:GetDescendants()
+				for k94, v248 in pairs(__L.descendants50) do
 					v248.CanTouch = false
 				end
-				connection86:Disconnect()
+				__L.connection86:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection87 = child39.DescendantAdded:Connect(function(descendant49)
+				__L.connection87 = __L.child39.DescendantAdded:Connect(function(descendant49)
 					descendant49.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection87
-				local children169 = Ingame104:GetChildren()
-				for k95, v249 in pairs(children169) do
+				getgenv().antiPuddleConn = __L.connection87
+				__L.children169 = __L.Ingame104:GetChildren()
+				for k95, v249 in pairs(__L.children169) do
 					local result48 = v249.Name:lower()
 					result48:find("shadow")
 					v249.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame105 = workspace.Map:FindFirstChild("Ingame")
-				local child40 = Ingame105:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child40
-				local descendants51 = child40:GetDescendants()
-				for k96, v250 in pairs(descendants51) do
+				__L.Ingame105 = workspace.Map:FindFirstChild("Ingame")
+				__L.child40 = __L.Ingame105:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child40
+				__L.descendants51 = __L.child40:GetDescendants()
+				for k96, v250 in pairs(__L.descendants51) do
 					v250.CanTouch = false
 				end
-				connection87:Disconnect()
+				__L.connection87:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection88 = child40.DescendantAdded:Connect(function(descendant50)
+				__L.connection88 = __L.child40.DescendantAdded:Connect(function(descendant50)
 					descendant50.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection88
-				local children170 = Ingame105:GetChildren()
-				for k97, v251 in pairs(children170) do
+				getgenv().antiPuddleConn = __L.connection88
+				__L.children170 = __L.Ingame105:GetChildren()
+				for k97, v251 in pairs(__L.children170) do
 					local result49 = v251.Name:lower()
 					result49:find("shadow")
 					v251.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame106 = workspace.Map:FindFirstChild("Ingame")
-				local child41 = Ingame106:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child41
-				local descendants52 = child41:GetDescendants()
-				for k98, v252 in pairs(descendants52) do
+				__L.Ingame106 = workspace.Map:FindFirstChild("Ingame")
+				__L.child41 = __L.Ingame106:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child41
+				__L.descendants52 = __L.child41:GetDescendants()
+				for k98, v252 in pairs(__L.descendants52) do
 					v252.CanTouch = false
 				end
-				connection88:Disconnect()
+				__L.connection88:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection89 = child41.DescendantAdded:Connect(function(descendant51)
+				__L.connection89 = __L.child41.DescendantAdded:Connect(function(descendant51)
 					descendant51.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection89
-				local children171 = Ingame106:GetChildren()
-				for k99, v253 in pairs(children171) do
+				getgenv().antiPuddleConn = __L.connection89
+				__L.children171 = __L.Ingame106:GetChildren()
+				for k99, v253 in pairs(__L.children171) do
 					local result50 = v253.Name:lower()
 					result50:find("shadow")
 					v253.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame107 = workspace.Map:FindFirstChild("Ingame")
-				local child42 = Ingame107:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child42
-				local descendants53 = child42:GetDescendants()
-				for k100, v254 in pairs(descendants53) do
+				__L.Ingame107 = workspace.Map:FindFirstChild("Ingame")
+				__L.child42 = __L.Ingame107:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child42
+				__L.descendants53 = __L.child42:GetDescendants()
+				for k100, v254 in pairs(__L.descendants53) do
 					v254.CanTouch = false
 				end
-				connection89:Disconnect()
+				__L.connection89:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection90 = child42.DescendantAdded:Connect(function(descendant52)
+				__L.connection90 = __L.child42.DescendantAdded:Connect(function(descendant52)
 					descendant52.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection90
-				local children172 = Ingame107:GetChildren()
-				for k101, v255 in pairs(children172) do
+				getgenv().antiPuddleConn = __L.connection90
+				__L.children172 = __L.Ingame107:GetChildren()
+				for k101, v255 in pairs(__L.children172) do
 					local result51 = v255.Name:lower()
 					result51:find("shadow")
 					v255.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame108 = workspace.Map:FindFirstChild("Ingame")
-				local child43 = Ingame108:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child43
-				local descendants54 = child43:GetDescendants()
-				for k102, v256 in pairs(descendants54) do
+				__L.Ingame108 = workspace.Map:FindFirstChild("Ingame")
+				__L.child43 = __L.Ingame108:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child43
+				__L.descendants54 = __L.child43:GetDescendants()
+				for k102, v256 in pairs(__L.descendants54) do
 					v256.CanTouch = false
 				end
-				connection90:Disconnect()
+				__L.connection90:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection91 = child43.DescendantAdded:Connect(function(descendant53)
+				__L.connection91 = __L.child43.DescendantAdded:Connect(function(descendant53)
 					descendant53.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection91
-				local children173 = Ingame108:GetChildren()
-				for k103, v257 in pairs(children173) do
+				getgenv().antiPuddleConn = __L.connection91
+				__L.children173 = __L.Ingame108:GetChildren()
+				for k103, v257 in pairs(__L.children173) do
 					local result52 = v257.Name:lower()
 					result52:find("shadow")
 					v257.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame109 = workspace.Map:FindFirstChild("Ingame")
-				local child44 = Ingame109:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child44
-				local descendants55 = child44:GetDescendants()
-				for k104, v258 in pairs(descendants55) do
+				__L.Ingame109 = workspace.Map:FindFirstChild("Ingame")
+				__L.child44 = __L.Ingame109:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child44
+				__L.descendants55 = __L.child44:GetDescendants()
+				for k104, v258 in pairs(__L.descendants55) do
 					v258.CanTouch = false
 				end
-				connection91:Disconnect()
+				__L.connection91:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection92 = child44.DescendantAdded:Connect(function(descendant54)
+				__L.connection92 = __L.child44.DescendantAdded:Connect(function(descendant54)
 					descendant54.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection92
-				local children174 = Ingame109:GetChildren()
-				for k105, v259 in pairs(children174) do
+				getgenv().antiPuddleConn = __L.connection92
+				__L.children174 = __L.Ingame109:GetChildren()
+				for k105, v259 in pairs(__L.children174) do
 					local result53 = v259.Name:lower()
 					result53:find("shadow")
 					v259.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame110 = workspace.Map:FindFirstChild("Ingame")
-				local child45 = Ingame110:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child45
-				local descendants56 = child45:GetDescendants()
-				for k106, v260 in pairs(descendants56) do
+				__L.Ingame110 = workspace.Map:FindFirstChild("Ingame")
+				__L.child45 = __L.Ingame110:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child45
+				__L.descendants56 = __L.child45:GetDescendants()
+				for k106, v260 in pairs(__L.descendants56) do
 					v260.CanTouch = false
 				end
-				connection92:Disconnect()
+				__L.connection92:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection93 = child45.DescendantAdded:Connect(function(descendant55)
+				__L.connection93 = __L.child45.DescendantAdded:Connect(function(descendant55)
 					descendant55.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection93
-				local children175 = Ingame110:GetChildren()
-				for k107, v261 in pairs(children175) do
+				getgenv().antiPuddleConn = __L.connection93
+				__L.children175 = __L.Ingame110:GetChildren()
+				for k107, v261 in pairs(__L.children175) do
 					local result54 = v261.Name:lower()
 					result54:find("shadow")
 					v261.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame111 = workspace.Map:FindFirstChild("Ingame")
-				local child46 = Ingame111:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child46
-				local descendants57 = child46:GetDescendants()
-				for k108, v262 in pairs(descendants57) do
+				__L.Ingame111 = workspace.Map:FindFirstChild("Ingame")
+				__L.child46 = __L.Ingame111:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child46
+				__L.descendants57 = __L.child46:GetDescendants()
+				for k108, v262 in pairs(__L.descendants57) do
 					v262.CanTouch = false
 				end
-				connection93:Disconnect()
+				__L.connection93:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection94 = child46.DescendantAdded:Connect(function(descendant56)
+				__L.connection94 = __L.child46.DescendantAdded:Connect(function(descendant56)
 					descendant56.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection94
-				local children176 = Ingame111:GetChildren()
-				for k109, v263 in pairs(children176) do
+				getgenv().antiPuddleConn = __L.connection94
+				__L.children176 = __L.Ingame111:GetChildren()
+				for k109, v263 in pairs(__L.children176) do
 					local result55 = v263.Name:lower()
 					result55:find("shadow")
 					v263.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame112 = workspace.Map:FindFirstChild("Ingame")
-				local child47 = Ingame112:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child47
-				local descendants58 = child47:GetDescendants()
-				for k110, v264 in pairs(descendants58) do
+				__L.Ingame112 = workspace.Map:FindFirstChild("Ingame")
+				__L.child47 = __L.Ingame112:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child47
+				__L.descendants58 = __L.child47:GetDescendants()
+				for k110, v264 in pairs(__L.descendants58) do
 					v264.CanTouch = false
 				end
-				connection94:Disconnect()
+				__L.connection94:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection95 = child47.DescendantAdded:Connect(function(descendant57)
+				__L.connection95 = __L.child47.DescendantAdded:Connect(function(descendant57)
 					descendant57.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection95
-				local children177 = Ingame112:GetChildren()
-				for k111, v265 in pairs(children177) do
+				getgenv().antiPuddleConn = __L.connection95
+				__L.children177 = __L.Ingame112:GetChildren()
+				for k111, v265 in pairs(__L.children177) do
 					local result56 = v265.Name:lower()
 					result56:find("shadow")
 					v265.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame113 = workspace.Map:FindFirstChild("Ingame")
-				local child48 = Ingame113:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child48
-				local descendants59 = child48:GetDescendants()
-				for k112, v266 in pairs(descendants59) do
+				__L.Ingame113 = workspace.Map:FindFirstChild("Ingame")
+				__L.child48 = __L.Ingame113:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child48
+				__L.descendants59 = __L.child48:GetDescendants()
+				for k112, v266 in pairs(__L.descendants59) do
 					v266.CanTouch = false
 				end
-				connection95:Disconnect()
+				__L.connection95:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection96 = child48.DescendantAdded:Connect(function(descendant58)
+				__L.connection96 = __L.child48.DescendantAdded:Connect(function(descendant58)
 					descendant58.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection96
-				local children178 = Ingame113:GetChildren()
-				for k113, v267 in pairs(children178) do
+				getgenv().antiPuddleConn = __L.connection96
+				__L.children178 = __L.Ingame113:GetChildren()
+				for k113, v267 in pairs(__L.children178) do
 					local result57 = v267.Name:lower()
 					result57:find("shadow")
 					v267.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame114 = workspace.Map:FindFirstChild("Ingame")
-				local child49 = Ingame114:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child49
-				local descendants60 = child49:GetDescendants()
-				for k114, v268 in pairs(descendants60) do
+				__L.Ingame114 = workspace.Map:FindFirstChild("Ingame")
+				__L.child49 = __L.Ingame114:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child49
+				__L.descendants60 = __L.child49:GetDescendants()
+				for k114, v268 in pairs(__L.descendants60) do
 					v268.CanTouch = false
 				end
-				connection96:Disconnect()
+				__L.connection96:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection97 = child49.DescendantAdded:Connect(function(descendant59)
+				__L.connection97 = __L.child49.DescendantAdded:Connect(function(descendant59)
 					descendant59.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection97
-				local children179 = Ingame114:GetChildren()
-				for k115, v269 in pairs(children179) do
+				getgenv().antiPuddleConn = __L.connection97
+				__L.children179 = __L.Ingame114:GetChildren()
+				for k115, v269 in pairs(__L.children179) do
 					local result58 = v269.Name:lower()
 					result58:find("shadow")
 					v269.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame115 = workspace.Map:FindFirstChild("Ingame")
-				local child50 = Ingame115:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child50
-				local descendants61 = child50:GetDescendants()
-				for k116, v270 in pairs(descendants61) do
+				__L.Ingame115 = workspace.Map:FindFirstChild("Ingame")
+				__L.child50 = __L.Ingame115:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child50
+				__L.descendants61 = __L.child50:GetDescendants()
+				for k116, v270 in pairs(__L.descendants61) do
 					v270.CanTouch = false
 				end
-				connection97:Disconnect()
+				__L.connection97:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection98 = child50.DescendantAdded:Connect(function(descendant60)
+				__L.connection98 = __L.child50.DescendantAdded:Connect(function(descendant60)
 					descendant60.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection98
-				local children180 = Ingame115:GetChildren()
-				for k117, v271 in pairs(children180) do
+				getgenv().antiPuddleConn = __L.connection98
+				__L.children180 = __L.Ingame115:GetChildren()
+				for k117, v271 in pairs(__L.children180) do
 					local result59 = v271.Name:lower()
 					result59:find("shadow")
 					v271.CanTouch = false
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame116 = workspace.Map:FindFirstChild("Ingame")
-				local child51 = Ingame116:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
-				getgenv().antiPuddleLastFolder = child51
-				local descendants62 = child51:GetDescendants()
-				for k118, v272 in pairs(descendants62) do
+				__L.Ingame116 = workspace.Map:FindFirstChild("Ingame")
+				__L.child51 = __L.Ingame116:FindFirstChild(game.Players.LocalPlayer.Name .. "Shadows")
+				getgenv().antiPuddleLastFolder = __L.child51
+				__L.descendants62 = __L.child51:GetDescendants()
+				for k118, v272 in pairs(__L.descendants62) do
 					v272.CanTouch = false
 				end
-				connection98:Disconnect()
+				__L.connection98:Disconnect()
 				getgenv().antiPuddleConn = nil
-				local connection99 = child51.DescendantAdded:Connect(function(descendant61)
+				__L.connection99 = __L.child51.DescendantAdded:Connect(function(descendant61)
 					descendant61.CanTouch = false
 				end)
-				getgenv().antiPuddleConn = connection99
-				local children181 = Ingame116:GetChildren()
-				for k119, v273 in pairs(children181) do
+				getgenv().antiPuddleConn = __L.connection99
+				__L.children181 = __L.Ingame116:GetChildren()
+				for k119, v273 in pairs(__L.children181) do
 					local result60 = v273.Name:lower()
 					result60:find("shadow")
 					v273.CanTouch = false
@@ -7856,10 +7858,10 @@ Tab29:AddDropdown("VX_flag_213", {
 	Default = "404 Error",
 	Values = { "404 Error", "Corrupt Energy" },
 	Callback = function(state, arg715)
+		getgenv().RAGING_RANGE = math.clamp(tonumber(state), 5, 50)
+		getgenv().Error404Range = math.clamp(tonumber(state), 5, 50)
 	end
 })
-getgenv().RAGING_RANGE = math.clamp(tonumber(state), 5, 50)
-getgenv().Error404Range = math.clamp(tonumber(state), 5, 50)
 Tab29:AddInput("VX_flag_214", {
 	Text = "Detection Range",
 	Placeholder = "5 - 50",
@@ -8739,12 +8741,12 @@ local Dropdown = Tab32:AddDropdown("VX_flag_222", {
 		"Two Time"
 	}
 })
-getgenv().VX_AimbotTargets = { [v299] = true }
-getgenv().VX_AimbotTarget = activeValues[1]
 Dropdown:OnChanged(function(arg830, arg831)
 	local activeValues = Dropdown:GetActiveValues()
 	for i173, v299 in ipairs(activeValues) do
+		getgenv().VX_AimbotTargets = { [v299] = true }
 	end
+	getgenv().VX_AimbotTarget = activeValues[1]
 end)
 getgenv().VX_TwoTimeSoundIds = {}
 getgenv().VX_TwoTimeAnimIds = {
@@ -8975,6 +8977,7 @@ Tab33:AddSlider("VX_flag_231", {
 	end
 })
 task.spawn(function(...)
+	local module4 = require(ReplicatedStorage.Systems.Player.Miscellaneous.GetPlayerMousePosition) -- [[deobf: восстановлен локальный require]]
 	getgenv().MouseModule = module4
 	getgenv().OriginalGetMousePos = module4.GetMousePos
 	getgenv().SilentAimEnabled = false
@@ -9102,20 +9105,22 @@ task.spawn(function(...)
 		end
 })
 	local objects = game:GetObjects("rbxassetid://9983142905")
-	local descendants71 = objects[1]:GetDescendants()
+	local obj71 = objects and objects[1] -- [[deobf: guard на случай незагрузившегося ассета]]
+	local descendants71 = obj71 and obj71:GetDescendants() or {}
 	for i186, v319 in ipairs(descendants71) do
 		v319.Anchored = true
 		v319.Color = Color3.fromRGB(138, 138, 138)
 		v319.Transparency = 0
 	end
-	local descendants72 = objects[1]:GetDescendants()
+	local descendants72 = obj71 and obj71:GetDescendants() or {}
 	for i187, v320 in ipairs(descendants72) do
 		v320.Color = Color3.fromRGB(138, 138, 138)
 	end
-	local Torso2 = objects[1]:FindFirstChild("Torso", true)
-	Torso2.Color = Color3.fromRGB(115, 201, 115)
-	Tab34:AddViewport("VX_flag_234", { Focused = true, Height = 260, Interactive = false, Object = objects[1] })
+	local Torso2 = obj71 and obj71:FindFirstChild("Torso", true)
+	if Torso2 then Torso2.Color = Color3.fromRGB(115, 201, 115) end
+	Tab34:AddViewport("VX_flag_234", { Focused = true, Height = 260, Interactive = false, Object = obj71 })
 	task.spawn(function(...)
+		local CoreGui = game:GetService("CoreGui") -- [[deobf: восстановлено определение, потерянное при рендере]]
 		task.wait(0.1)
 		local descendants73 = CoreGui:GetDescendants()
 		for i188, v321 in ipairs(descendants73) do
@@ -9232,7 +9237,6 @@ task.spawn(function(...)
 	end)
 	getgenv().VX_GenKeybindEnabled = true
 	getgenv().VX_GenKeybindKey = Enum.KeyCode.X
-	getgenv().VX_GenKeybindKey = Enum.KeyCode[false]
 	Tab38:AddInput("VX_flag_249", {
 	Text = "Gen Keybind",
 	Placeholder = "X",
@@ -10232,17 +10236,17 @@ getgenv().MusicSetupAmbienceMonitor = function(arg1024, arg1025)
 end
 task.spawn(function(...)
 	task.wait(2)
-	connection138:Disconnect()
+	if connection138 then connection138:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().lmsConnections = {}
 	local Themes11 = workspace:FindFirstChild("Themes")
 	Themes11.ChildAdded:Connect(function(child53)
 	end)
-	connection139:Disconnect()
+	if connection139 then connection139:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().lobbyConnections = {}
 	local Themes12 = workspace:FindFirstChild("Themes")
 	Themes12.ChildAdded:Connect(function(child54)
 	end)
-	connection140:Disconnect()
+	if connection140 then connection140:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().ambienceConnections = {}
 	local Themes13 = workspace:FindFirstChild("Themes")
 	Themes13.ChildAdded:Connect(function(child55)
@@ -10511,8 +10515,6 @@ RightGroupbox10:AddDropdown("VX_flag_294", {
 	Callback = function(state, arg1049)
 		if state then
 			result:SetFont(Enum.Font[state])
-		else
-			result:SetFont(Enum.Font[false])
 		end
 	end
 })
