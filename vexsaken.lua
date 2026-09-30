@@ -1,6 +1,3 @@
-local connection = game.AttributeChanged:Connect(function(attribute)
-end)
-connection:Disconnect()
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local response = game:HttpGet("https://raw.githubusercontent.com/deividcomsono/Obsidian/main/Library.lua")
