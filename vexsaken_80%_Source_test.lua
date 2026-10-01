@@ -91,7 +91,11 @@ end
 clone:MoveTo(Vector3.new(0, 0, 0))
 local HumanoidRootPart = clone:FindFirstChild("HumanoidRootPart")
 if HumanoidRootPart then
+	if HumanoidRootPart then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if HumanoidRootPart then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	HumanoidRootPart.Anchored = true
+	end
+	end
 end
 local WorldModel = Instance.new("WorldModel")
 clone.Parent = WorldModel
@@ -141,147 +145,152 @@ task.spawn(function(...)
 		local wm = v2:FindFirstChild("WorldModel")
 		local Model = wm and wm:FindFirstChildOfClass("Model") or nil
 		if not Model then continue end
-		local Torso = Model:FindFirstChild("Torso")
-		local humanoid2 = Model:FindFirstChildOfClass("Humanoid")
+		local Torso = Model and Model:FindFirstChild("Torso")
+		local humanoid2 = Model and Model:FindFirstChildOfClass("Humanoid")
 		local Animator = humanoid2 and humanoid2:FindFirstChildOfClass("Animator") or nil
 		if not (Torso and Animator) then continue end -- [[reconstructed]]
 		v2.CurrentCamera.CFrame = CFrame.new(((Torso.Position + (Torso.CFrame.LookVector * 5.5)) + Vector3.new(0, 0.5, 0)), (Torso.Position + Vector3.new(0, 0.2, 0)))
 		local Animation = Instance.new("Animation")
 		Animation.AnimationId = "rbxassetid://87793550167629"
-		local track = Animator:LoadAnimation(Animation)
+		local track = Animator and Animator:LoadAnimation(Animation)
+		if track then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		track.Looped = false
+		end
+		if track then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		track:Play()
+		end
+		if track then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		track.Stopped:Connect(function(arg7)
 			track:Stop()
 			local Animation9 = Instance.new("Animation")
 			Animation9.AnimationId = "rbxassetid://139133319221924"
-			local track9 = Animator:LoadAnimation(Animation9)
+			local track9 = Animator and Animator:LoadAnimation(Animation9)
 			track9.Looped = false
 			track9:Play()
 			track9.Stopped:Connect(function(arg1050)
 				track9:Stop()
 				local Animation10 = Instance.new("Animation")
 				Animation10.AnimationId = "rbxassetid://121015083880066"
-				local track10 = Animator:LoadAnimation(Animation10)
+				local track10 = Animator and Animator:LoadAnimation(Animation10)
 				track10.Looped = false
 				track10:Play()
 				track10.Stopped:Connect(function(arg1082)
 					track10:Stop()
 					local Animation11 = Instance.new("Animation")
 					Animation11.AnimationId = "rbxassetid://78992923796168"
-					local track11 = Animator:LoadAnimation(Animation11)
+					local track11 = Animator and Animator:LoadAnimation(Animation11)
 					track11.Looped = false
 					track11:Play()
 					track11.Stopped:Connect(function(arg1098)
 						track11:Stop()
 						local Animation12 = Instance.new("Animation")
 						Animation12.AnimationId = "rbxassetid://116164572233278"
-						local track12 = Animator:LoadAnimation(Animation12)
+						local track12 = Animator and Animator:LoadAnimation(Animation12)
 						track12.Looped = false
 						track12:Play()
 						track12.Stopped:Connect(function(arg1111)
 							track12:Stop()
 							local Animation13 = Instance.new("Animation")
 							Animation13.AnimationId = "rbxassetid://135096417373947"
-							local track13 = Animator:LoadAnimation(Animation13)
+							local track13 = Animator and Animator:LoadAnimation(Animation13)
 							track13.Looped = false
 							track13:Play()
 							track13.Stopped:Connect(function(arg1124)
 								track13:Stop()
 								local Animation14 = Instance.new("Animation")
 								Animation14.AnimationId = "rbxassetid://116164572233278"
-								local track14 = Animator:LoadAnimation(Animation14)
+								local track14 = Animator and Animator:LoadAnimation(Animation14)
 								track14.Looped = false
 								track14:Play()
 								track14.Stopped:Connect(function(arg1137)
 									track14:Stop()
 									local Animation15 = Instance.new("Animation")
 									Animation15.AnimationId = "rbxassetid://135096417373947"
-									local track15 = Animator:LoadAnimation(Animation15)
+									local track15 = Animator and Animator:LoadAnimation(Animation15)
 									track15.Looped = false
 									track15:Play()
 									track15.Stopped:Connect(function(arg1150)
 										track15:Stop()
 										local Animation16 = Instance.new("Animation")
 										Animation16.AnimationId = "rbxassetid://109894892784471"
-										local track16 = Animator:LoadAnimation(Animation16)
+										local track16 = Animator and Animator:LoadAnimation(Animation16)
 										track16.Looped = false
 										track16:Play()
 										track16.Stopped:Connect(function(arg1163)
 											track16:Stop()
 											local Animation17 = Instance.new("Animation")
 											Animation17.AnimationId = "rbxassetid://78992923796168"
-											local track17 = Animator:LoadAnimation(Animation17)
+											local track17 = Animator and Animator:LoadAnimation(Animation17)
 											track17.Looped = false
 											track17:Play()
 											track17.Stopped:Connect(function(arg1176)
 												track17:Stop()
 												local Animation18 = Instance.new("Animation")
 												Animation18.AnimationId = "rbxassetid://139133319221924"
-												local track18 = Animator:LoadAnimation(Animation18)
+												local track18 = Animator and Animator:LoadAnimation(Animation18)
 												track18.Looped = false
 												track18:Play()
 												track18.Stopped:Connect(function(arg1189)
 													track18:Stop()
 													local Animation19 = Instance.new("Animation")
 													Animation19.AnimationId = "rbxassetid://120476797927055"
-													local track19 = Animator:LoadAnimation(Animation19)
+													local track19 = Animator and Animator:LoadAnimation(Animation19)
 													track19.Looped = false
 													track19:Play()
 													track19.Stopped:Connect(function(arg1202)
 														track19:Stop()
 														local Animation20 = Instance.new("Animation")
 														Animation20.AnimationId = "rbxassetid://121015083880066"
-														local track20 = Animator:LoadAnimation(Animation20)
+														local track20 = Animator and Animator:LoadAnimation(Animation20)
 														track20.Looped = false
 														track20:Play()
 														track20.Stopped:Connect(function(arg1215)
 															track20:Stop()
 															local Animation21 = Instance.new("Animation")
 															Animation21.AnimationId = "rbxassetid://116164572233278"
-															local track21 = Animator:LoadAnimation(Animation21)
+															local track21 = Animator and Animator:LoadAnimation(Animation21)
 															track21.Looped = false
 															track21:Play()
 															track21.Stopped:Connect(function(arg1228)
 																track21:Stop()
 																local Animation22 = Instance.new("Animation")
 																Animation22.AnimationId = "rbxassetid://135096417373947"
-																local track22 = Animator:LoadAnimation(Animation22)
+																local track22 = Animator and Animator:LoadAnimation(Animation22)
 																track22.Looped = false
 																track22:Play()
 																track22.Stopped:Connect(function(arg1241)
 																	track22:Stop()
 																	local Animation23 = Instance.new("Animation")
 																	Animation23.AnimationId = "rbxassetid://87793550167629"
-																	local track23 = Animator:LoadAnimation(Animation23)
+																	local track23 = Animator and Animator:LoadAnimation(Animation23)
 																	track23.Looped = false
 																	track23:Play()
 																	track23.Stopped:Connect(function(arg1254)
 																		track23:Stop()
 																		local Animation24 = Instance.new("Animation")
 																		Animation24.AnimationId = "rbxassetid://109894892784471"
-																		local track24 = Animator:LoadAnimation(Animation24)
+																		local track24 = Animator and Animator:LoadAnimation(Animation24)
 																		track24.Looped = false
 																		track24:Play()
 																		track24.Stopped:Connect(function(arg1267)
 																			track24:Stop()
 																			local Animation25 = Instance.new("Animation")
 																			Animation25.AnimationId = "rbxassetid://139133319221924"
-																			local track25 = Animator:LoadAnimation(Animation25)
+																			local track25 = Animator and Animator:LoadAnimation(Animation25)
 																			track25.Looped = false
 																			track25:Play()
 																			track25.Stopped:Connect(function(arg1280)
 			track25:Stop()
 			local Animation26 = Instance.new("Animation")
 			Animation26.AnimationId = "rbxassetid://135096417373947"
-			local track26 = Animator:LoadAnimation(Animation26)
+			local track26 = Animator and Animator:LoadAnimation(Animation26)
 			track26.Looped = false
 			track26:Play()
 			track26.Stopped:Connect(function(arg1293)
 			track26:Stop()
 			local Animation27 = Instance.new("Animation")
 			Animation27.AnimationId = "rbxassetid://116164572233278"
-			local track27 = Animator:LoadAnimation(Animation27)
+			local track27 = Animator and Animator:LoadAnimation(Animation27)
 			track27.Looped = false
 			track27:Play()
 			-- [deobf: unrolled loop/chain truncated: 797 more lines of repeated iterations removed]
@@ -304,6 +313,7 @@ task.spawn(function(...)
 				end)
 			end)
 		end)
+		end
 	end
 end)
 local Tab2 = Window:AddTab("Stamina", "battery", "manage your stamina settings")
@@ -340,8 +350,12 @@ Tab3:AddCheckbox("VX_flag_4", {
 		if state then
 			local connection7 = RunService.Heartbeat:Connect(function(deltaTime2)
 				local SpeedMultipliers4 = workspace:FindFirstChild("SpeedMultipliers", true)
-				local DirectionalMovement2 = SpeedMultipliers4:FindFirstChild("DirectionalMovement")
+				local DirectionalMovement2 = SpeedMultipliers4 and SpeedMultipliers4:FindFirstChild("DirectionalMovement")
+				if DirectionalMovement2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if DirectionalMovement2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				DirectionalMovement2.Value = 1
+				end
+				end
 			end)
 			getgenv()._disableDirSpeedConn = connection7
 		else
@@ -358,10 +372,10 @@ Tab3:AddCheckbox("VX_flag_5", {
 		if state then
 			getgenv()._disableDirMovementEnabled = state
 			local SpeedMultipliers2 = workspace:FindFirstChild("SpeedMultipliers", true)
-			local connection8 = SpeedMultipliers2.ChildAdded:Connect(function(child)
+			local connection8 = SpeedMultipliers2 and SpeedMultipliers2.ChildAdded:Connect(function(child)
 			end)
 			getgenv()._disableDirMovConn = connection8
-			local DirectionalMovement = SpeedMultipliers2:FindFirstChild("DirectionalMovement")
+			local DirectionalMovement = SpeedMultipliers2 and SpeedMultipliers2:FindFirstChild("DirectionalMovement")
 			if DirectionalMovement then DirectionalMovement:Destroy() end -- [[deobf: guard]]
 			local connection9 = workspace.DescendantAdded:Connect(function(descendant)
 			end)
@@ -428,7 +442,7 @@ LeftGroupbox2:AddCheckbox("VX_flag_7", {
 		else
 			local players2 = Players:GetPlayers()
 			for k2, v4 in pairs(players2) do
-				local StaminaBillboard = v4.Character:FindFirstChild("StaminaBillboard")
+				local StaminaBillboard = (v4 and v4.Character) and v4.Character:FindFirstChild("StaminaBillboard") or nil -- [[deobf: nil-chain guard]]
 				if StaminaBillboard then StaminaBillboard:Destroy() end -- [[deobf: guard]]
 				v4.Character:SetAttribute("StaminaActive", nil)
 			end
@@ -532,7 +546,7 @@ Tab4:AddCheckbox("VX_flag_17", {
 				game.Players.LocalPlayer.Character:FindFirstChild("SpeedMultipliers")
 				local Sprinting2 = game.Players.LocalPlayer.Character.SpeedMultipliers:FindFirstChild("Sprinting")
 				local Humanoid34 = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-				local attribute2 = Humanoid34:GetAttribute("BaseSpeed")
+				local attribute2 = Humanoid34 and Humanoid34:GetAttribute("BaseSpeed")
 				tween:Cancel()
 				getgenv().SprintModule.__currentSpeedTween = nil
 				local tween2 = TweenService:Create(Sprinting2, TweenInfo.new(0.75), { Value = ((26 / attribute2) * nil) })
@@ -547,7 +561,7 @@ Tab4:AddCheckbox("VX_flag_17", {
 			game.Players.LocalPlayer.Character:FindFirstChild("SpeedMultipliers")
 			local Sprinting = game.Players.LocalPlayer.Character.SpeedMultipliers:FindFirstChild("Sprinting")
 			local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-			local attribute = Humanoid:GetAttribute("BaseSpeed")
+			local attribute = Humanoid and Humanoid:GetAttribute("BaseSpeed")
 			if getgenv().SprintModule.__currentSpeedTween then getgenv().SprintModule.__currentSpeedTween:Cancel() end -- [[deobf: guard]]
 			getgenv().SprintModule.__currentSpeedTween = nil
 			local tween = TweenService:Create(Sprinting, TweenInfo.new(0.75), { Value = (getgenv().SprintModule.SprintSpeed / attribute) })
@@ -676,7 +690,7 @@ task.spawn(function(...)
 		tag = "VX_ESP_Generator",
 		container = function(arg59, arg60)
 				local Map = workspace:FindFirstChild("Map")
-				local Ingame = Map:FindFirstChild("Ingame")
+				local Ingame = Map and Map:FindFirstChild("Ingame")
 			end,
 		filter = function(arg61, arg62)
 			end
@@ -689,7 +703,7 @@ task.spawn(function(...)
 		tag = "VX_ESP_Item",
 		container = function(arg59, arg60)
 				local Map = workspace:FindFirstChild("Map")
-				local Ingame = Map:FindFirstChild("Ingame")
+				local Ingame = Map and Map:FindFirstChild("Ingame")
 			end,
 		filter = function(arg63, arg64)
 			end
@@ -699,7 +713,9 @@ task.spawn(function(...)
 	end)
 	task.spawn(function(...)
 		local Players4 = workspace:FindFirstChild("Players")
-		local Killers = Players4:FindFirstChild("Killers")
+		local Killers = Players4 and Players4:FindFirstChild("Killers")
+		if Killers then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers.ChildAdded:Connect(function(child2)
 			task.defer(function(...)
 			end, {
@@ -713,17 +729,25 @@ task.spawn(function(...)
 				end
 }, child2)
 		end)
+		end
+		end
+		if Killers then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers.ChildRemoved:Connect(function(child3)
 			local VX_ESP_Killer22 = child3:FindFirstChild("VX_ESP_Killer")
 			if VX_ESP_Killer22 then VX_ESP_Killer22:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Killer_Label22 = child3:FindFirstChild("VX_ESP_Killer_Label")
 			if VX_ESP_Killer_Label22 then VX_ESP_Killer_Label22:Destroy() end -- [[deobf: guard]]
 		end)
-		local children = Killers:GetChildren()
-		for i3, v5 in ipairs(children) do
+		end
+		end
+		local children = Killers and Killers:GetChildren()
+		for i3, v5 in ipairs(children or {}) do -- [[deobf: guard]]
 		end
 		local Players5 = workspace:FindFirstChild("Players")
-		local Survivors = Players5:FindFirstChild("Survivors")
+		local Survivors = Players5 and Players5:FindFirstChild("Survivors")
+		if Survivors then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Survivors then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Survivors.ChildAdded:Connect(function(child4)
 			task.defer(function(...)
 			end, {
@@ -737,17 +761,25 @@ task.spawn(function(...)
 				end
 }, child4)
 		end)
+		end
+		end
+		if Survivors then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Survivors then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Survivors.ChildRemoved:Connect(function(child5)
 			local VX_ESP_Survivor22 = child5:FindFirstChild("VX_ESP_Survivor")
 			if VX_ESP_Survivor22 then VX_ESP_Survivor22:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Survivor_Label22 = child5:FindFirstChild("VX_ESP_Survivor_Label")
 			if VX_ESP_Survivor_Label22 then VX_ESP_Survivor_Label22:Destroy() end -- [[deobf: guard]]
 		end)
-		local children2 = Survivors:GetChildren()
-		for i4, v6 in ipairs(children2) do
+		end
+		end
+		local children2 = Survivors and Survivors:GetChildren()
+		for i4, v6 in ipairs(children2 or {}) do -- [[deobf: guard]]
 		end
 		local Players6 = workspace:FindFirstChild("Players")
-		local Killers2 = Players6:FindFirstChild("Killers")
+		local Killers2 = Players6 and Players6:FindFirstChild("Killers")
+		if Killers2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers2.ChildAdded:Connect(function(child6)
 			task.defer(function(...)
 			end, {
@@ -765,18 +797,26 @@ task.spawn(function(...)
 				end
 }, child6)
 		end)
+		end
+		end
+		if Killers2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers2.ChildRemoved:Connect(function(child7)
 			local VX_ESP_FakeNoli22 = child7:FindFirstChild("VX_ESP_FakeNoli")
 			if VX_ESP_FakeNoli22 then VX_ESP_FakeNoli22:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_FakeNoli_Label22 = child7:FindFirstChild("VX_ESP_FakeNoli_Label")
 			if VX_ESP_FakeNoli_Label22 then VX_ESP_FakeNoli_Label22:Destroy() end -- [[deobf: guard]]
 		end)
-		local children3 = Killers2:GetChildren()
-		for i5, v7 in ipairs(children3) do
+		end
+		end
+		local children3 = Killers2 and Killers2:GetChildren()
+		for i5, v7 in ipairs(children3 or {}) do -- [[deobf: guard]]
 		end
 		local Map2 = workspace:FindFirstChild("Map")
-		local Ingame2 = Map2:FindFirstChild("Ingame")
-		local Map3 = Ingame2:FindFirstChild("Map")
+		local Ingame2 = Map2 and Map2:FindFirstChild("Ingame")
+		local Map3 = Ingame2 and Ingame2:FindFirstChild("Map")
+		if Map3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map3.ChildAdded:Connect(function(child8)
 			task.defer(function(...)
 			end, {
@@ -787,24 +827,32 @@ task.spawn(function(...)
 	tag = "VX_ESP_Generator",
 	container = function(arg59, arg60)
 					local Map = workspace:FindFirstChild("Map")
-					local Ingame = Map:FindFirstChild("Ingame")
+					local Ingame = Map and Map:FindFirstChild("Ingame")
 				end,
 	filter = function(arg61, arg62)
 				end
 }, child8)
 		end)
+		end
+		end
+		if Map3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map3.ChildRemoved:Connect(function(child9)
 			local VX_ESP_Generator22 = child9:FindFirstChild("VX_ESP_Generator")
 			if VX_ESP_Generator22 then VX_ESP_Generator22:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Generator_Label22 = child9:FindFirstChild("VX_ESP_Generator_Label")
 			if VX_ESP_Generator_Label22 then VX_ESP_Generator_Label22:Destroy() end -- [[deobf: guard]]
 		end)
-		local children4 = Map3:GetChildren()
-		for i6, v8 in ipairs(children4) do
+		end
+		end
+		local children4 = Map3 and Map3:GetChildren()
+		for i6, v8 in ipairs(children4 or {}) do -- [[deobf: guard]]
 		end
 		local Map4 = workspace:FindFirstChild("Map")
-		local Ingame3 = Map4:FindFirstChild("Ingame")
-		local Map5 = Ingame3:FindFirstChild("Map")
+		local Ingame3 = Map4 and Map4:FindFirstChild("Ingame")
+		local Map5 = Ingame3 and Ingame3:FindFirstChild("Map")
+		if Map5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map5.ChildAdded:Connect(function(child10)
 			task.defer(function(...)
 			end, {
@@ -815,51 +863,59 @@ task.spawn(function(...)
 	tag = "VX_ESP_Item",
 	container = function(arg59, arg60)
 					local Map = workspace:FindFirstChild("Map")
-					local Ingame = Map:FindFirstChild("Ingame")
+					local Ingame = Map and Map:FindFirstChild("Ingame")
 				end,
 	filter = function(arg63, arg64)
 				end
 }, child10)
 		end)
+		end
+		end
+		if Map5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map5.ChildRemoved:Connect(function(child11)
 			local VX_ESP_Item22 = child11:FindFirstChild("VX_ESP_Item")
 			if VX_ESP_Item22 then VX_ESP_Item22:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Item_Label22 = child11:FindFirstChild("VX_ESP_Item_Label")
 			if VX_ESP_Item_Label22 then VX_ESP_Item_Label22:Destroy() end -- [[deobf: guard]]
 		end)
-		local children5 = Map5:GetChildren()
-		for i7, v9 in ipairs(children5) do
+		end
+		end
+		local children5 = Map5 and Map5:GetChildren()
+		for i7, v9 in ipairs(children5 or {}) do -- [[deobf: guard]]
 		end
 		task.wait(2)
 		local Players7 = workspace:FindFirstChild("Players")
-		local Killers3 = Players7:FindFirstChild("Killers")
-		local children6 = Killers3:GetChildren()
-		for i8, v10 in ipairs(children6) do
+		local Killers3 = Players7 and Players7:FindFirstChild("Killers")
+		local children6 = Killers3 and Killers3:GetChildren()
+		for i8, v10 in ipairs(children6 or {}) do -- [[deobf: guard]]
 		end
 		local Players8 = workspace:FindFirstChild("Players")
-		local Survivors2 = Players8:FindFirstChild("Survivors")
-		local children7 = Survivors2:GetChildren()
-		for i9, v11 in ipairs(children7) do
+		local Survivors2 = Players8 and Players8:FindFirstChild("Survivors")
+		local children7 = Survivors2 and Survivors2:GetChildren()
+		for i9, v11 in ipairs(children7 or {}) do -- [[deobf: guard]]
 		end
 		local Players9 = workspace:FindFirstChild("Players")
-		local Killers4 = Players9:FindFirstChild("Killers")
-		local children8 = Killers4:GetChildren()
-		for i10, v12 in ipairs(children8) do
+		local Killers4 = Players9 and Players9:FindFirstChild("Killers")
+		local children8 = Killers4 and Killers4:GetChildren()
+		for i10, v12 in ipairs(children8 or {}) do -- [[deobf: guard]]
 		end
 		local Map6 = workspace:FindFirstChild("Map")
-		local Ingame4 = Map6:FindFirstChild("Ingame")
-		local Map7 = Ingame4:FindFirstChild("Map")
-		local children9 = Map7:GetChildren()
-		for i11, v13 in ipairs(children9) do
+		local Ingame4 = Map6 and Map6:FindFirstChild("Ingame")
+		local Map7 = Ingame4 and Ingame4:FindFirstChild("Map")
+		local children9 = Map7 and Map7:GetChildren()
+		for i11, v13 in ipairs(children9 or {}) do -- [[deobf: guard]]
 		end
 		local Map8 = workspace:FindFirstChild("Map")
-		local Ingame5 = Map8:FindFirstChild("Ingame")
-		local Map9 = Ingame5:FindFirstChild("Map")
-		local children10 = Map9:GetChildren()
-		for i12, v14 in ipairs(children10) do
+		local Ingame5 = Map8 and Map8:FindFirstChild("Ingame")
+		local Map9 = Ingame5 and Ingame5:FindFirstChild("Map")
+		local children10 = Map9 and Map9:GetChildren()
+		for i12, v14 in ipairs(children10 or {}) do -- [[deobf: guard]]
 		end
 		local Players10 = workspace:FindFirstChild("Players")
-		local Killers5 = Players10:FindFirstChild("Killers")
+		local Killers5 = Players10 and Players10:FindFirstChild("Killers")
+		if Killers5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers5.ChildAdded:Connect(function(child12)
 			task.defer(function(...)
 			end, {
@@ -873,17 +929,25 @@ task.spawn(function(...)
 				end
 }, child12)
 		end)
+		end
+		end
+		if Killers5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers5.ChildRemoved:Connect(function(child13)
 			local VX_ESP_Killer23 = child13:FindFirstChild("VX_ESP_Killer")
 			if VX_ESP_Killer23 then VX_ESP_Killer23:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Killer_Label23 = child13:FindFirstChild("VX_ESP_Killer_Label")
 			if VX_ESP_Killer_Label23 then VX_ESP_Killer_Label23:Destroy() end -- [[deobf: guard]]
 		end)
-		local children11 = Killers5:GetChildren()
-		for i13, v15 in ipairs(children11) do
+		end
+		end
+		local children11 = Killers5 and Killers5:GetChildren()
+		for i13, v15 in ipairs(children11 or {}) do -- [[deobf: guard]]
 		end
 		local Players11 = workspace:FindFirstChild("Players")
-		local Survivors3 = Players11:FindFirstChild("Survivors")
+		local Survivors3 = Players11 and Players11:FindFirstChild("Survivors")
+		if Survivors3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Survivors3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Survivors3.ChildAdded:Connect(function(child14)
 			task.defer(function(...)
 			end, {
@@ -897,17 +961,25 @@ task.spawn(function(...)
 				end
 }, child14)
 		end)
+		end
+		end
+		if Survivors3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Survivors3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Survivors3.ChildRemoved:Connect(function(child15)
 			local VX_ESP_Survivor23 = child15:FindFirstChild("VX_ESP_Survivor")
 			if VX_ESP_Survivor23 then VX_ESP_Survivor23:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Survivor_Label23 = child15:FindFirstChild("VX_ESP_Survivor_Label")
 			if VX_ESP_Survivor_Label23 then VX_ESP_Survivor_Label23:Destroy() end -- [[deobf: guard]]
 		end)
-		local children12 = Survivors3:GetChildren()
-		for i14, v16 in ipairs(children12) do
+		end
+		end
+		local children12 = Survivors3 and Survivors3:GetChildren()
+		for i14, v16 in ipairs(children12 or {}) do -- [[deobf: guard]]
 		end
 		local Players12 = workspace:FindFirstChild("Players")
-		local Killers6 = Players12:FindFirstChild("Killers")
+		local Killers6 = Players12 and Players12:FindFirstChild("Killers")
+		if Killers6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers6.ChildAdded:Connect(function(child16)
 			task.defer(function(...)
 			end, {
@@ -925,18 +997,26 @@ task.spawn(function(...)
 				end
 }, child16)
 		end)
+		end
+		end
+		if Killers6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Killers6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Killers6.ChildRemoved:Connect(function(child17)
 			local VX_ESP_FakeNoli23 = child17:FindFirstChild("VX_ESP_FakeNoli")
 			if VX_ESP_FakeNoli23 then VX_ESP_FakeNoli23:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_FakeNoli_Label23 = child17:FindFirstChild("VX_ESP_FakeNoli_Label")
 			if VX_ESP_FakeNoli_Label23 then VX_ESP_FakeNoli_Label23:Destroy() end -- [[deobf: guard]]
 		end)
-		local children13 = Killers6:GetChildren()
-		for i15, v17 in ipairs(children13) do
+		end
+		end
+		local children13 = Killers6 and Killers6:GetChildren()
+		for i15, v17 in ipairs(children13 or {}) do -- [[deobf: guard]]
 		end
 		local Map10 = workspace:FindFirstChild("Map")
-		local Ingame6 = Map10:FindFirstChild("Ingame")
-		local Map11 = Ingame6:FindFirstChild("Map")
+		local Ingame6 = Map10 and Map10:FindFirstChild("Ingame")
+		local Map11 = Ingame6 and Ingame6:FindFirstChild("Map")
+		if Map11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map11.ChildAdded:Connect(function(child18)
 			task.defer(function(...)
 			end, {
@@ -947,24 +1027,32 @@ task.spawn(function(...)
 	tag = "VX_ESP_Generator",
 	container = function(arg59, arg60)
 					local Map = workspace:FindFirstChild("Map")
-					local Ingame = Map:FindFirstChild("Ingame")
+					local Ingame = Map and Map:FindFirstChild("Ingame")
 				end,
 	filter = function(arg61, arg62)
 				end
 }, child18)
 		end)
+		end
+		end
+		if Map11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map11.ChildRemoved:Connect(function(child19)
 			local VX_ESP_Generator23 = child19:FindFirstChild("VX_ESP_Generator")
 			if VX_ESP_Generator23 then VX_ESP_Generator23:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Generator_Label23 = child19:FindFirstChild("VX_ESP_Generator_Label")
 			if VX_ESP_Generator_Label23 then VX_ESP_Generator_Label23:Destroy() end -- [[deobf: guard]]
 		end)
-		local children14 = Map11:GetChildren()
-		for i16, v18 in ipairs(children14) do
+		end
+		end
+		local children14 = Map11 and Map11:GetChildren()
+		for i16, v18 in ipairs(children14 or {}) do -- [[deobf: guard]]
 		end
 		local Map12 = workspace:FindFirstChild("Map")
-		local Ingame7 = Map12:FindFirstChild("Ingame")
-		local Map13 = Ingame7:FindFirstChild("Map")
+		local Ingame7 = Map12 and Map12:FindFirstChild("Ingame")
+		local Map13 = Ingame7 and Ingame7:FindFirstChild("Map")
+		if Map13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map13.ChildAdded:Connect(function(child20)
 			task.defer(function(...)
 			end, {
@@ -975,66 +1063,72 @@ task.spawn(function(...)
 	tag = "VX_ESP_Item",
 	container = function(arg59, arg60)
 					local Map = workspace:FindFirstChild("Map")
-					local Ingame = Map:FindFirstChild("Ingame")
+					local Ingame = Map and Map:FindFirstChild("Ingame")
 				end,
 	filter = function(arg63, arg64)
 				end
 }, child20)
 		end)
+		end
+		end
+		if Map13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Map13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Map13.ChildRemoved:Connect(function(child21)
 			local VX_ESP_Item23 = child21:FindFirstChild("VX_ESP_Item")
 			if VX_ESP_Item23 then VX_ESP_Item23:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Item_Label23 = child21:FindFirstChild("VX_ESP_Item_Label")
 			if VX_ESP_Item_Label23 then VX_ESP_Item_Label23:Destroy() end -- [[deobf: guard]]
 		end)
-		local children15 = Map13:GetChildren()
-		for i17, v19 in ipairs(children15) do
+		end
+		end
+		local children15 = Map13 and Map13:GetChildren()
+		for i17, v19 in ipairs(children15 or {}) do -- [[deobf: guard]]
 		end
 		task.wait(2)
 	end)
 	getgenv()._esp_refresh = function(arg65, arg66)
 		local Players13 = workspace:FindFirstChild("Players")
-		local Killers7 = Players13:FindFirstChild("Killers")
-		local children16 = Killers7:GetChildren()
-		for i28, v30 in ipairs(children16) do
+		local Killers7 = Players13 and Players13:FindFirstChild("Killers")
+		local children16 = Killers7 and Killers7:GetChildren()
+		for i28, v30 in ipairs(children16 or {}) do -- [[deobf: guard]]
 			local VX_ESP_Killer = v30:FindFirstChild("VX_ESP_Killer")
 			if VX_ESP_Killer then VX_ESP_Killer:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Killer_Label = v30:FindFirstChild("VX_ESP_Killer_Label")
 			if VX_ESP_Killer_Label then VX_ESP_Killer_Label:Destroy() end -- [[deobf: guard]]
 		end
 		local Players14 = workspace:FindFirstChild("Players")
-		local Survivors4 = Players14:FindFirstChild("Survivors")
-		local children17 = Survivors4:GetChildren()
-		for i29, v31 in ipairs(children17) do
+		local Survivors4 = Players14 and Players14:FindFirstChild("Survivors")
+		local children17 = Survivors4 and Survivors4:GetChildren()
+		for i29, v31 in ipairs(children17 or {}) do -- [[deobf: guard]]
 			local VX_ESP_Survivor = v31:FindFirstChild("VX_ESP_Survivor")
 			if VX_ESP_Survivor then VX_ESP_Survivor:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Survivor_Label = v31:FindFirstChild("VX_ESP_Survivor_Label")
 			if VX_ESP_Survivor_Label then VX_ESP_Survivor_Label:Destroy() end -- [[deobf: guard]]
 		end
 		local Players15 = workspace:FindFirstChild("Players")
-		local Killers8 = Players15:FindFirstChild("Killers")
-		local children18 = Killers8:GetChildren()
-		for i30, v32 in ipairs(children18) do
+		local Killers8 = Players15 and Players15:FindFirstChild("Killers")
+		local children18 = Killers8 and Killers8:GetChildren()
+		for i30, v32 in ipairs(children18 or {}) do -- [[deobf: guard]]
 			local VX_ESP_FakeNoli = v32:FindFirstChild("VX_ESP_FakeNoli")
 			if VX_ESP_FakeNoli then VX_ESP_FakeNoli:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_FakeNoli_Label = v32:FindFirstChild("VX_ESP_FakeNoli_Label")
 			if VX_ESP_FakeNoli_Label then VX_ESP_FakeNoli_Label:Destroy() end -- [[deobf: guard]]
 		end
 		local Map14 = workspace:FindFirstChild("Map")
-		local Ingame8 = Map14:FindFirstChild("Ingame")
-		local Map15 = Ingame8:FindFirstChild("Map")
-		local children19 = Map15:GetChildren()
-		for i31, v33 in ipairs(children19) do
+		local Ingame8 = Map14 and Map14:FindFirstChild("Ingame")
+		local Map15 = Ingame8 and Ingame8:FindFirstChild("Map")
+		local children19 = Map15 and Map15:GetChildren()
+		for i31, v33 in ipairs(children19 or {}) do -- [[deobf: guard]]
 			local VX_ESP_Generator = v33:FindFirstChild("VX_ESP_Generator")
 			if VX_ESP_Generator then VX_ESP_Generator:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Generator_Label = v33:FindFirstChild("VX_ESP_Generator_Label")
 			if VX_ESP_Generator_Label then VX_ESP_Generator_Label:Destroy() end -- [[deobf: guard]]
 		end
 		local Map16 = workspace:FindFirstChild("Map")
-		local Ingame9 = Map16:FindFirstChild("Ingame")
-		local Map17 = Ingame9:FindFirstChild("Map")
-		local children20 = Map17:GetChildren()
-		for i32, v34 in ipairs(children20) do
+		local Ingame9 = Map16 and Map16:FindFirstChild("Ingame")
+		local Map17 = Ingame9 and Ingame9:FindFirstChild("Map")
+		local children20 = Map17 and Map17:GetChildren()
+		for i32, v34 in ipairs(children20 or {}) do -- [[deobf: guard]]
 			local VX_ESP_Item = v34:FindFirstChild("VX_ESP_Item")
 			if VX_ESP_Item then VX_ESP_Item:Destroy() end -- [[deobf: guard]]
 			local VX_ESP_Item_Label = v34:FindFirstChild("VX_ESP_Item_Label")
@@ -1047,9 +1141,9 @@ task.spawn(function(...)
 	Callback = function(state, arg68)
 			if state then
 				local Players16 = workspace:FindFirstChild("Players")
-				local Killers9 = Players16:FindFirstChild("Killers")
-				local children21 = Killers9:GetChildren()
-				for i33, v35 in ipairs(children21) do
+				local Killers9 = Players16 and Players16:FindFirstChild("Killers")
+				local children21 = Killers9 and Killers9:GetChildren()
+				for i33, v35 in ipairs(children21 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer2 = v35:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer2 then VX_ESP_Killer2:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label2 = v35:FindFirstChild("VX_ESP_Killer_Label")
@@ -1059,38 +1153,38 @@ task.spawn(function(...)
 					v35:FindFirstChild("VX_ESP_Killer")
 				end
 				local Players17 = workspace:FindFirstChild("Players")
-				local Survivors5 = Players17:FindFirstChild("Survivors")
-				local children22 = Survivors5:GetChildren()
-				for i34, v36 in ipairs(children22) do
+				local Survivors5 = Players17 and Players17:FindFirstChild("Survivors")
+				local children22 = Survivors5 and Survivors5:GetChildren()
+				for i34, v36 in ipairs(children22 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor2 = v36:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor2 then VX_ESP_Survivor2:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label2 = v36:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label2 then VX_ESP_Survivor_Label2:Destroy() end -- [[deobf: guard]]
 				end
 				local Players18 = workspace:FindFirstChild("Players")
-				local Killers10 = Players18:FindFirstChild("Killers")
-				local children23 = Killers10:GetChildren()
-				for i35, v37 in ipairs(children23) do
+				local Killers10 = Players18 and Players18:FindFirstChild("Killers")
+				local children23 = Killers10 and Killers10:GetChildren()
+				for i35, v37 in ipairs(children23 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli2 = v37:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli2 then VX_ESP_FakeNoli2:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label2 = v37:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label2 then VX_ESP_FakeNoli_Label2:Destroy() end -- [[deobf: guard]]
 				end
 				local Map18 = workspace:FindFirstChild("Map")
-				local Ingame10 = Map18:FindFirstChild("Ingame")
-				local Map19 = Ingame10:FindFirstChild("Map")
-				local children24 = Map19:GetChildren()
-				for i36, v38 in ipairs(children24) do
+				local Ingame10 = Map18 and Map18:FindFirstChild("Ingame")
+				local Map19 = Ingame10 and Ingame10:FindFirstChild("Map")
+				local children24 = Map19 and Map19:GetChildren()
+				for i36, v38 in ipairs(children24 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator2 = v38:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator2 then VX_ESP_Generator2:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label2 = v38:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label2 then VX_ESP_Generator_Label2:Destroy() end -- [[deobf: guard]]
 				end
 				local Map20 = workspace:FindFirstChild("Map")
-				local Ingame11 = Map20:FindFirstChild("Ingame")
-				local Map21 = Ingame11:FindFirstChild("Map")
-				local children25 = Map21:GetChildren()
-				for i37, v39 in ipairs(children25) do
+				local Ingame11 = Map20 and Map20:FindFirstChild("Ingame")
+				local Map21 = Ingame11 and Ingame11:FindFirstChild("Map")
+				local children25 = Map21 and Map21:GetChildren()
+				for i37, v39 in ipairs(children25 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item2 = v39:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item2 then VX_ESP_Item2:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label2 = v39:FindFirstChild("VX_ESP_Item_Label")
@@ -1098,47 +1192,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label2 then VX_ESP_Item_Label2:Destroy() end -- [[deobf: guard]]
 			else
 				local Players19 = workspace:FindFirstChild("Players")
-				local Killers11 = Players19:FindFirstChild("Killers")
-				local children26 = Killers11:GetChildren()
-				for i38, v40 in ipairs(children26) do
+				local Killers11 = Players19 and Players19:FindFirstChild("Killers")
+				local children26 = Killers11 and Killers11:GetChildren()
+				for i38, v40 in ipairs(children26 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer3 = v40:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer3 then VX_ESP_Killer3:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label3 = v40:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label3 then VX_ESP_Killer_Label3:Destroy() end -- [[deobf: guard]]
 				end
 				local Players20 = workspace:FindFirstChild("Players")
-				local Survivors6 = Players20:FindFirstChild("Survivors")
-				local children27 = Survivors6:GetChildren()
-				for i39, v41 in ipairs(children27) do
+				local Survivors6 = Players20 and Players20:FindFirstChild("Survivors")
+				local children27 = Survivors6 and Survivors6:GetChildren()
+				for i39, v41 in ipairs(children27 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor3 = v41:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor3 then VX_ESP_Survivor3:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label3 = v41:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label3 then VX_ESP_Survivor_Label3:Destroy() end -- [[deobf: guard]]
 				end
 				local Players21 = workspace:FindFirstChild("Players")
-				local Killers12 = Players21:FindFirstChild("Killers")
-				local children28 = Killers12:GetChildren()
-				for i40, v42 in ipairs(children28) do
+				local Killers12 = Players21 and Players21:FindFirstChild("Killers")
+				local children28 = Killers12 and Killers12:GetChildren()
+				for i40, v42 in ipairs(children28 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli3 = v42:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli3 then VX_ESP_FakeNoli3:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label3 = v42:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label3 then VX_ESP_FakeNoli_Label3:Destroy() end -- [[deobf: guard]]
 				end
 				local Map22 = workspace:FindFirstChild("Map")
-				local Ingame12 = Map22:FindFirstChild("Ingame")
-				local Map23 = Ingame12:FindFirstChild("Map")
-				local children29 = Map23:GetChildren()
-				for i41, v43 in ipairs(children29) do
+				local Ingame12 = Map22 and Map22:FindFirstChild("Ingame")
+				local Map23 = Ingame12 and Ingame12:FindFirstChild("Map")
+				local children29 = Map23 and Map23:GetChildren()
+				for i41, v43 in ipairs(children29 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator3 = v43:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator3 then VX_ESP_Generator3:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label3 = v43:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label3 then VX_ESP_Generator_Label3:Destroy() end -- [[deobf: guard]]
 				end
 				local Map24 = workspace:FindFirstChild("Map")
-				local Ingame13 = Map24:FindFirstChild("Ingame")
-				local Map25 = Ingame13:FindFirstChild("Map")
-				local children30 = Map25:GetChildren()
-				for i42, v44 in ipairs(children30) do
+				local Ingame13 = Map24 and Map24:FindFirstChild("Ingame")
+				local Map25 = Ingame13 and Ingame13:FindFirstChild("Map")
+				local children30 = Map25 and Map25:GetChildren()
+				for i42, v44 in ipairs(children30 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item3 = v44:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item3 then VX_ESP_Item3:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label3 = v44:FindFirstChild("VX_ESP_Item_Label")
@@ -1153,47 +1247,47 @@ task.spawn(function(...)
 	Callback = function(state, arg70)
 			if state then
 				local Players22 = workspace:FindFirstChild("Players")
-				local Killers13 = Players22:FindFirstChild("Killers")
-				local children31 = Killers13:GetChildren()
-				for i43, v45 in ipairs(children31) do
+				local Killers13 = Players22 and Players22:FindFirstChild("Killers")
+				local children31 = Killers13 and Killers13:GetChildren()
+				for i43, v45 in ipairs(children31 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer4 = v45:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer4 then VX_ESP_Killer4:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label4 = v45:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label4 then VX_ESP_Killer_Label4:Destroy() end -- [[deobf: guard]]
 				end
 				local Players23 = workspace:FindFirstChild("Players")
-				local Survivors7 = Players23:FindFirstChild("Survivors")
-				local children32 = Survivors7:GetChildren()
-				for i44, v46 in ipairs(children32) do
+				local Survivors7 = Players23 and Players23:FindFirstChild("Survivors")
+				local children32 = Survivors7 and Survivors7:GetChildren()
+				for i44, v46 in ipairs(children32 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor4 = v46:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor4 then VX_ESP_Survivor4:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label4 = v46:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label4 then VX_ESP_Survivor_Label4:Destroy() end -- [[deobf: guard]]
 				end
 				local Players24 = workspace:FindFirstChild("Players")
-				local Killers14 = Players24:FindFirstChild("Killers")
-				local children33 = Killers14:GetChildren()
-				for i45, v47 in ipairs(children33) do
+				local Killers14 = Players24 and Players24:FindFirstChild("Killers")
+				local children33 = Killers14 and Killers14:GetChildren()
+				for i45, v47 in ipairs(children33 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli4 = v47:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli4 then VX_ESP_FakeNoli4:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label4 = v47:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label4 then VX_ESP_FakeNoli_Label4:Destroy() end -- [[deobf: guard]]
 				end
 				local Map26 = workspace:FindFirstChild("Map")
-				local Ingame14 = Map26:FindFirstChild("Ingame")
-				local Map27 = Ingame14:FindFirstChild("Map")
-				local children34 = Map27:GetChildren()
-				for i46, v48 in ipairs(children34) do
+				local Ingame14 = Map26 and Map26:FindFirstChild("Ingame")
+				local Map27 = Ingame14 and Ingame14:FindFirstChild("Map")
+				local children34 = Map27 and Map27:GetChildren()
+				for i46, v48 in ipairs(children34 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator4 = v48:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator4 then VX_ESP_Generator4:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label4 = v48:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label4 then VX_ESP_Generator_Label4:Destroy() end -- [[deobf: guard]]
 				end
 				local Map28 = workspace:FindFirstChild("Map")
-				local Ingame15 = Map28:FindFirstChild("Ingame")
-				local Map29 = Ingame15:FindFirstChild("Map")
-				local children35 = Map29:GetChildren()
-				for i47, v49 in ipairs(children35) do
+				local Ingame15 = Map28 and Map28:FindFirstChild("Ingame")
+				local Map29 = Ingame15 and Ingame15:FindFirstChild("Map")
+				local children35 = Map29 and Map29:GetChildren()
+				for i47, v49 in ipairs(children35 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item4 = v49:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item4 then VX_ESP_Item4:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label4 = v49:FindFirstChild("VX_ESP_Item_Label")
@@ -1201,47 +1295,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label4 then VX_ESP_Item_Label4:Destroy() end -- [[deobf: guard]]
 			else
 				local Players25 = workspace:FindFirstChild("Players")
-				local Killers15 = Players25:FindFirstChild("Killers")
-				local children36 = Killers15:GetChildren()
-				for i48, v50 in ipairs(children36) do
+				local Killers15 = Players25 and Players25:FindFirstChild("Killers")
+				local children36 = Killers15 and Killers15:GetChildren()
+				for i48, v50 in ipairs(children36 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer5 = v50:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer5 then VX_ESP_Killer5:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label5 = v50:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label5 then VX_ESP_Killer_Label5:Destroy() end -- [[deobf: guard]]
 				end
 				local Players26 = workspace:FindFirstChild("Players")
-				local Survivors8 = Players26:FindFirstChild("Survivors")
-				local children37 = Survivors8:GetChildren()
-				for i49, v51 in ipairs(children37) do
+				local Survivors8 = Players26 and Players26:FindFirstChild("Survivors")
+				local children37 = Survivors8 and Survivors8:GetChildren()
+				for i49, v51 in ipairs(children37 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor5 = v51:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor5 then VX_ESP_Survivor5:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label5 = v51:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label5 then VX_ESP_Survivor_Label5:Destroy() end -- [[deobf: guard]]
 				end
 				local Players27 = workspace:FindFirstChild("Players")
-				local Killers16 = Players27:FindFirstChild("Killers")
-				local children38 = Killers16:GetChildren()
-				for i50, v52 in ipairs(children38) do
+				local Killers16 = Players27 and Players27:FindFirstChild("Killers")
+				local children38 = Killers16 and Killers16:GetChildren()
+				for i50, v52 in ipairs(children38 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli5 = v52:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli5 then VX_ESP_FakeNoli5:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label5 = v52:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label5 then VX_ESP_FakeNoli_Label5:Destroy() end -- [[deobf: guard]]
 				end
 				local Map30 = workspace:FindFirstChild("Map")
-				local Ingame16 = Map30:FindFirstChild("Ingame")
-				local Map31 = Ingame16:FindFirstChild("Map")
-				local children39 = Map31:GetChildren()
-				for i51, v53 in ipairs(children39) do
+				local Ingame16 = Map30 and Map30:FindFirstChild("Ingame")
+				local Map31 = Ingame16 and Ingame16:FindFirstChild("Map")
+				local children39 = Map31 and Map31:GetChildren()
+				for i51, v53 in ipairs(children39 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator5 = v53:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator5 then VX_ESP_Generator5:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label5 = v53:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label5 then VX_ESP_Generator_Label5:Destroy() end -- [[deobf: guard]]
 				end
 				local Map32 = workspace:FindFirstChild("Map")
-				local Ingame17 = Map32:FindFirstChild("Ingame")
-				local Map33 = Ingame17:FindFirstChild("Map")
-				local children40 = Map33:GetChildren()
-				for i52, v54 in ipairs(children40) do
+				local Ingame17 = Map32 and Map32:FindFirstChild("Ingame")
+				local Map33 = Ingame17 and Ingame17:FindFirstChild("Map")
+				local children40 = Map33 and Map33:GetChildren()
+				for i52, v54 in ipairs(children40 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item5 = v54:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item5 then VX_ESP_Item5:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label5 = v54:FindFirstChild("VX_ESP_Item_Label")
@@ -1256,18 +1350,18 @@ task.spawn(function(...)
 	Callback = function(state, arg72)
 			if state then
 				local Players28 = workspace:FindFirstChild("Players")
-				local Killers17 = Players28:FindFirstChild("Killers")
-				local children41 = Killers17:GetChildren()
-				for i53, v55 in ipairs(children41) do
+				local Killers17 = Players28 and Players28:FindFirstChild("Killers")
+				local children41 = Killers17 and Killers17:GetChildren()
+				for i53, v55 in ipairs(children41 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer6 = v55:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer6 then VX_ESP_Killer6:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label6 = v55:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label6 then VX_ESP_Killer_Label6:Destroy() end -- [[deobf: guard]]
 				end
 				local Players29 = workspace:FindFirstChild("Players")
-				local Survivors9 = Players29:FindFirstChild("Survivors")
-				local children42 = Survivors9:GetChildren()
-				for i54, v56 in ipairs(children42) do
+				local Survivors9 = Players29 and Players29:FindFirstChild("Survivors")
+				local children42 = Survivors9 and Survivors9:GetChildren()
+				for i54, v56 in ipairs(children42 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor6 = v56:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor6 then VX_ESP_Survivor6:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label6 = v56:FindFirstChild("VX_ESP_Survivor_Label")
@@ -1277,29 +1371,29 @@ task.spawn(function(...)
 					v56:FindFirstChild("VX_ESP_Survivor")
 				end
 				local Players30 = workspace:FindFirstChild("Players")
-				local Killers18 = Players30:FindFirstChild("Killers")
-				local children43 = Killers18:GetChildren()
-				for i55, v57 in ipairs(children43) do
+				local Killers18 = Players30 and Players30:FindFirstChild("Killers")
+				local children43 = Killers18 and Killers18:GetChildren()
+				for i55, v57 in ipairs(children43 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli6 = v57:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli6 then VX_ESP_FakeNoli6:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label6 = v57:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label6 then VX_ESP_FakeNoli_Label6:Destroy() end -- [[deobf: guard]]
 				end
 				local Map34 = workspace:FindFirstChild("Map")
-				local Ingame18 = Map34:FindFirstChild("Ingame")
-				local Map35 = Ingame18:FindFirstChild("Map")
-				local children44 = Map35:GetChildren()
-				for i56, v58 in ipairs(children44) do
+				local Ingame18 = Map34 and Map34:FindFirstChild("Ingame")
+				local Map35 = Ingame18 and Ingame18:FindFirstChild("Map")
+				local children44 = Map35 and Map35:GetChildren()
+				for i56, v58 in ipairs(children44 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator6 = v58:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator6 then VX_ESP_Generator6:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label6 = v58:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label6 then VX_ESP_Generator_Label6:Destroy() end -- [[deobf: guard]]
 				end
 				local Map36 = workspace:FindFirstChild("Map")
-				local Ingame19 = Map36:FindFirstChild("Ingame")
-				local Map37 = Ingame19:FindFirstChild("Map")
-				local children45 = Map37:GetChildren()
-				for i57, v59 in ipairs(children45) do
+				local Ingame19 = Map36 and Map36:FindFirstChild("Ingame")
+				local Map37 = Ingame19 and Ingame19:FindFirstChild("Map")
+				local children45 = Map37 and Map37:GetChildren()
+				for i57, v59 in ipairs(children45 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item6 = v59:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item6 then VX_ESP_Item6:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label6 = v59:FindFirstChild("VX_ESP_Item_Label")
@@ -1307,47 +1401,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label6 then VX_ESP_Item_Label6:Destroy() end -- [[deobf: guard]]
 			else
 				local Players31 = workspace:FindFirstChild("Players")
-				local Killers19 = Players31:FindFirstChild("Killers")
-				local children46 = Killers19:GetChildren()
-				for i58, v60 in ipairs(children46) do
+				local Killers19 = Players31 and Players31:FindFirstChild("Killers")
+				local children46 = Killers19 and Killers19:GetChildren()
+				for i58, v60 in ipairs(children46 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer7 = v60:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer7 then VX_ESP_Killer7:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label7 = v60:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label7 then VX_ESP_Killer_Label7:Destroy() end -- [[deobf: guard]]
 				end
 				local Players32 = workspace:FindFirstChild("Players")
-				local Survivors10 = Players32:FindFirstChild("Survivors")
-				local children47 = Survivors10:GetChildren()
-				for i59, v61 in ipairs(children47) do
+				local Survivors10 = Players32 and Players32:FindFirstChild("Survivors")
+				local children47 = Survivors10 and Survivors10:GetChildren()
+				for i59, v61 in ipairs(children47 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor7 = v61:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor7 then VX_ESP_Survivor7:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label7 = v61:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label7 then VX_ESP_Survivor_Label7:Destroy() end -- [[deobf: guard]]
 				end
 				local Players33 = workspace:FindFirstChild("Players")
-				local Killers20 = Players33:FindFirstChild("Killers")
-				local children48 = Killers20:GetChildren()
-				for i60, v62 in ipairs(children48) do
+				local Killers20 = Players33 and Players33:FindFirstChild("Killers")
+				local children48 = Killers20 and Killers20:GetChildren()
+				for i60, v62 in ipairs(children48 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli7 = v62:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli7 then VX_ESP_FakeNoli7:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label7 = v62:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label7 then VX_ESP_FakeNoli_Label7:Destroy() end -- [[deobf: guard]]
 				end
 				local Map38 = workspace:FindFirstChild("Map")
-				local Ingame20 = Map38:FindFirstChild("Ingame")
-				local Map39 = Ingame20:FindFirstChild("Map")
-				local children49 = Map39:GetChildren()
-				for i61, v63 in ipairs(children49) do
+				local Ingame20 = Map38 and Map38:FindFirstChild("Ingame")
+				local Map39 = Ingame20 and Ingame20:FindFirstChild("Map")
+				local children49 = Map39 and Map39:GetChildren()
+				for i61, v63 in ipairs(children49 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator7 = v63:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator7 then VX_ESP_Generator7:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label7 = v63:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label7 then VX_ESP_Generator_Label7:Destroy() end -- [[deobf: guard]]
 				end
 				local Map40 = workspace:FindFirstChild("Map")
-				local Ingame21 = Map40:FindFirstChild("Ingame")
-				local Map41 = Ingame21:FindFirstChild("Map")
-				local children50 = Map41:GetChildren()
-				for i62, v64 in ipairs(children50) do
+				local Ingame21 = Map40 and Map40:FindFirstChild("Ingame")
+				local Map41 = Ingame21 and Ingame21:FindFirstChild("Map")
+				local children50 = Map41 and Map41:GetChildren()
+				for i62, v64 in ipairs(children50 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item7 = v64:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item7 then VX_ESP_Item7:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label7 = v64:FindFirstChild("VX_ESP_Item_Label")
@@ -1362,47 +1456,47 @@ task.spawn(function(...)
 	Callback = function(state, arg74)
 			if state then
 				local Players34 = workspace:FindFirstChild("Players")
-				local Killers21 = Players34:FindFirstChild("Killers")
-				local children51 = Killers21:GetChildren()
-				for i63, v65 in ipairs(children51) do
+				local Killers21 = Players34 and Players34:FindFirstChild("Killers")
+				local children51 = Killers21 and Killers21:GetChildren()
+				for i63, v65 in ipairs(children51 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer8 = v65:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer8 then VX_ESP_Killer8:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label8 = v65:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label8 then VX_ESP_Killer_Label8:Destroy() end -- [[deobf: guard]]
 				end
 				local Players35 = workspace:FindFirstChild("Players")
-				local Survivors11 = Players35:FindFirstChild("Survivors")
-				local children52 = Survivors11:GetChildren()
-				for i64, v66 in ipairs(children52) do
+				local Survivors11 = Players35 and Players35:FindFirstChild("Survivors")
+				local children52 = Survivors11 and Survivors11:GetChildren()
+				for i64, v66 in ipairs(children52 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor8 = v66:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor8 then VX_ESP_Survivor8:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label8 = v66:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label8 then VX_ESP_Survivor_Label8:Destroy() end -- [[deobf: guard]]
 				end
 				local Players36 = workspace:FindFirstChild("Players")
-				local Killers22 = Players36:FindFirstChild("Killers")
-				local children53 = Killers22:GetChildren()
-				for i65, v67 in ipairs(children53) do
+				local Killers22 = Players36 and Players36:FindFirstChild("Killers")
+				local children53 = Killers22 and Killers22:GetChildren()
+				for i65, v67 in ipairs(children53 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli8 = v67:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli8 then VX_ESP_FakeNoli8:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label8 = v67:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label8 then VX_ESP_FakeNoli_Label8:Destroy() end -- [[deobf: guard]]
 				end
 				local Map42 = workspace:FindFirstChild("Map")
-				local Ingame22 = Map42:FindFirstChild("Ingame")
-				local Map43 = Ingame22:FindFirstChild("Map")
-				local children54 = Map43:GetChildren()
-				for i66, v68 in ipairs(children54) do
+				local Ingame22 = Map42 and Map42:FindFirstChild("Ingame")
+				local Map43 = Ingame22 and Ingame22:FindFirstChild("Map")
+				local children54 = Map43 and Map43:GetChildren()
+				for i66, v68 in ipairs(children54 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator8 = v68:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator8 then VX_ESP_Generator8:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label8 = v68:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label8 then VX_ESP_Generator_Label8:Destroy() end -- [[deobf: guard]]
 				end
 				local Map44 = workspace:FindFirstChild("Map")
-				local Ingame23 = Map44:FindFirstChild("Ingame")
-				local Map45 = Ingame23:FindFirstChild("Map")
-				local children55 = Map45:GetChildren()
-				for i67, v69 in ipairs(children55) do
+				local Ingame23 = Map44 and Map44:FindFirstChild("Ingame")
+				local Map45 = Ingame23 and Ingame23:FindFirstChild("Map")
+				local children55 = Map45 and Map45:GetChildren()
+				for i67, v69 in ipairs(children55 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item8 = v69:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item8 then VX_ESP_Item8:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label8 = v69:FindFirstChild("VX_ESP_Item_Label")
@@ -1410,47 +1504,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label8 then VX_ESP_Item_Label8:Destroy() end -- [[deobf: guard]]
 			else
 				local Players37 = workspace:FindFirstChild("Players")
-				local Killers23 = Players37:FindFirstChild("Killers")
-				local children56 = Killers23:GetChildren()
-				for i68, v70 in ipairs(children56) do
+				local Killers23 = Players37 and Players37:FindFirstChild("Killers")
+				local children56 = Killers23 and Killers23:GetChildren()
+				for i68, v70 in ipairs(children56 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer9 = v70:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer9 then VX_ESP_Killer9:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label9 = v70:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label9 then VX_ESP_Killer_Label9:Destroy() end -- [[deobf: guard]]
 				end
 				local Players38 = workspace:FindFirstChild("Players")
-				local Survivors12 = Players38:FindFirstChild("Survivors")
-				local children57 = Survivors12:GetChildren()
-				for i69, v71 in ipairs(children57) do
+				local Survivors12 = Players38 and Players38:FindFirstChild("Survivors")
+				local children57 = Survivors12 and Survivors12:GetChildren()
+				for i69, v71 in ipairs(children57 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor9 = v71:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor9 then VX_ESP_Survivor9:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label9 = v71:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label9 then VX_ESP_Survivor_Label9:Destroy() end -- [[deobf: guard]]
 				end
 				local Players39 = workspace:FindFirstChild("Players")
-				local Killers24 = Players39:FindFirstChild("Killers")
-				local children58 = Killers24:GetChildren()
-				for i70, v72 in ipairs(children58) do
+				local Killers24 = Players39 and Players39:FindFirstChild("Killers")
+				local children58 = Killers24 and Killers24:GetChildren()
+				for i70, v72 in ipairs(children58 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli9 = v72:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli9 then VX_ESP_FakeNoli9:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label9 = v72:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label9 then VX_ESP_FakeNoli_Label9:Destroy() end -- [[deobf: guard]]
 				end
 				local Map46 = workspace:FindFirstChild("Map")
-				local Ingame24 = Map46:FindFirstChild("Ingame")
-				local Map47 = Ingame24:FindFirstChild("Map")
-				local children59 = Map47:GetChildren()
-				for i71, v73 in ipairs(children59) do
+				local Ingame24 = Map46 and Map46:FindFirstChild("Ingame")
+				local Map47 = Ingame24 and Ingame24:FindFirstChild("Map")
+				local children59 = Map47 and Map47:GetChildren()
+				for i71, v73 in ipairs(children59 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator9 = v73:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator9 then VX_ESP_Generator9:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label9 = v73:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label9 then VX_ESP_Generator_Label9:Destroy() end -- [[deobf: guard]]
 				end
 				local Map48 = workspace:FindFirstChild("Map")
-				local Ingame25 = Map48:FindFirstChild("Ingame")
-				local Map49 = Ingame25:FindFirstChild("Map")
-				local children60 = Map49:GetChildren()
-				for i72, v74 in ipairs(children60) do
+				local Ingame25 = Map48 and Map48:FindFirstChild("Ingame")
+				local Map49 = Ingame25 and Ingame25:FindFirstChild("Map")
+				local children60 = Map49 and Map49:GetChildren()
+				for i72, v74 in ipairs(children60 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item9 = v74:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item9 then VX_ESP_Item9:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label9 = v74:FindFirstChild("VX_ESP_Item_Label")
@@ -1465,37 +1559,37 @@ task.spawn(function(...)
 	Callback = function(state, arg76)
 			if state then
 				local Players40 = workspace:FindFirstChild("Players")
-				local Killers25 = Players40:FindFirstChild("Killers")
-				local children61 = Killers25:GetChildren()
-				for i73, v75 in ipairs(children61) do
+				local Killers25 = Players40 and Players40:FindFirstChild("Killers")
+				local children61 = Killers25 and Killers25:GetChildren()
+				for i73, v75 in ipairs(children61 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer10 = v75:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer10 then VX_ESP_Killer10:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label10 = v75:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label10 then VX_ESP_Killer_Label10:Destroy() end -- [[deobf: guard]]
 				end
 				local Players41 = workspace:FindFirstChild("Players")
-				local Survivors13 = Players41:FindFirstChild("Survivors")
-				local children62 = Survivors13:GetChildren()
-				for i74, v76 in ipairs(children62) do
+				local Survivors13 = Players41 and Players41:FindFirstChild("Survivors")
+				local children62 = Survivors13 and Survivors13:GetChildren()
+				for i74, v76 in ipairs(children62 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor10 = v76:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor10 then VX_ESP_Survivor10:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label10 = v76:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label10 then VX_ESP_Survivor_Label10:Destroy() end -- [[deobf: guard]]
 				end
 				local Players42 = workspace:FindFirstChild("Players")
-				local Killers26 = Players42:FindFirstChild("Killers")
-				local children63 = Killers26:GetChildren()
-				for i75, v77 in ipairs(children63) do
+				local Killers26 = Players42 and Players42:FindFirstChild("Killers")
+				local children63 = Killers26 and Killers26:GetChildren()
+				for i75, v77 in ipairs(children63 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli10 = v77:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli10 then VX_ESP_FakeNoli10:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label10 = v77:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label10 then VX_ESP_FakeNoli_Label10:Destroy() end -- [[deobf: guard]]
 				end
 				local Map50 = workspace:FindFirstChild("Map")
-				local Ingame26 = Map50:FindFirstChild("Ingame")
-				local Map51 = Ingame26:FindFirstChild("Map")
-				local children64 = Map51:GetChildren()
-				for i76, v78 in ipairs(children64) do
+				local Ingame26 = Map50 and Map50:FindFirstChild("Ingame")
+				local Map51 = Ingame26 and Ingame26:FindFirstChild("Map")
+				local children64 = Map51 and Map51:GetChildren()
+				for i76, v78 in ipairs(children64 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator10 = v78:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator10 then VX_ESP_Generator10:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label10 = v78:FindFirstChild("VX_ESP_Generator_Label")
@@ -1503,10 +1597,10 @@ task.spawn(function(...)
 					Players:GetPlayerFromCharacter(v78)
 				end
 				local Map52 = workspace:FindFirstChild("Map")
-				local Ingame27 = Map52:FindFirstChild("Ingame")
-				local Map53 = Ingame27:FindFirstChild("Map")
-				local children65 = Map53:GetChildren()
-				for i77, v79 in ipairs(children65) do
+				local Ingame27 = Map52 and Map52:FindFirstChild("Ingame")
+				local Map53 = Ingame27 and Ingame27:FindFirstChild("Map")
+				local children65 = Map53 and Map53:GetChildren()
+				for i77, v79 in ipairs(children65 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item10 = v79:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item10 then VX_ESP_Item10:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label10 = v79:FindFirstChild("VX_ESP_Item_Label")
@@ -1514,47 +1608,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label10 then VX_ESP_Item_Label10:Destroy() end -- [[deobf: guard]]
 			else
 				local Players43 = workspace:FindFirstChild("Players")
-				local Killers27 = Players43:FindFirstChild("Killers")
-				local children66 = Killers27:GetChildren()
-				for i78, v80 in ipairs(children66) do
+				local Killers27 = Players43 and Players43:FindFirstChild("Killers")
+				local children66 = Killers27 and Killers27:GetChildren()
+				for i78, v80 in ipairs(children66 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer11 = v80:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer11 then VX_ESP_Killer11:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label11 = v80:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label11 then VX_ESP_Killer_Label11:Destroy() end -- [[deobf: guard]]
 				end
 				local Players44 = workspace:FindFirstChild("Players")
-				local Survivors14 = Players44:FindFirstChild("Survivors")
-				local children67 = Survivors14:GetChildren()
-				for i79, v81 in ipairs(children67) do
+				local Survivors14 = Players44 and Players44:FindFirstChild("Survivors")
+				local children67 = Survivors14 and Survivors14:GetChildren()
+				for i79, v81 in ipairs(children67 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor11 = v81:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor11 then VX_ESP_Survivor11:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label11 = v81:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label11 then VX_ESP_Survivor_Label11:Destroy() end -- [[deobf: guard]]
 				end
 				local Players45 = workspace:FindFirstChild("Players")
-				local Killers28 = Players45:FindFirstChild("Killers")
-				local children68 = Killers28:GetChildren()
-				for i80, v82 in ipairs(children68) do
+				local Killers28 = Players45 and Players45:FindFirstChild("Killers")
+				local children68 = Killers28 and Killers28:GetChildren()
+				for i80, v82 in ipairs(children68 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli11 = v82:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli11 then VX_ESP_FakeNoli11:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label11 = v82:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label11 then VX_ESP_FakeNoli_Label11:Destroy() end -- [[deobf: guard]]
 				end
 				local Map54 = workspace:FindFirstChild("Map")
-				local Ingame28 = Map54:FindFirstChild("Ingame")
-				local Map55 = Ingame28:FindFirstChild("Map")
-				local children69 = Map55:GetChildren()
-				for i81, v83 in ipairs(children69) do
+				local Ingame28 = Map54 and Map54:FindFirstChild("Ingame")
+				local Map55 = Ingame28 and Ingame28:FindFirstChild("Map")
+				local children69 = Map55 and Map55:GetChildren()
+				for i81, v83 in ipairs(children69 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator11 = v83:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator11 then VX_ESP_Generator11:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label11 = v83:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label11 then VX_ESP_Generator_Label11:Destroy() end -- [[deobf: guard]]
 				end
 				local Map56 = workspace:FindFirstChild("Map")
-				local Ingame29 = Map56:FindFirstChild("Ingame")
-				local Map57 = Ingame29:FindFirstChild("Map")
-				local children70 = Map57:GetChildren()
-				for i82, v84 in ipairs(children70) do
+				local Ingame29 = Map56 and Map56:FindFirstChild("Ingame")
+				local Map57 = Ingame29 and Ingame29:FindFirstChild("Map")
+				local children70 = Map57 and Map57:GetChildren()
+				for i82, v84 in ipairs(children70 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item11 = v84:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item11 then VX_ESP_Item11:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label11 = v84:FindFirstChild("VX_ESP_Item_Label")
@@ -1569,47 +1663,47 @@ task.spawn(function(...)
 	Callback = function(state, arg78)
 			if state then
 				local Players46 = workspace:FindFirstChild("Players")
-				local Killers29 = Players46:FindFirstChild("Killers")
-				local children71 = Killers29:GetChildren()
-				for i83, v85 in ipairs(children71) do
+				local Killers29 = Players46 and Players46:FindFirstChild("Killers")
+				local children71 = Killers29 and Killers29:GetChildren()
+				for i83, v85 in ipairs(children71 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer12 = v85:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer12 then VX_ESP_Killer12:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label12 = v85:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label12 then VX_ESP_Killer_Label12:Destroy() end -- [[deobf: guard]]
 				end
 				local Players47 = workspace:FindFirstChild("Players")
-				local Survivors15 = Players47:FindFirstChild("Survivors")
-				local children72 = Survivors15:GetChildren()
-				for i84, v86 in ipairs(children72) do
+				local Survivors15 = Players47 and Players47:FindFirstChild("Survivors")
+				local children72 = Survivors15 and Survivors15:GetChildren()
+				for i84, v86 in ipairs(children72 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor12 = v86:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor12 then VX_ESP_Survivor12:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label12 = v86:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label12 then VX_ESP_Survivor_Label12:Destroy() end -- [[deobf: guard]]
 				end
 				local Players48 = workspace:FindFirstChild("Players")
-				local Killers30 = Players48:FindFirstChild("Killers")
-				local children73 = Killers30:GetChildren()
-				for i85, v87 in ipairs(children73) do
+				local Killers30 = Players48 and Players48:FindFirstChild("Killers")
+				local children73 = Killers30 and Killers30:GetChildren()
+				for i85, v87 in ipairs(children73 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli12 = v87:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli12 then VX_ESP_FakeNoli12:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label12 = v87:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label12 then VX_ESP_FakeNoli_Label12:Destroy() end -- [[deobf: guard]]
 				end
 				local Map58 = workspace:FindFirstChild("Map")
-				local Ingame30 = Map58:FindFirstChild("Ingame")
-				local Map59 = Ingame30:FindFirstChild("Map")
-				local children74 = Map59:GetChildren()
-				for i86, v88 in ipairs(children74) do
+				local Ingame30 = Map58 and Map58:FindFirstChild("Ingame")
+				local Map59 = Ingame30 and Ingame30:FindFirstChild("Map")
+				local children74 = Map59 and Map59:GetChildren()
+				for i86, v88 in ipairs(children74 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator12 = v88:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator12 then VX_ESP_Generator12:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label12 = v88:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label12 then VX_ESP_Generator_Label12:Destroy() end -- [[deobf: guard]]
 				end
 				local Map60 = workspace:FindFirstChild("Map")
-				local Ingame31 = Map60:FindFirstChild("Ingame")
-				local Map61 = Ingame31:FindFirstChild("Map")
-				local children75 = Map61:GetChildren()
-				for i87, v89 in ipairs(children75) do
+				local Ingame31 = Map60 and Map60:FindFirstChild("Ingame")
+				local Map61 = Ingame31 and Ingame31:FindFirstChild("Map")
+				local children75 = Map61 and Map61:GetChildren()
+				for i87, v89 in ipairs(children75 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item12 = v89:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item12 then VX_ESP_Item12:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label12 = v89:FindFirstChild("VX_ESP_Item_Label")
@@ -1617,47 +1711,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label12 then VX_ESP_Item_Label12:Destroy() end -- [[deobf: guard]]
 			else
 				local Players49 = workspace:FindFirstChild("Players")
-				local Killers31 = Players49:FindFirstChild("Killers")
-				local children76 = Killers31:GetChildren()
-				for i88, v90 in ipairs(children76) do
+				local Killers31 = Players49 and Players49:FindFirstChild("Killers")
+				local children76 = Killers31 and Killers31:GetChildren()
+				for i88, v90 in ipairs(children76 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer13 = v90:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer13 then VX_ESP_Killer13:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label13 = v90:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label13 then VX_ESP_Killer_Label13:Destroy() end -- [[deobf: guard]]
 				end
 				local Players50 = workspace:FindFirstChild("Players")
-				local Survivors16 = Players50:FindFirstChild("Survivors")
-				local children77 = Survivors16:GetChildren()
-				for i89, v91 in ipairs(children77) do
+				local Survivors16 = Players50 and Players50:FindFirstChild("Survivors")
+				local children77 = Survivors16 and Survivors16:GetChildren()
+				for i89, v91 in ipairs(children77 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor13 = v91:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor13 then VX_ESP_Survivor13:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label13 = v91:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label13 then VX_ESP_Survivor_Label13:Destroy() end -- [[deobf: guard]]
 				end
 				local Players51 = workspace:FindFirstChild("Players")
-				local Killers32 = Players51:FindFirstChild("Killers")
-				local children78 = Killers32:GetChildren()
-				for i90, v92 in ipairs(children78) do
+				local Killers32 = Players51 and Players51:FindFirstChild("Killers")
+				local children78 = Killers32 and Killers32:GetChildren()
+				for i90, v92 in ipairs(children78 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli13 = v92:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli13 then VX_ESP_FakeNoli13:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label13 = v92:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label13 then VX_ESP_FakeNoli_Label13:Destroy() end -- [[deobf: guard]]
 				end
 				local Map62 = workspace:FindFirstChild("Map")
-				local Ingame32 = Map62:FindFirstChild("Ingame")
-				local Map63 = Ingame32:FindFirstChild("Map")
-				local children79 = Map63:GetChildren()
-				for i91, v93 in ipairs(children79) do
+				local Ingame32 = Map62 and Map62:FindFirstChild("Ingame")
+				local Map63 = Ingame32 and Ingame32:FindFirstChild("Map")
+				local children79 = Map63 and Map63:GetChildren()
+				for i91, v93 in ipairs(children79 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator13 = v93:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator13 then VX_ESP_Generator13:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label13 = v93:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label13 then VX_ESP_Generator_Label13:Destroy() end -- [[deobf: guard]]
 				end
 				local Map64 = workspace:FindFirstChild("Map")
-				local Ingame33 = Map64:FindFirstChild("Ingame")
-				local Map65 = Ingame33:FindFirstChild("Map")
-				local children80 = Map65:GetChildren()
-				for i92, v94 in ipairs(children80) do
+				local Ingame33 = Map64 and Map64:FindFirstChild("Ingame")
+				local Map65 = Ingame33 and Ingame33:FindFirstChild("Map")
+				local children80 = Map65 and Map65:GetChildren()
+				for i92, v94 in ipairs(children80 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item13 = v94:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item13 then VX_ESP_Item13:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label13 = v94:FindFirstChild("VX_ESP_Item_Label")
@@ -1672,47 +1766,47 @@ task.spawn(function(...)
 	Callback = function(state, arg80)
 			if state then
 				local Players52 = workspace:FindFirstChild("Players")
-				local Killers33 = Players52:FindFirstChild("Killers")
-				local children81 = Killers33:GetChildren()
-				for i93, v95 in ipairs(children81) do
+				local Killers33 = Players52 and Players52:FindFirstChild("Killers")
+				local children81 = Killers33 and Killers33:GetChildren()
+				for i93, v95 in ipairs(children81 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer14 = v95:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer14 then VX_ESP_Killer14:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label14 = v95:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label14 then VX_ESP_Killer_Label14:Destroy() end -- [[deobf: guard]]
 				end
 				local Players53 = workspace:FindFirstChild("Players")
-				local Survivors17 = Players53:FindFirstChild("Survivors")
-				local children82 = Survivors17:GetChildren()
-				for i94, v96 in ipairs(children82) do
+				local Survivors17 = Players53 and Players53:FindFirstChild("Survivors")
+				local children82 = Survivors17 and Survivors17:GetChildren()
+				for i94, v96 in ipairs(children82 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor14 = v96:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor14 then VX_ESP_Survivor14:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label14 = v96:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label14 then VX_ESP_Survivor_Label14:Destroy() end -- [[deobf: guard]]
 				end
 				local Players54 = workspace:FindFirstChild("Players")
-				local Killers34 = Players54:FindFirstChild("Killers")
-				local children83 = Killers34:GetChildren()
-				for i95, v97 in ipairs(children83) do
+				local Killers34 = Players54 and Players54:FindFirstChild("Killers")
+				local children83 = Killers34 and Killers34:GetChildren()
+				for i95, v97 in ipairs(children83 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli14 = v97:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli14 then VX_ESP_FakeNoli14:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label14 = v97:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label14 then VX_ESP_FakeNoli_Label14:Destroy() end -- [[deobf: guard]]
 				end
 				local Map66 = workspace:FindFirstChild("Map")
-				local Ingame34 = Map66:FindFirstChild("Ingame")
-				local Map67 = Ingame34:FindFirstChild("Map")
-				local children84 = Map67:GetChildren()
-				for i96, v98 in ipairs(children84) do
+				local Ingame34 = Map66 and Map66:FindFirstChild("Ingame")
+				local Map67 = Ingame34 and Ingame34:FindFirstChild("Map")
+				local children84 = Map67 and Map67:GetChildren()
+				for i96, v98 in ipairs(children84 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator14 = v98:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator14 then VX_ESP_Generator14:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label14 = v98:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label14 then VX_ESP_Generator_Label14:Destroy() end -- [[deobf: guard]]
 				end
 				local Map68 = workspace:FindFirstChild("Map")
-				local Ingame35 = Map68:FindFirstChild("Ingame")
-				local Map69 = Ingame35:FindFirstChild("Map")
-				local children85 = Map69:GetChildren()
-				for i97, v99 in ipairs(children85) do
+				local Ingame35 = Map68 and Map68:FindFirstChild("Ingame")
+				local Map69 = Ingame35 and Ingame35:FindFirstChild("Map")
+				local children85 = Map69 and Map69:GetChildren()
+				for i97, v99 in ipairs(children85 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item14 = v99:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item14 then VX_ESP_Item14:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label14 = v99:FindFirstChild("VX_ESP_Item_Label")
@@ -1721,47 +1815,47 @@ task.spawn(function(...)
 					Players:GetPlayerFromCharacter(v99)
 			else
 				local Players55 = workspace:FindFirstChild("Players")
-				local Killers35 = Players55:FindFirstChild("Killers")
-				local children86 = Killers35:GetChildren()
-				for i98, v100 in ipairs(children86) do
+				local Killers35 = Players55 and Players55:FindFirstChild("Killers")
+				local children86 = Killers35 and Killers35:GetChildren()
+				for i98, v100 in ipairs(children86 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer15 = v100:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer15 then VX_ESP_Killer15:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label15 = v100:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label15 then VX_ESP_Killer_Label15:Destroy() end -- [[deobf: guard]]
 				end
 				local Players56 = workspace:FindFirstChild("Players")
-				local Survivors18 = Players56:FindFirstChild("Survivors")
-				local children87 = Survivors18:GetChildren()
-				for i99, v101 in ipairs(children87) do
+				local Survivors18 = Players56 and Players56:FindFirstChild("Survivors")
+				local children87 = Survivors18 and Survivors18:GetChildren()
+				for i99, v101 in ipairs(children87 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor15 = v101:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor15 then VX_ESP_Survivor15:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label15 = v101:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label15 then VX_ESP_Survivor_Label15:Destroy() end -- [[deobf: guard]]
 				end
 				local Players57 = workspace:FindFirstChild("Players")
-				local Killers36 = Players57:FindFirstChild("Killers")
-				local children88 = Killers36:GetChildren()
-				for i100, v102 in ipairs(children88) do
+				local Killers36 = Players57 and Players57:FindFirstChild("Killers")
+				local children88 = Killers36 and Killers36:GetChildren()
+				for i100, v102 in ipairs(children88 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli15 = v102:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli15 then VX_ESP_FakeNoli15:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label15 = v102:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label15 then VX_ESP_FakeNoli_Label15:Destroy() end -- [[deobf: guard]]
 				end
 				local Map70 = workspace:FindFirstChild("Map")
-				local Ingame36 = Map70:FindFirstChild("Ingame")
-				local Map71 = Ingame36:FindFirstChild("Map")
-				local children89 = Map71:GetChildren()
-				for i101, v103 in ipairs(children89) do
+				local Ingame36 = Map70 and Map70:FindFirstChild("Ingame")
+				local Map71 = Ingame36 and Ingame36:FindFirstChild("Map")
+				local children89 = Map71 and Map71:GetChildren()
+				for i101, v103 in ipairs(children89 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator15 = v103:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator15 then VX_ESP_Generator15:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label15 = v103:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label15 then VX_ESP_Generator_Label15:Destroy() end -- [[deobf: guard]]
 				end
 				local Map72 = workspace:FindFirstChild("Map")
-				local Ingame37 = Map72:FindFirstChild("Ingame")
-				local Map73 = Ingame37:FindFirstChild("Map")
-				local children90 = Map73:GetChildren()
-				for i102, v104 in ipairs(children90) do
+				local Ingame37 = Map72 and Map72:FindFirstChild("Ingame")
+				local Map73 = Ingame37 and Ingame37:FindFirstChild("Map")
+				local children90 = Map73 and Map73:GetChildren()
+				for i102, v104 in ipairs(children90 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item15 = v104:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item15 then VX_ESP_Item15:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label15 = v104:FindFirstChild("VX_ESP_Item_Label")
@@ -1776,47 +1870,47 @@ task.spawn(function(...)
 	Callback = function(state, arg82)
 			if state then
 				local Players58 = workspace:FindFirstChild("Players")
-				local Killers37 = Players58:FindFirstChild("Killers")
-				local children91 = Killers37:GetChildren()
-				for i103, v105 in ipairs(children91) do
+				local Killers37 = Players58 and Players58:FindFirstChild("Killers")
+				local children91 = Killers37 and Killers37:GetChildren()
+				for i103, v105 in ipairs(children91 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer16 = v105:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer16 then VX_ESP_Killer16:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label16 = v105:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label16 then VX_ESP_Killer_Label16:Destroy() end -- [[deobf: guard]]
 				end
 				local Players59 = workspace:FindFirstChild("Players")
-				local Survivors19 = Players59:FindFirstChild("Survivors")
-				local children92 = Survivors19:GetChildren()
-				for i104, v106 in ipairs(children92) do
+				local Survivors19 = Players59 and Players59:FindFirstChild("Survivors")
+				local children92 = Survivors19 and Survivors19:GetChildren()
+				for i104, v106 in ipairs(children92 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor16 = v106:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor16 then VX_ESP_Survivor16:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label16 = v106:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label16 then VX_ESP_Survivor_Label16:Destroy() end -- [[deobf: guard]]
 				end
 				local Players60 = workspace:FindFirstChild("Players")
-				local Killers38 = Players60:FindFirstChild("Killers")
-				local children93 = Killers38:GetChildren()
-				for i105, v107 in ipairs(children93) do
+				local Killers38 = Players60 and Players60:FindFirstChild("Killers")
+				local children93 = Killers38 and Killers38:GetChildren()
+				for i105, v107 in ipairs(children93 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli16 = v107:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli16 then VX_ESP_FakeNoli16:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label16 = v107:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label16 then VX_ESP_FakeNoli_Label16:Destroy() end -- [[deobf: guard]]
 				end
 				local Map74 = workspace:FindFirstChild("Map")
-				local Ingame38 = Map74:FindFirstChild("Ingame")
-				local Map75 = Ingame38:FindFirstChild("Map")
-				local children94 = Map75:GetChildren()
-				for i106, v108 in ipairs(children94) do
+				local Ingame38 = Map74 and Map74:FindFirstChild("Ingame")
+				local Map75 = Ingame38 and Ingame38:FindFirstChild("Map")
+				local children94 = Map75 and Map75:GetChildren()
+				for i106, v108 in ipairs(children94 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator16 = v108:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator16 then VX_ESP_Generator16:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label16 = v108:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label16 then VX_ESP_Generator_Label16:Destroy() end -- [[deobf: guard]]
 				end
 				local Map76 = workspace:FindFirstChild("Map")
-				local Ingame39 = Map76:FindFirstChild("Ingame")
-				local Map77 = Ingame39:FindFirstChild("Map")
-				local children95 = Map77:GetChildren()
-				for i107, v109 in ipairs(children95) do
+				local Ingame39 = Map76 and Map76:FindFirstChild("Ingame")
+				local Map77 = Ingame39 and Ingame39:FindFirstChild("Map")
+				local children95 = Map77 and Map77:GetChildren()
+				for i107, v109 in ipairs(children95 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item16 = v109:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item16 then VX_ESP_Item16:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label16 = v109:FindFirstChild("VX_ESP_Item_Label")
@@ -1824,47 +1918,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label16 then VX_ESP_Item_Label16:Destroy() end -- [[deobf: guard]]
 			else
 				local Players61 = workspace:FindFirstChild("Players")
-				local Killers39 = Players61:FindFirstChild("Killers")
-				local children96 = Killers39:GetChildren()
-				for i108, v110 in ipairs(children96) do
+				local Killers39 = Players61 and Players61:FindFirstChild("Killers")
+				local children96 = Killers39 and Killers39:GetChildren()
+				for i108, v110 in ipairs(children96 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer17 = v110:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer17 then VX_ESP_Killer17:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label17 = v110:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label17 then VX_ESP_Killer_Label17:Destroy() end -- [[deobf: guard]]
 				end
 				local Players62 = workspace:FindFirstChild("Players")
-				local Survivors20 = Players62:FindFirstChild("Survivors")
-				local children97 = Survivors20:GetChildren()
-				for i109, v111 in ipairs(children97) do
+				local Survivors20 = Players62 and Players62:FindFirstChild("Survivors")
+				local children97 = Survivors20 and Survivors20:GetChildren()
+				for i109, v111 in ipairs(children97 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor17 = v111:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor17 then VX_ESP_Survivor17:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label17 = v111:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label17 then VX_ESP_Survivor_Label17:Destroy() end -- [[deobf: guard]]
 				end
 				local Players63 = workspace:FindFirstChild("Players")
-				local Killers40 = Players63:FindFirstChild("Killers")
-				local children98 = Killers40:GetChildren()
-				for i110, v112 in ipairs(children98) do
+				local Killers40 = Players63 and Players63:FindFirstChild("Killers")
+				local children98 = Killers40 and Killers40:GetChildren()
+				for i110, v112 in ipairs(children98 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli17 = v112:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli17 then VX_ESP_FakeNoli17:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label17 = v112:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label17 then VX_ESP_FakeNoli_Label17:Destroy() end -- [[deobf: guard]]
 				end
 				local Map78 = workspace:FindFirstChild("Map")
-				local Ingame40 = Map78:FindFirstChild("Ingame")
-				local Map79 = Ingame40:FindFirstChild("Map")
-				local children99 = Map79:GetChildren()
-				for i111, v113 in ipairs(children99) do
+				local Ingame40 = Map78 and Map78:FindFirstChild("Ingame")
+				local Map79 = Ingame40 and Ingame40:FindFirstChild("Map")
+				local children99 = Map79 and Map79:GetChildren()
+				for i111, v113 in ipairs(children99 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator17 = v113:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator17 then VX_ESP_Generator17:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label17 = v113:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label17 then VX_ESP_Generator_Label17:Destroy() end -- [[deobf: guard]]
 				end
 				local Map80 = workspace:FindFirstChild("Map")
-				local Ingame41 = Map80:FindFirstChild("Ingame")
-				local Map81 = Ingame41:FindFirstChild("Map")
-				local children100 = Map81:GetChildren()
-				for i112, v114 in ipairs(children100) do
+				local Ingame41 = Map80 and Map80:FindFirstChild("Ingame")
+				local Map81 = Ingame41 and Ingame41:FindFirstChild("Map")
+				local children100 = Map81 and Map81:GetChildren()
+				for i112, v114 in ipairs(children100 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item17 = v114:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item17 then VX_ESP_Item17:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label17 = v114:FindFirstChild("VX_ESP_Item_Label")
@@ -1880,27 +1974,27 @@ task.spawn(function(...)
 	Callback = function(state, arg84)
 			if state then
 				local Players64 = workspace:FindFirstChild("Players")
-				local Killers41 = Players64:FindFirstChild("Killers")
-				local children101 = Killers41:GetChildren()
-				for i113, v115 in ipairs(children101) do
+				local Killers41 = Players64 and Players64:FindFirstChild("Killers")
+				local children101 = Killers41 and Killers41:GetChildren()
+				for i113, v115 in ipairs(children101 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer18 = v115:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer18 then VX_ESP_Killer18:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label18 = v115:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label18 then VX_ESP_Killer_Label18:Destroy() end -- [[deobf: guard]]
 				end
 				local Players65 = workspace:FindFirstChild("Players")
-				local Survivors21 = Players65:FindFirstChild("Survivors")
-				local children102 = Survivors21:GetChildren()
-				for i114, v116 in ipairs(children102) do
+				local Survivors21 = Players65 and Players65:FindFirstChild("Survivors")
+				local children102 = Survivors21 and Survivors21:GetChildren()
+				for i114, v116 in ipairs(children102 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor18 = v116:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor18 then VX_ESP_Survivor18:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label18 = v116:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label18 then VX_ESP_Survivor_Label18:Destroy() end -- [[deobf: guard]]
 				end
 				local Players66 = workspace:FindFirstChild("Players")
-				local Killers42 = Players66:FindFirstChild("Killers")
-				local children103 = Killers42:GetChildren()
-				for i115, v117 in ipairs(children103) do
+				local Killers42 = Players66 and Players66:FindFirstChild("Killers")
+				local children103 = Killers42 and Killers42:GetChildren()
+				for i115, v117 in ipairs(children103 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli18 = v117:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli18 then VX_ESP_FakeNoli18:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label18 = v117:FindFirstChild("VX_ESP_FakeNoli_Label")
@@ -1910,20 +2004,20 @@ task.spawn(function(...)
 					Players:GetPlayerFromCharacter(v117)
 				end
 				local Map82 = workspace:FindFirstChild("Map")
-				local Ingame42 = Map82:FindFirstChild("Ingame")
-				local Map83 = Ingame42:FindFirstChild("Map")
-				local children104 = Map83:GetChildren()
-				for i116, v118 in ipairs(children104) do
+				local Ingame42 = Map82 and Map82:FindFirstChild("Ingame")
+				local Map83 = Ingame42 and Ingame42:FindFirstChild("Map")
+				local children104 = Map83 and Map83:GetChildren()
+				for i116, v118 in ipairs(children104 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator18 = v118:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator18 then VX_ESP_Generator18:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label18 = v118:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label18 then VX_ESP_Generator_Label18:Destroy() end -- [[deobf: guard]]
 				end
 				local Map84 = workspace:FindFirstChild("Map")
-				local Ingame43 = Map84:FindFirstChild("Ingame")
-				local Map85 = Ingame43:FindFirstChild("Map")
-				local children105 = Map85:GetChildren()
-				for i117, v119 in ipairs(children105) do
+				local Ingame43 = Map84 and Map84:FindFirstChild("Ingame")
+				local Map85 = Ingame43 and Ingame43:FindFirstChild("Map")
+				local children105 = Map85 and Map85:GetChildren()
+				for i117, v119 in ipairs(children105 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item18 = v119:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item18 then VX_ESP_Item18:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label18 = v119:FindFirstChild("VX_ESP_Item_Label")
@@ -1931,47 +2025,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label18 then VX_ESP_Item_Label18:Destroy() end -- [[deobf: guard]]
 			else
 				local Players67 = workspace:FindFirstChild("Players")
-				local Killers43 = Players67:FindFirstChild("Killers")
-				local children106 = Killers43:GetChildren()
-				for i118, v120 in ipairs(children106) do
+				local Killers43 = Players67 and Players67:FindFirstChild("Killers")
+				local children106 = Killers43 and Killers43:GetChildren()
+				for i118, v120 in ipairs(children106 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer19 = v120:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer19 then VX_ESP_Killer19:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label19 = v120:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label19 then VX_ESP_Killer_Label19:Destroy() end -- [[deobf: guard]]
 				end
 				local Players68 = workspace:FindFirstChild("Players")
-				local Survivors22 = Players68:FindFirstChild("Survivors")
-				local children107 = Survivors22:GetChildren()
-				for i119, v121 in ipairs(children107) do
+				local Survivors22 = Players68 and Players68:FindFirstChild("Survivors")
+				local children107 = Survivors22 and Survivors22:GetChildren()
+				for i119, v121 in ipairs(children107 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor19 = v121:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor19 then VX_ESP_Survivor19:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label19 = v121:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label19 then VX_ESP_Survivor_Label19:Destroy() end -- [[deobf: guard]]
 				end
 				local Players69 = workspace:FindFirstChild("Players")
-				local Killers44 = Players69:FindFirstChild("Killers")
-				local children108 = Killers44:GetChildren()
-				for i120, v122 in ipairs(children108) do
+				local Killers44 = Players69 and Players69:FindFirstChild("Killers")
+				local children108 = Killers44 and Killers44:GetChildren()
+				for i120, v122 in ipairs(children108 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli19 = v122:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli19 then VX_ESP_FakeNoli19:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label19 = v122:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label19 then VX_ESP_FakeNoli_Label19:Destroy() end -- [[deobf: guard]]
 				end
 				local Map86 = workspace:FindFirstChild("Map")
-				local Ingame44 = Map86:FindFirstChild("Ingame")
-				local Map87 = Ingame44:FindFirstChild("Map")
-				local children109 = Map87:GetChildren()
-				for i121, v123 in ipairs(children109) do
+				local Ingame44 = Map86 and Map86:FindFirstChild("Ingame")
+				local Map87 = Ingame44 and Ingame44:FindFirstChild("Map")
+				local children109 = Map87 and Map87:GetChildren()
+				for i121, v123 in ipairs(children109 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator19 = v123:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator19 then VX_ESP_Generator19:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label19 = v123:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label19 then VX_ESP_Generator_Label19:Destroy() end -- [[deobf: guard]]
 				end
 				local Map88 = workspace:FindFirstChild("Map")
-				local Ingame45 = Map88:FindFirstChild("Ingame")
-				local Map89 = Ingame45:FindFirstChild("Map")
-				local children110 = Map89:GetChildren()
-				for i122, v124 in ipairs(children110) do
+				local Ingame45 = Map88 and Map88:FindFirstChild("Ingame")
+				local Map89 = Ingame45 and Ingame45:FindFirstChild("Map")
+				local children110 = Map89 and Map89:GetChildren()
+				for i122, v124 in ipairs(children110 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item19 = v124:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item19 then VX_ESP_Item19:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label19 = v124:FindFirstChild("VX_ESP_Item_Label")
@@ -1986,47 +2080,47 @@ task.spawn(function(...)
 	Callback = function(state, arg86)
 			if state then
 				local Players70 = workspace:FindFirstChild("Players")
-				local Killers45 = Players70:FindFirstChild("Killers")
-				local children111 = Killers45:GetChildren()
-				for i123, v125 in ipairs(children111) do
+				local Killers45 = Players70 and Players70:FindFirstChild("Killers")
+				local children111 = Killers45 and Killers45:GetChildren()
+				for i123, v125 in ipairs(children111 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer20 = v125:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer20 then VX_ESP_Killer20:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label20 = v125:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label20 then VX_ESP_Killer_Label20:Destroy() end -- [[deobf: guard]]
 				end
 				local Players71 = workspace:FindFirstChild("Players")
-				local Survivors23 = Players71:FindFirstChild("Survivors")
-				local children112 = Survivors23:GetChildren()
-				for i124, v126 in ipairs(children112) do
+				local Survivors23 = Players71 and Players71:FindFirstChild("Survivors")
+				local children112 = Survivors23 and Survivors23:GetChildren()
+				for i124, v126 in ipairs(children112 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor20 = v126:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor20 then VX_ESP_Survivor20:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label20 = v126:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label20 then VX_ESP_Survivor_Label20:Destroy() end -- [[deobf: guard]]
 				end
 				local Players72 = workspace:FindFirstChild("Players")
-				local Killers46 = Players72:FindFirstChild("Killers")
-				local children113 = Killers46:GetChildren()
-				for i125, v127 in ipairs(children113) do
+				local Killers46 = Players72 and Players72:FindFirstChild("Killers")
+				local children113 = Killers46 and Killers46:GetChildren()
+				for i125, v127 in ipairs(children113 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli20 = v127:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli20 then VX_ESP_FakeNoli20:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label20 = v127:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label20 then VX_ESP_FakeNoli_Label20:Destroy() end -- [[deobf: guard]]
 				end
 				local Map90 = workspace:FindFirstChild("Map")
-				local Ingame46 = Map90:FindFirstChild("Ingame")
-				local Map91 = Ingame46:FindFirstChild("Map")
-				local children114 = Map91:GetChildren()
-				for i126, v128 in ipairs(children114) do
+				local Ingame46 = Map90 and Map90:FindFirstChild("Ingame")
+				local Map91 = Ingame46 and Ingame46:FindFirstChild("Map")
+				local children114 = Map91 and Map91:GetChildren()
+				for i126, v128 in ipairs(children114 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator20 = v128:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator20 then VX_ESP_Generator20:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label20 = v128:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label20 then VX_ESP_Generator_Label20:Destroy() end -- [[deobf: guard]]
 				end
 				local Map92 = workspace:FindFirstChild("Map")
-				local Ingame47 = Map92:FindFirstChild("Ingame")
-				local Map93 = Ingame47:FindFirstChild("Map")
-				local children115 = Map93:GetChildren()
-				for i127, v129 in ipairs(children115) do
+				local Ingame47 = Map92 and Map92:FindFirstChild("Ingame")
+				local Map93 = Ingame47 and Ingame47:FindFirstChild("Map")
+				local children115 = Map93 and Map93:GetChildren()
+				for i127, v129 in ipairs(children115 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item20 = v129:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item20 then VX_ESP_Item20:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label20 = v129:FindFirstChild("VX_ESP_Item_Label")
@@ -2034,47 +2128,47 @@ task.spawn(function(...)
 					if VX_ESP_Item_Label20 then VX_ESP_Item_Label20:Destroy() end -- [[deobf: guard]]
 			else
 				local Players73 = workspace:FindFirstChild("Players")
-				local Killers47 = Players73:FindFirstChild("Killers")
-				local children116 = Killers47:GetChildren()
-				for i128, v130 in ipairs(children116) do
+				local Killers47 = Players73 and Players73:FindFirstChild("Killers")
+				local children116 = Killers47 and Killers47:GetChildren()
+				for i128, v130 in ipairs(children116 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Killer21 = v130:FindFirstChild("VX_ESP_Killer")
 					if VX_ESP_Killer21 then VX_ESP_Killer21:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Killer_Label21 = v130:FindFirstChild("VX_ESP_Killer_Label")
 					if VX_ESP_Killer_Label21 then VX_ESP_Killer_Label21:Destroy() end -- [[deobf: guard]]
 				end
 				local Players74 = workspace:FindFirstChild("Players")
-				local Survivors24 = Players74:FindFirstChild("Survivors")
-				local children117 = Survivors24:GetChildren()
-				for i129, v131 in ipairs(children117) do
+				local Survivors24 = Players74 and Players74:FindFirstChild("Survivors")
+				local children117 = Survivors24 and Survivors24:GetChildren()
+				for i129, v131 in ipairs(children117 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Survivor21 = v131:FindFirstChild("VX_ESP_Survivor")
 					if VX_ESP_Survivor21 then VX_ESP_Survivor21:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Survivor_Label21 = v131:FindFirstChild("VX_ESP_Survivor_Label")
 					if VX_ESP_Survivor_Label21 then VX_ESP_Survivor_Label21:Destroy() end -- [[deobf: guard]]
 				end
 				local Players75 = workspace:FindFirstChild("Players")
-				local Killers48 = Players75:FindFirstChild("Killers")
-				local children118 = Killers48:GetChildren()
-				for i130, v132 in ipairs(children118) do
+				local Killers48 = Players75 and Players75:FindFirstChild("Killers")
+				local children118 = Killers48 and Killers48:GetChildren()
+				for i130, v132 in ipairs(children118 or {}) do -- [[deobf: guard]]
 					local VX_ESP_FakeNoli21 = v132:FindFirstChild("VX_ESP_FakeNoli")
 					if VX_ESP_FakeNoli21 then VX_ESP_FakeNoli21:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_FakeNoli_Label21 = v132:FindFirstChild("VX_ESP_FakeNoli_Label")
 					if VX_ESP_FakeNoli_Label21 then VX_ESP_FakeNoli_Label21:Destroy() end -- [[deobf: guard]]
 				end
 				local Map94 = workspace:FindFirstChild("Map")
-				local Ingame48 = Map94:FindFirstChild("Ingame")
-				local Map95 = Ingame48:FindFirstChild("Map")
-				local children119 = Map95:GetChildren()
-				for i131, v133 in ipairs(children119) do
+				local Ingame48 = Map94 and Map94:FindFirstChild("Ingame")
+				local Map95 = Ingame48 and Ingame48:FindFirstChild("Map")
+				local children119 = Map95 and Map95:GetChildren()
+				for i131, v133 in ipairs(children119 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Generator21 = v133:FindFirstChild("VX_ESP_Generator")
 					if VX_ESP_Generator21 then VX_ESP_Generator21:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Generator_Label21 = v133:FindFirstChild("VX_ESP_Generator_Label")
 					if VX_ESP_Generator_Label21 then VX_ESP_Generator_Label21:Destroy() end -- [[deobf: guard]]
 				end
 				local Map96 = workspace:FindFirstChild("Map")
-				local Ingame49 = Map96:FindFirstChild("Ingame")
-				local Map97 = Ingame49:FindFirstChild("Map")
-				local children120 = Map97:GetChildren()
-				for i132, v134 in ipairs(children120) do
+				local Ingame49 = Map96 and Map96:FindFirstChild("Ingame")
+				local Map97 = Ingame49 and Ingame49:FindFirstChild("Map")
+				local children120 = Map97 and Map97:GetChildren()
+				for i132, v134 in ipairs(children120 or {}) do -- [[deobf: guard]]
 					local VX_ESP_Item21 = v134:FindFirstChild("VX_ESP_Item")
 					if VX_ESP_Item21 then VX_ESP_Item21:Destroy() end -- [[deobf: guard]]
 					local VX_ESP_Item_Label21 = v134:FindFirstChild("VX_ESP_Item_Label")
@@ -2089,9 +2183,9 @@ task.spawn(function(...)
 	getgenv().GraffitiEspColor = Color3.fromRGB(255, 230, 100)
 	getgenv().UpdateGraffitiEsp = function(arg87, arg88)
 		workspace:FindFirstChild("Map")
-		local Ingame50 = workspace.Map:FindFirstChild("Ingame")
-		local children121 = Ingame50:GetChildren()
-		for i133, v135 in ipairs(children121) do
+		local Ingame50 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+		local children121 = Ingame50 and Ingame50:GetChildren()
+		for i133, v135 in ipairs(children121 or {}) do -- [[deobf: guard]]
 			v135.Name:match("Spray$")
 			v135.Name:gsub("Spray$", "")
 		end
@@ -2099,9 +2193,9 @@ task.spawn(function(...)
 	task.spawn(function(...)
 		task.wait(1)
 		workspace:FindFirstChild("Map")
-		local Ingame51 = workspace.Map:FindFirstChild("Ingame")
-		local children122 = Ingame51:GetChildren()
-		for i134, v136 in ipairs(children122) do
+		local Ingame51 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+		local children122 = Ingame51 and Ingame51:GetChildren()
+		for i134, v136 in ipairs(children122 or {}) do -- [[deobf: guard]]
 			v136.Name:match("Spray$")
 			v136.Name:gsub("Spray$", "")
 		end
@@ -2114,9 +2208,9 @@ task.spawn(function(...)
 			if state then
 				getgenv().GraffitiEspEnabled = state
 				workspace:FindFirstChild("Map")
-				local Ingame52 = workspace.Map:FindFirstChild("Ingame")
-				local children123 = Ingame52:GetChildren()
-				for i136, v138 in ipairs(children123) do
+				local Ingame52 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children123 = Ingame52 and Ingame52:GetChildren()
+				for i136, v138 in ipairs(children123 or {}) do -- [[deobf: guard]]
 					v138.Name:match("Spray$")
 					local result4 = v138.Name:gsub("Spray$", "")
 				end
@@ -2138,9 +2232,9 @@ task.spawn(function(...)
 			else
 				getgenv().GraffitiEspEnabled = false
 				workspace:FindFirstChild("Map")
-				local Ingame53 = workspace.Map:FindFirstChild("Ingame")
-				local children124 = Ingame53:GetChildren()
-				for i137, v139 in ipairs(children124) do
+				local Ingame53 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children124 = Ingame53 and Ingame53:GetChildren()
+				for i137, v139 in ipairs(children124 or {}) do -- [[deobf: guard]]
 					v139.Name:match("Spray$")
 					v139.Name:gsub("Spray$", "")
 				end
@@ -2206,13 +2300,13 @@ task.spawn(function(...)
 	Callback = function(state, arg102)
 			if state then
 				workspace:FindFirstChild("Map")
-				local Ingame54 = workspace.Map:FindFirstChild("Ingame")
-				local children125 = Ingame54:GetChildren()
-				for i138, v140 in ipairs(children125) do
+				local Ingame54 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children125 = Ingame54 and Ingame54:GetChildren()
+				for i138, v140 in ipairs(children125 or {}) do -- [[deobf: guard]]
 				end
 				workspace:FindFirstChild("Map")
-				local Ingame55 = workspace.Map:FindFirstChild("Ingame")
-				local connection17 = Ingame55.ChildAdded:Connect(function(child33)
+				local Ingame55 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local connection17 = Ingame55 and Ingame55.ChildAdded:Connect(function(child33)
 				end)
 			else
 				if connection17 then connection17:Disconnect() end -- [[deobf: guard — определение в другой области]]
@@ -2235,7 +2329,7 @@ task.spawn(function(...)
 	Callback = function(state, arg106)
 			if state then
 				workspace:FindFirstChild("Map")
-				local Azure = workspace.Map:FindFirstChild("Azure")
+				local Azure = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Azure") or nil -- [[deobf: nil-chain guard]]
 				local Highlight3 = Instance.new("Highlight")
 				Highlight3.Name = "VX_ESP_GolemAzure"
 				Highlight3.FillColor = Color3.fromRGB(100, 180, 255)
@@ -2250,11 +2344,11 @@ task.spawn(function(...)
 				BillboardGui2.AlwaysOnTop = true
 				BillboardGui2.Size = UDim2.new(0, 150, 0, 20)
 				BillboardGui2.StudsOffsetWorldSpace = Vector3.new(0, 3.8, 0)
-				BillboardGui2.Adornee = Azure.PrimaryPart
+				BillboardGui2.Adornee = Azure and Azure.PrimaryPart or nil -- [[deobf: guard]]
 				BillboardGui2.Parent = Azure
 				workspace:FindFirstChild("Map")
-				local Ingame56 = workspace.Map:FindFirstChild("Ingame")
-				local MisterBeast = Ingame56:FindFirstChild("MisterBeast")
+				local Ingame56 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local MisterBeast = Ingame56 and Ingame56:FindFirstChild("MisterBeast")
 				local Highlight4 = Instance.new("Highlight")
 				Highlight4.Name = "VX_ESP_GolemAzure"
 				Highlight4.FillColor = Color3.fromRGB(100, 180, 255)
@@ -2269,7 +2363,7 @@ task.spawn(function(...)
 				BillboardGui3.AlwaysOnTop = true
 				BillboardGui3.Size = UDim2.new(0, 150, 0, 20)
 				BillboardGui3.StudsOffsetWorldSpace = Vector3.new(0, 3.8, 0)
-				BillboardGui3.Adornee = MisterBeast.PrimaryPart
+				BillboardGui3.Adornee = MisterBeast and MisterBeast.PrimaryPart or nil -- [[deobf: guard]]
 				BillboardGui3.Parent = MisterBeast
 			else
 				if Highlight3 then Highlight3:Destroy() end -- [[deobf: guard]]
@@ -2295,8 +2389,8 @@ task.spawn(function(...)
 	Callback = function(state, arg110)
 			if state then
 				workspace:FindFirstChild("Map")
-				local Ingame57 = workspace.Map:FindFirstChild("Ingame")
-				local BuildermanDispenser = Ingame57:FindFirstChild("BuildermanDispenser")
+				local Ingame57 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local BuildermanDispenser = Ingame57 and Ingame57:FindFirstChild("BuildermanDispenser")
 				local Highlight5 = Instance.new("Highlight")
 				Highlight5.Name = "VX_ESP_SentryDisp"
 				Highlight5.FillColor = Color3.fromRGB(255, 80, 80)
@@ -2311,9 +2405,9 @@ task.spawn(function(...)
 				BillboardGui4.AlwaysOnTop = true
 				BillboardGui4.Size = UDim2.new(0, 100, 0, 20)
 				BillboardGui4.StudsOffsetWorldSpace = Vector3.new(0, 3.8, 0)
-				BillboardGui4.Adornee = BuildermanDispenser.PrimaryPart
+				BillboardGui4.Adornee = BuildermanDispenser and BuildermanDispenser.PrimaryPart or nil -- [[deobf: guard]]
 				BillboardGui4.Parent = BuildermanDispenser
-				local BuildermanSentry = Ingame57:FindFirstChild("BuildermanSentry")
+				local BuildermanSentry = Ingame57 and Ingame57:FindFirstChild("BuildermanSentry")
 				local Highlight6 = Instance.new("Highlight")
 				Highlight6.Name = "VX_ESP_SentryDisp"
 				Highlight6.FillColor = Color3.fromRGB(255, 80, 80)
@@ -2328,11 +2422,11 @@ task.spawn(function(...)
 				BillboardGui5.AlwaysOnTop = true
 				BillboardGui5.Size = UDim2.new(0, 100, 0, 20)
 				BillboardGui5.StudsOffsetWorldSpace = Vector3.new(0, 3.8, 0)
-				BillboardGui5.Adornee = BuildermanSentry.PrimaryPart
+				BillboardGui5.Adornee = BuildermanSentry and BuildermanSentry.PrimaryPart or nil -- [[deobf: guard]]
 				BillboardGui5.Parent = BuildermanSentry
 				workspace:FindFirstChild("Map")
-				local Ingame58 = workspace.Map:FindFirstChild("Ingame")
-				local connection18 = Ingame58.ChildAdded:Connect(function(child34)
+				local Ingame58 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local connection18 = Ingame58 and Ingame58.ChildAdded:Connect(function(child34)
 				end)
 			else
 				if Highlight5 then Highlight5:Destroy() end -- [[deobf: guard]]
@@ -2352,15 +2446,15 @@ task.spawn(function(...)
 	task.spawn(function(...)
 		task.wait(0.5)
 		workspace:FindFirstChild("Map")
-		local Ingame59 = workspace.Map:FindFirstChild("Ingame")
-		local children126 = Ingame59:GetChildren()
-		for i139, v141 in ipairs(children126) do
+		local Ingame59 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+		local children126 = Ingame59 and Ingame59:GetChildren()
+		for i139, v141 in ipairs(children126 or {}) do -- [[deobf: guard]]
 		end
 		task.wait(0.5)
 		workspace:FindFirstChild("Map")
-		local Ingame60 = workspace.Map:FindFirstChild("Ingame")
-		local children127 = Ingame60:GetChildren()
-		for i140, v142 in ipairs(children127) do
+		local Ingame60 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+		local children127 = Ingame60 and Ingame60:GetChildren()
+		for i140, v142 in ipairs(children127 or {}) do -- [[deobf: guard]]
 		end
 		task.wait(0.5)
 	end)
@@ -2370,13 +2464,13 @@ task.spawn(function(...)
 	Callback = function(state, arg114)
 			if state then
 				workspace:FindFirstChild("Map")
-				local Ingame61 = workspace.Map:FindFirstChild("Ingame")
-				local children128 = Ingame61:GetChildren()
-				for i142, v144 in ipairs(children128) do
+				local Ingame61 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children128 = Ingame61 and Ingame61:GetChildren()
+				for i142, v144 in ipairs(children128 or {}) do -- [[deobf: guard]]
 				end
 				workspace:FindFirstChild("Map")
-				local Ingame62 = workspace.Map:FindFirstChild("Ingame")
-				local connection19 = Ingame62.ChildAdded:Connect(function(child35)
+				local Ingame62 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local connection19 = Ingame62 and Ingame62.ChildAdded:Connect(function(child35)
 				end)
 			else
 				if connection19 then connection19:Disconnect() end -- [[deobf: guard — определение в другой области]]
@@ -2515,13 +2609,13 @@ task.spawn(function(...)
 			if state then
 				getgenv().VX_AzureShowPlantZones = state
 				local Map98 = workspace:FindFirstChild("Map")
-				local Ingame63 = Map98:FindFirstChild("Ingame")
-				local descendants3 = Ingame63:GetDescendants()
-				for i144, v146 in ipairs(descendants3) do
+				local Ingame63 = Map98 and Map98:FindFirstChild("Ingame")
+				local descendants3 = Ingame63 and Ingame63:GetDescendants()
+				for i144, v146 in ipairs(descendants3 or {}) do -- [[deobf: guard]]
 				end
-				local connection23 = Ingame63.DescendantAdded:Connect(function(descendant2)
+				local connection23 = Ingame63 and Ingame63.DescendantAdded:Connect(function(descendant2)
 				end)
-				local connection24 = Ingame63.DescendantRemoving:Connect(function(descendant3)
+				local connection24 = Ingame63 and Ingame63.DescendantRemoving:Connect(function(descendant3)
 				end)
 			else
 				getgenv().VX_AzureShowPlantZones = false
@@ -2720,7 +2814,11 @@ RightGroupbox4:AddCheckbox("VX_flag_64", {
 			if connection25 then connection25:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			if connection26 then connection26:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local ChatWindowConfiguration2 = TextChatService:FindFirstChild("ChatWindowConfiguration")
+			if ChatWindowConfiguration2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if ChatWindowConfiguration2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			ChatWindowConfiguration2.Enabled = false
+			end
+			end
 		end
 	end
 })
@@ -2830,13 +2928,21 @@ getgenv().ghostShooter = {
 	Enable = function(arg172, arg173)
 		local Humanoid4 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 		local Animator2 = Humanoid4:FindFirstChildOfClass("Animator")
+		if Animator2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Animator2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Animator2.AnimationPlayed:Connect(function(arg174)
 		end)
+		end
+		end
 		Players.LocalPlayer.CharacterAdded:Connect(function(character4)
 			local Humanoid35 = character4:WaitForChild("Humanoid", 8)
 			local Animator24 = Humanoid35:FindFirstChildOfClass("Animator")
+			if Animator24 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if Animator24 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			Animator24.AnimationPlayed:Connect(function(arg1053)
 			end)
+			end
+			end
 		end)
 	end,
 	IsEnabled = function(arg175, arg176)
@@ -2859,9 +2965,13 @@ getgenv().aimTargets = { "Slasher", "c00lkidd", "JohnDoe", "1x1x1x1", "Noli", "N
 local Stats = game:GetService("Stats")
 getgenv().getValidTarget = function(arg177, arg178)
 	workspace:FindFirstChild("Players")
-	local Killers49 = workspace.Players:FindFirstChild("Killers")
-	local Slasher = Killers49:FindFirstChild("Slasher")
+	local Killers49 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Killers") or nil -- [[deobf: nil-chain guard]]
+	local Slasher = Killers49 and Killers49:FindFirstChild("Slasher")
+	if Slasher then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Slasher then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Slasher:FindFirstChild("Humanoid")
+	end
+	end
 end
 getgenv().getPingSeconds = function(arg179, arg180)
 	Stats.Network.ServerStatsItem["Data Ping"]:GetValue()
@@ -3036,10 +3146,10 @@ LeftGroupbox3:AddCheckbox("VX_flag_78", {
 		if state then
 			local connection32 = RunService.Heartbeat:Connect(function(deltaTime14)
 				local PlayerGui13 = lp:FindFirstChildOfClass("PlayerGui")
-				local TemporaryUI5 = PlayerGui13:FindFirstChild("TemporaryUI")
-				local QTE3 = TemporaryUI5:FindFirstChild("QTE")
-				local children218 = QTE3:GetChildren()
-				for i206, v350 in ipairs(children218) do
+				local TemporaryUI5 = PlayerGui13 and PlayerGui13:FindFirstChild("TemporaryUI")
+				local QTE3 = TemporaryUI5 and TemporaryUI5:FindFirstChild("QTE")
+				local children218 = QTE3 and QTE3:GetChildren()
+				for i206, v350 in ipairs(children218 or {}) do -- [[deobf: guard]]
 					v350.Name:sub(1, 4)
 				end
 			end)
@@ -3109,7 +3219,7 @@ Tab15:AddDivider({ MarginBottom = 2, MarginTop = 2 })
 getgenv().AutoPitchKillers = {}
 RunService.RenderStepped:Connect(function(deltaTime15)
 	local HumanoidRootPart6 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
-	local VX_BumperGyro = HumanoidRootPart6:FindFirstChild("VX_BumperGyro")
+	local VX_BumperGyro = HumanoidRootPart6 and HumanoidRootPart6:FindFirstChild("VX_BumperGyro")
 	if VX_BumperGyro then VX_BumperGyro:Destroy() end -- [[deobf: guard]]
 end)
 Tab15:AddCheckbox("VX_flag_83", {
@@ -3214,12 +3324,12 @@ task.spawn(function(...)
 					local Network4 = Network3:WaitForChild("Network")
 					Network4:WaitForChild("RemoteEvent")
 					local PlayerGui = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-					local TemporaryUI = PlayerGui:FindFirstChild("TemporaryUI")
-					local QTE = TemporaryUI:FindFirstChild("QTE")
+					local TemporaryUI = PlayerGui and PlayerGui:FindFirstChild("TemporaryUI")
+					local QTE = TemporaryUI and TemporaryUI:FindFirstChild("QTE")
 					task.wait(0.3)
 					local PlayerGui2 = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-					local TemporaryUI2 = PlayerGui2:FindFirstChild("TemporaryUI")
-					local QTE2 = TemporaryUI2:FindFirstChild("QTE")
+					local TemporaryUI2 = PlayerGui2 and PlayerGui2:FindFirstChild("TemporaryUI")
+					local QTE2 = TemporaryUI2 and TemporaryUI2:FindFirstChild("QTE")
 					task.wait(0.3)
 				end)
 			end
@@ -3331,10 +3441,18 @@ task.spawn(function(...)
 				task.spawn(function(...)
 					getgenv().modifyNosSpeed = state
 					local NosFlying = workspace.Players.Killers.Nosferatu.SpeedMultipliers:FindFirstChild("NosFlying")
+					if NosFlying then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if NosFlying then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					NosFlying.Value = 6.5
+					end
+					end
 					task.wait(0.1)
 					local NosFlying2 = workspace.Players.Killers.Nosferatu.SpeedMultipliers:FindFirstChild("NosFlying")
+					if NosFlying2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if NosFlying2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					NosFlying2.Value = 6.5
+					end
+					end
 					task.wait(0.1)
 				end)
 			end
@@ -3368,8 +3486,8 @@ task.spawn(function(...)
 				local connection34 = RunService.RenderStepped:Connect(function(deltaTime18)
 					local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid")
 					local Humanoid37 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid")
-					local tracks9 = Humanoid37:GetPlayingAnimationTracks()
-					for i207, v351 in ipairs(tracks9) do
+					local tracks9 = Humanoid37 and Humanoid37:GetPlayingAnimationTracks()
+					for i207, v351 in ipairs(tracks9 or {}) do -- [[deobf: guard]]
 						tostring(v351.Animation.AnimationId):match("%d+")
 					end
 				end)
@@ -3389,7 +3507,12 @@ task.spawn(function(...)
 		end
 })
 	getgenv().VX_BlockSk8Rebound = false
-	hookmetamethod(game, "__namecall", function(arg285, arg286)
+	local __origNc -- [[reconstructed: тело хука потеряно при рендере трейса (VM отложил вызов);]]
+	-- [[reconstructed: pass-through — пустое тело возвращало nil для ВСЕХ namecall-ов игры]]
+	__origNc = hookmetamethod(game, "__namecall", function(arg285, arg286)
+		if getgenv().VX_BlockSk8Rebound then -- TODO: оригинальная логика перехвата (VX_BlockSk8Rebound) не восстановлена
+		end
+		return __origNc(arg285, arg286)
 	end)
 	Tab14:AddCheckbox("VX_flag_98", {
 	Text = "Anti Rebound",
@@ -3428,8 +3551,8 @@ task.spawn(function(...)
 				local connection36 = RunService.Heartbeat:Connect(function(deltaTime21)
 					local HumanoidRootPart7 = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 					local Players79 = workspace:FindFirstChild("Players", true)
-					local Killers56 = Players79:FindFirstChild("Killers")
-					local children219 = Killers56:GetChildren()
+					local Killers56 = Players79 and Players79:FindFirstChild("Killers")
+					local children219 = Killers56 and Killers56:GetChildren()
 					ReplicatedStorage.Modules.Network.Network.RemoteEvent:FireServer(game.Players.LocalPlayer.Name .. "SkatePhase", { children219[1] })
 				end)
 			else
@@ -3444,9 +3567,9 @@ task.spawn(function(...)
 			if state then
 				local connection37 = RunService.Heartbeat:Connect(function(deltaTime22)
 					local PlayerGui14 = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-					local MainUI5 = PlayerGui14:FindFirstChild("MainUI")
-					local descendants80 = MainUI5:GetDescendants()
-					for i208, v352 in ipairs(descendants80) do
+					local MainUI5 = PlayerGui14 and PlayerGui14:FindFirstChild("MainUI")
+					local descendants80 = MainUI5 and MainUI5:GetDescendants()
+					for i208, v352 in ipairs(descendants80 or {}) do -- [[deobf: guard]]
 					end
 				end)
 			else
@@ -3543,9 +3666,9 @@ task.spawn(function(...)
 				end
 				local connection40 = RunService.Heartbeat:Connect(function(deltaTime25)
 					workspace:FindFirstChild("Players")
-					local Killers57 = workspace.Players:FindFirstChild("Killers")
-					local children220 = Killers57:GetChildren()
-					for i209, v353 in ipairs(children220) do
+					local Killers57 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Killers") or nil -- [[deobf: nil-chain guard]]
+					local children220 = Killers57 and Killers57:GetChildren()
+					for i209, v353 in ipairs(children220 or {}) do -- [[deobf: guard]]
 						v353:FindFirstChild("HumanoidRootPart")
 					end
 				end)
@@ -3681,9 +3804,9 @@ task.spawn(function(...)
 		end
 })
 	local Players77 = workspace:FindFirstChild("Players")
-	local Killers52 = Players77:FindFirstChild("Killers")
-	local children129 = Killers52:GetChildren()
-	for i146, v161 in ipairs(children129) do
+	local Killers52 = Players77 and Players77:FindFirstChild("Killers")
+	local children129 = Killers52 and Killers52:GetChildren()
+	for i146, v161 in ipairs(children129 or {}) do -- [[deobf: guard]]
 		task.spawn(function(...)
 			task.wait(0.3)
 			local descendants4 = v161:GetDescendants()
@@ -3700,11 +3823,17 @@ task.spawn(function(...)
 				end)
 			end)
 			local Humanoid6 = v161:FindFirstChildOfClass("Humanoid")
-			local Animator3 = Humanoid6:FindFirstChildOfClass("Animator")
+			local Animator3 = Humanoid6 and Humanoid6:FindFirstChildOfClass("Animator")
+			if Animator3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if Animator3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			Animator3.AnimationPlayed:Connect(function(arg342)
 			end)
+			end
+			end
 		end)
 	end
+	if Killers52 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Killers52 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Killers52.ChildAdded:Connect(function(child36)
 		task.wait(0.5)
 		local descendants81 = child36:GetDescendants()
@@ -3720,12 +3849,18 @@ task.spawn(function(...)
 			end)
 		end)
 		local Humanoid38 = child36:FindFirstChildOfClass("Humanoid")
-		local Animator25 = Humanoid38:FindFirstChildOfClass("Animator")
+		local Animator25 = Humanoid38 and Humanoid38:FindFirstChildOfClass("Animator")
 		Animator25.AnimationPlayed:Connect(function(arg1056)
 		end)
 	end)
+	end
+	end
+	if Killers52 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Killers52 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Killers52.ChildRemoved:Connect(function(child37)
 	end)
+	end
+	end
 	Tab16:AddCheckbox("VX_flag_118", {
 	Text = "Auto Coolgui LMS",
 	Default = false,
@@ -3804,29 +3939,43 @@ task.spawn(function(...)
 			v165.CurrentCamera.CFrame = CFrame.new(Vector3.new(0, 2.5, 7), Vector3.new(0, 1.5, 0))
 			local CloneModel = v165:FindFirstChild("CloneModel", true)
 			local KillerModel = v165:FindFirstChild("KillerModel", true)
-			local Humanoid7 = CloneModel:FindFirstChildOfClass("Humanoid")
-			local Animator4 = Humanoid7:FindFirstChildOfClass("Animator")
+			local Humanoid7 = CloneModel and CloneModel:FindFirstChildOfClass("Humanoid")
+			local Animator4 = Humanoid7 and Humanoid7:FindFirstChildOfClass("Animator")
 			local Animation2 = Instance.new("Animation")
 			Animation2.AnimationId = "rbxassetid://131082534135875"
-			local track2 = Animator4:LoadAnimation(Animation2)
+			local track2 = Animator4 and Animator4:LoadAnimation(Animation2)
+			if track2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track2.Looped = true
+			end
 			local Animation3 = Instance.new("Animation")
 			Animation3.AnimationId = "rbxassetid://136252471123500"
-			local track3 = Animator4:LoadAnimation(Animation3)
+			local track3 = Animator4 and Animator4:LoadAnimation(Animation3)
+			if track3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track3.Looped = true
+			end
+			if track2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track2:Play()
-			local Humanoid8 = KillerModel:FindFirstChildOfClass("Humanoid")
-			local Animator5 = Humanoid8:FindFirstChildOfClass("Animator")
+			end
+			local Humanoid8 = KillerModel and KillerModel:FindFirstChildOfClass("Humanoid")
+			local Animator5 = Humanoid8 and Humanoid8:FindFirstChildOfClass("Animator")
 			local Animation4 = Instance.new("Animation")
 			Animation4.AnimationId = "rbxassetid://116050994905421"
-			local track4 = Animator5:LoadAnimation(Animation4)
+			local track4 = Animator5 and Animator5:LoadAnimation(Animation4)
+			if track4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track4.Looped = true
+			end
+			if track4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track4:Play()
+			end
 			RunService.Heartbeat:Connect(function(deltaTime27)
 				local CloneModel2 = v165:FindFirstChild("CloneModel", true)
 				local KillerModel2 = v165:FindFirstChild("KillerModel", true)
-				local HumanoidRootPart8 = KillerModel2:FindFirstChild("HumanoidRootPart", true)
+				local HumanoidRootPart8 = KillerModel2 and KillerModel2:FindFirstChild("HumanoidRootPart", true)
+				if CloneModel2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if CloneModel2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				CloneModel2:PivotTo((CFrame.new((HumanoidRootPart8.Position + Vector3.new(-3, 0, 0))) * CFrame.Angles(0, -1.5707963267948966, 0)))
+				end
+				end
 			end)
 		end
 	end)
@@ -3882,7 +4031,12 @@ task.spawn(function(...)
 	end)
 getgenv().DusekkarHookInitialized = true
 getgenv().DusekkarProtectionActive = false
-hookmetamethod(game, "__namecall", function(arg363, arg364)
+local __origNc -- [[reconstructed: тело хука потеряно при рендере трейса (VM отложил вызов);]]
+-- [[reconstructed: pass-through — пустое тело возвращало nil для ВСЕХ namecall-ов игры]]
+__origNc = hookmetamethod(game, "__namecall", function(arg363, arg364)
+	if getgenv().DusekkarHookInitialized then -- TODO: оригинальная логика перехвата (DusekkarHookInitialized) не восстановлена
+	end
+	return __origNc(arg363, arg364)
 end)
 getgenv().EnableDusekkarProtection = function(arg365, arg366)
 	task.spawn(function(...)
@@ -3946,13 +4100,17 @@ RightGroupbox5:AddCheckbox("VX_flag_126", {
 	Callback = function(state, arg374)
 		if state then
 			local module26 = require(ReplicatedStorage.Modules.Util)
-			hookfunction(module26.IsOnScreen, function(arg375, arg376)
+			getgenv().DusekkarWallbangOrig = module26.IsOnScreen -- [[reconstructed: оригинал до хука]]
+			local __origIso -- [[reconstructed: тело хука потеряно; pass-through + wallbang-режим]]
+			__origIso = hookfunction(module26.IsOnScreen, function(...)
+				if getgenv().DusekkarWallbangEnabled then return true end -- TODO: точная логика не восстановлена
+				return __origIso(...)
 			end)
 			getgenv().DusekkarWallbangHook = module26.IsOnScreen
 		else
 			getgenv().DusekkarWallbangEnabled = state
 			local module26 = require(ReplicatedStorage.Modules.Util) -- [[deobf: результат require был отброшен рендером]]
-			if module26 and module26.IsOnScreen then hookfunction(module26.IsOnScreen, module26.IsOnScreen) end -- [[deobf: guard; тело хука не восстановлено — см. TODO]]
+			if module26 and module26.IsOnScreen and getgenv().DusekkarWallbangOrig then hookfunction(module26.IsOnScreen, getgenv().DusekkarWallbangOrig) end -- [[reconstructed: снятие хука — возврат сохранённого оригинала]] -- [[deobf: guard; тело хука не восстановлено — см. TODO]]
 		end
 	end
 })
@@ -4015,17 +4173,25 @@ getgenv().VX_pickUpFilter = "Both"
 getgenv().VX_pickUpRange = 10
 getgenv().VX_trackedItems = {}
 workspace:FindFirstChild("Map")
-local Ingame64 = workspace.Map:FindFirstChild("Ingame")
-local descendants8 = Ingame64:GetDescendants()
-for i151, v166 in ipairs(descendants8) do
+local Ingame64 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+local descendants8 = Ingame64 and Ingame64:GetDescendants()
+for i151, v166 in ipairs(descendants8 or {}) do -- [[deobf: guard]]
 	v166:FindFirstChild("ItemRoot")
 end
+if Ingame64 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+if Ingame64 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 Ingame64.DescendantAdded:Connect(function(descendant6)
 	descendant6:FindFirstChild("ItemRoot")
 end)
+end
+end
+if Ingame64 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+if Ingame64 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 Ingame64.DescendantRemoving:Connect(function(descendant7)
 	descendant7:FindFirstChild("ItemRoot")
 end)
+end
+end
 LeftGroupbox6:AddCheckbox("VX_flag_131", {
 	Text = "Auto Pickup Drop Items",
 	Default = false,
@@ -4033,17 +4199,25 @@ LeftGroupbox6:AddCheckbox("VX_flag_131", {
 		if state then
 			getgenv().VX_trackedItems = {}
 			workspace:FindFirstChild("Map")
-			local Ingame65 = workspace.Map:FindFirstChild("Ingame")
-			local descendants9 = Ingame65:GetDescendants()
-			for i152, v167 in ipairs(descendants9) do
+			local Ingame65 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+			local descendants9 = Ingame65 and Ingame65:GetDescendants()
+			for i152, v167 in ipairs(descendants9 or {}) do -- [[deobf: guard]]
 				v167:FindFirstChild("ItemRoot")
 			end
+			if Ingame65 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if Ingame65 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			Ingame65.DescendantAdded:Connect(function(descendant8)
 				descendant8:FindFirstChild("ItemRoot")
 			end)
+			end
+			end
+			if Ingame65 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if Ingame65 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			Ingame65.DescendantRemoving:Connect(function(descendant9)
 				descendant9:FindFirstChild("ItemRoot")
 			end)
+			end
+			end
 		end
 	end
 })
@@ -4109,9 +4283,9 @@ task.spawn(function(...)
 }
 	getgenv().IsUsingPursuit = function(arg396, arg397)
 		local Humanoid10 = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-		local Animator7 = Humanoid10:FindFirstChild("Animator")
-		local tracks = Animator7:GetPlayingAnimationTracks()
-		for i153, v168 in ipairs(tracks) do
+		local Animator7 = Humanoid10 and Humanoid10:FindFirstChild("Animator")
+		local tracks = Animator7 and Animator7:GetPlayingAnimationTracks()
+		for i153, v168 in ipairs(tracks or {}) do -- [[deobf: guard]]
 		end
 	end
 	getgenv().DPApplyVelocity = function(arg398, arg399)
@@ -4346,9 +4520,16 @@ end)
 task.spawn(function(...)
 	getgenv().VX_NoliHookRules = {}
 	getgenv().VX_NoliOrigNamecall = nil
-	hookmetamethod(game, "__namecall", function(arg440, arg441)
+	local __origNc -- [[reconstructed: тело хука потеряно при рендере трейса (VM отложил вызов);]]
+	-- [[reconstructed: pass-through — пустое тело возвращало nil для ВСЕХ namecall-ов игры]]
+	__origNc = hookmetamethod(game, "__namecall", function(arg440, arg441)
+		if getgenv().VX_NoliHookRules then -- TODO: оригинальная логика перехвата (VX_NoliHookRules) не восстановлена
+		end
+		return __origNc(arg440, arg441)
 	end)
+	-- [[reconstructed: сохранение оригинала см. hookmetamethod выше; pass-through]]
 	getgenv().VX_NoliOrigNamecall = function(arg442, arg443)
+		return __origNc(arg442, arg443) -- [[reconstructed]]
 	end
 	RightGroupbox7:AddCheckbox("VX_flag_148", {
 	Text = "Anti-Cancel VoidRush",
@@ -4369,9 +4550,16 @@ task.spawn(function(...)
 		end
 })
 	getgenv().VX_ChargeHookRules = {}
-	hookmetamethod(game, "__namecall", function(arg448, arg449)
+	local __origNc -- [[reconstructed: тело хука потеряно при рендере трейса (VM отложил вызов);]]
+	-- [[reconstructed: pass-through — пустое тело возвращало nil для ВСЕХ namecall-ов игры]]
+	__origNc = hookmetamethod(game, "__namecall", function(arg448, arg449)
+		if getgenv().VX_ChargeHookRules then -- TODO: оригинальная логика перехвата (VX_ChargeHookRules) не восстановлена
+		end
+		return __origNc(arg448, arg449)
 	end)
+	-- [[reconstructed: сохранение оригинала см. hookmetamethod выше; pass-through]]
 	getgenv().VX_ChargeOrigNamecall = function(arg450, arg451)
+		return __origNc(arg450, arg451) -- [[reconstructed]]
 	end
 	getgenv().EnableChargeIgnore = function(arg452, arg453)
 	end
@@ -4392,9 +4580,13 @@ Tab19:AddCheckbox("VX_flag_151", {
 			local Humanoid11 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid")
 			local Animation5 = Instance.new("Animation")
 			Animation5.AnimationId = "rbxassetid://75804462760596"
-			local track5 = Humanoid11:LoadAnimation(Animation5)
+			local track5 = Humanoid11 and Humanoid11:LoadAnimation(Animation5)
+			if track5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track5:Play()
+			end
+			if track5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			track5:AdjustSpeed(0)
+			end
 			Players.LocalPlayer.CharacterAdded:Connect(function(character12)
 				task.wait(0.5)
 			end)
@@ -5528,9 +5720,9 @@ Tab19:AddCheckbox("VX_flag_153", {
 			end
 			task.spawn(function(...)
 				workspace:FindFirstChild("Map")
-				local Ingame117 = workspace.Map:FindFirstChild("Ingame")
-				local children182 = Ingame117:GetChildren()
-				for k121, v275 in pairs(children182) do
+				local Ingame117 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children182 = Ingame117 and Ingame117:GetChildren()
+				for k121, v275 in pairs(children182 or {}) do -- [[deobf: guard]]
 					local result61 = v275.Name:lower()
 					result61:match("puddle")
 					local descendants64 = v275:GetDescendants()
@@ -5545,9 +5737,9 @@ Tab19:AddCheckbox("VX_flag_153", {
 				end
 				task.wait(0.5)
 				workspace:FindFirstChild("Map")
-				local Ingame118 = workspace.Map:FindFirstChild("Ingame")
-				local children183 = Ingame118:GetChildren()
-				for k123, v277 in pairs(children183) do
+				local Ingame118 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+				local children183 = Ingame118 and Ingame118:GetChildren()
+				for k123, v277 in pairs(children183 or {}) do -- [[deobf: guard]]
 					local result62 = v277.Name:lower()
 					result62:match("puddle")
 					local descendants65 = v277:GetDescendants()
@@ -5634,13 +5826,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg478, arg479)
 					local Humanoid12 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator8 = Humanoid12:FindFirstChildOfClass("Animator")
+					if Animator8 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator8 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator8.AnimationPlayed:Connect(function(arg480)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character13)
 						local Humanoid40 = character13:WaitForChild("Humanoid", 8)
 						local Animator27 = Humanoid40:FindFirstChildOfClass("Animator")
+						if Animator27 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator27 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator27.AnimationPlayed:Connect(function(arg1058)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg481, arg482)
@@ -5654,13 +5854,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg487, arg488)
 					local Humanoid13 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator9 = Humanoid13:FindFirstChildOfClass("Animator")
+					if Animator9 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator9 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator9.AnimationPlayed:Connect(function(arg489)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character14)
 						local Humanoid41 = character14:WaitForChild("Humanoid", 8)
 						local Animator28 = Humanoid41:FindFirstChildOfClass("Animator")
+						if Animator28 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator28 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator28.AnimationPlayed:Connect(function(arg1059)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg490, arg491)
@@ -5674,13 +5882,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg496, arg497)
 					local Humanoid14 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator10 = Humanoid14:FindFirstChildOfClass("Animator")
+					if Animator10 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator10 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator10.AnimationPlayed:Connect(function(arg498)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character15)
 						local Humanoid42 = character15:WaitForChild("Humanoid", 8)
 						local Animator29 = Humanoid42:FindFirstChildOfClass("Animator")
+						if Animator29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator29.AnimationPlayed:Connect(function(arg1060)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg499, arg500)
@@ -5694,13 +5910,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg505, arg506)
 					local Humanoid15 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator11 = Humanoid15:FindFirstChildOfClass("Animator")
+					if Animator11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator11.AnimationPlayed:Connect(function(arg507)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character16)
 						local Humanoid43 = character16:WaitForChild("Humanoid", 8)
 						local Animator30 = Humanoid43:FindFirstChildOfClass("Animator")
+						if Animator30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator30.AnimationPlayed:Connect(function(arg1061)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg508, arg509)
@@ -5714,13 +5938,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg514, arg515)
 					local Humanoid16 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator12 = Humanoid16:FindFirstChildOfClass("Animator")
+					if Animator12 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator12 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator12.AnimationPlayed:Connect(function(arg516)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character17)
 						local Humanoid44 = character17:WaitForChild("Humanoid", 8)
 						local Animator31 = Humanoid44:FindFirstChildOfClass("Animator")
+						if Animator31 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator31 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator31.AnimationPlayed:Connect(function(arg1062)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg517, arg518)
@@ -5734,13 +5966,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg523, arg524)
 					local Humanoid17 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator13 = Humanoid17:FindFirstChildOfClass("Animator")
+					if Animator13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator13.AnimationPlayed:Connect(function(arg525)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character18)
 						local Humanoid45 = character18:WaitForChild("Humanoid", 8)
 						local Animator32 = Humanoid45:FindFirstChildOfClass("Animator")
+						if Animator32 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator32 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator32.AnimationPlayed:Connect(function(arg1063)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg526, arg527)
@@ -5754,13 +5994,21 @@ Tab19:AddCheckbox("VX_flag_155", {
 		Enable = function(arg532, arg533)
 					local Humanoid18 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid", 8)
 					local Animator14 = Humanoid18:FindFirstChildOfClass("Animator")
+					if Animator14 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Animator14 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Animator14.AnimationPlayed:Connect(function(arg534)
 					end)
+					end
+					end
 					Players.LocalPlayer.CharacterAdded:Connect(function(character19)
 						local Humanoid46 = character19:WaitForChild("Humanoid", 8)
 						local Animator33 = Humanoid46:FindFirstChildOfClass("Animator")
+						if Animator33 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+						if Animator33 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 						Animator33.AnimationPlayed:Connect(function(arg1064)
 						end)
+						end
+						end
 					end)
 				end,
 		IsEnabled = function(arg535, arg536)
@@ -5774,7 +6022,10 @@ Tab19:AddCheckbox("VX_flag_156", {
 	Text = "Sk8 Farm",
 	Default = false,
 	Callback = function(arg537, arg538)
-		hookmetamethod(game, "__namecall", function(arg539, arg540)
+		local __origNc -- [[reconstructed: тело хука потеряно при рендере трейса (VM отложил вызов);]]
+		-- [[reconstructed: pass-through — пустое тело возвращало nil для ВСЕХ namecall-ов игры]]
+		__origNc = hookmetamethod(game, "__namecall", function(arg539, arg540)
+			return __origNc(arg539, arg540)
 		end)
 		task.wait()
 		local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("Skateboard")
@@ -5829,8 +6080,12 @@ getgenv().BloxyFmtTime = function(arg545, arg546)
 end
 getgenv().BloxyShowStatus = function(arg547, arg548)
 	local MainUI = Players.LocalPlayer.PlayerGui:FindFirstChild("MainUI")
-	local StatusContainer = MainUI:FindFirstChild("StatusContainer")
+	local StatusContainer = MainUI and MainUI:FindFirstChild("StatusContainer")
+	if StatusContainer then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if StatusContainer then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	StatusContainer.Parent = MainUI
+	end
+	end
 	StatusContainer[arg547]:Destroy()
 	local clone4 = ReplicatedStorage.Modules.Gameplay.Statuses.StatusDisplay:Clone()
 	clone4.Name = arg547
@@ -5838,7 +6093,7 @@ getgenv().BloxyShowStatus = function(arg547, arg548)
 end
 getgenv().BloxyClick = function(arg549, arg550)
 	local MainUI2 = Players.LocalPlayer.PlayerGui:FindFirstChild("MainUI")
-	local Backpack = MainUI2:FindFirstChild("Backpack")
+	local Backpack = MainUI2 and MainUI2:FindFirstChild("Backpack")
 end
 getgenv().BloxyReset = function(arg551, arg552)
 	getgenv().BloxyCurrentTrack = nil
@@ -6418,10 +6673,10 @@ getgenv().ghostBlocker = {
 	Enable = function(arg670, arg671)
 		local Humanoid22 = player.Character:WaitForChild("Humanoid", 8)
 		local Animator15 = Humanoid22:FindFirstChildOfClass("Animator")
-		local connection107 = Animator15.AnimationPlayed:Connect(function(arg672)
+		local connection107 = Animator15 and Animator15.AnimationPlayed:Connect(function(arg672)
 		end)
-		local tracks2 = Animator15:GetPlayingAnimationTracks()
-		for i156, v282 in ipairs(tracks2) do
+		local tracks2 = Animator15 and Animator15:GetPlayingAnimationTracks()
+		for i156, v282 in ipairs(tracks2 or {}) do -- [[deobf: guard]]
 			tostring(v282.Animation.AnimationId):match("%d+")
 			task.defer(function(...)
 			end)
@@ -6433,7 +6688,7 @@ getgenv().ghostBlocker = {
 			if connection112 then connection112:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid48 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator34 = Humanoid48:FindFirstChildOfClass("Animator")
-			local connection141 = Animator34.AnimationPlayed:Connect(function(arg1065)
+			local connection141 = Animator34 and Animator34.AnimationPlayed:Connect(function(arg1065)
 			end)
 			local attributeChangedSignal8 = player.Character:GetAttributeChangedSignal("SkinName")
 			local connection142 = attributeChangedSignal8:Connect(function(arg1066)
@@ -6442,7 +6697,7 @@ getgenv().ghostBlocker = {
 				if connection150 then connection150:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid58 = player.Character:WaitForChild("Humanoid", 8)
 				local Animator42 = Humanoid58:FindFirstChildOfClass("Animator")
-				local connection153 = Animator42.AnimationPlayed:Connect(function(arg1085)
+				local connection153 = Animator42 and Animator42.AnimationPlayed:Connect(function(arg1085)
 				end)
 				local attributeChangedSignal15 = player.Character:GetAttributeChangedSignal("SkinName")
 				local connection154 = attributeChangedSignal15:Connect(function(arg1086)
@@ -6451,7 +6706,7 @@ getgenv().ghostBlocker = {
 					if connection162 then connection162:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid64 = player.Character:WaitForChild("Humanoid", 8)
 					local Animator48 = Humanoid64:FindFirstChildOfClass("Animator")
-					local connection165 = Animator48.AnimationPlayed:Connect(function(arg1099)
+					local connection165 = Animator48 and Animator48.AnimationPlayed:Connect(function(arg1099)
 					end)
 					local attributeChangedSignal21 = player.Character:GetAttributeChangedSignal("SkinName")
 					local connection166 = attributeChangedSignal21:Connect(function(arg1100)
@@ -6460,7 +6715,7 @@ getgenv().ghostBlocker = {
 						if connection174 then connection174:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid70 = player.Character:WaitForChild("Humanoid", 8)
 						local Animator54 = Humanoid70:FindFirstChildOfClass("Animator")
-						local connection177 = Animator54.AnimationPlayed:Connect(function(arg1112)
+						local connection177 = Animator54 and Animator54.AnimationPlayed:Connect(function(arg1112)
 						end)
 						local attributeChangedSignal27 = player.Character:GetAttributeChangedSignal("SkinName")
 						local connection178 = attributeChangedSignal27:Connect(function(arg1113)
@@ -6469,7 +6724,7 @@ getgenv().ghostBlocker = {
 							if connection186 then connection186:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid76 = player.Character:WaitForChild("Humanoid", 8)
 							local Animator60 = Humanoid76:FindFirstChildOfClass("Animator")
-							local connection189 = Animator60.AnimationPlayed:Connect(function(arg1125)
+							local connection189 = Animator60 and Animator60.AnimationPlayed:Connect(function(arg1125)
 							end)
 							local attributeChangedSignal33 = player.Character:GetAttributeChangedSignal("SkinName")
 							local connection190 = attributeChangedSignal33:Connect(function(arg1126)
@@ -6478,7 +6733,7 @@ getgenv().ghostBlocker = {
 								if connection198 then connection198:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid82 = player.Character:WaitForChild("Humanoid", 8)
 								local Animator66 = Humanoid82:FindFirstChildOfClass("Animator")
-								local connection201 = Animator66.AnimationPlayed:Connect(function(arg1138)
+								local connection201 = Animator66 and Animator66.AnimationPlayed:Connect(function(arg1138)
 								end)
 								local attributeChangedSignal39 = player.Character:GetAttributeChangedSignal("SkinName")
 								local connection202 = attributeChangedSignal39:Connect(function(arg1139)
@@ -6487,7 +6742,7 @@ getgenv().ghostBlocker = {
 									if connection210 then connection210:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid88 = player.Character:WaitForChild("Humanoid", 8)
 									local Animator72 = Humanoid88:FindFirstChildOfClass("Animator")
-									local connection213 = Animator72.AnimationPlayed:Connect(function(arg1151)
+									local connection213 = Animator72 and Animator72.AnimationPlayed:Connect(function(arg1151)
 									end)
 									local attributeChangedSignal45 = player.Character:GetAttributeChangedSignal("SkinName")
 									local connection214 = attributeChangedSignal45:Connect(function(arg1152)
@@ -6496,7 +6751,7 @@ getgenv().ghostBlocker = {
 										if connection222 then connection222:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid94 = player.Character:WaitForChild("Humanoid", 8)
 										local Animator78 = Humanoid94:FindFirstChildOfClass("Animator")
-										local connection225 = Animator78.AnimationPlayed:Connect(function(arg1164)
+										local connection225 = Animator78 and Animator78.AnimationPlayed:Connect(function(arg1164)
 										end)
 										local attributeChangedSignal51 = player.Character:GetAttributeChangedSignal("SkinName")
 										local connection226 = attributeChangedSignal51:Connect(function(arg1165)
@@ -6505,7 +6760,7 @@ getgenv().ghostBlocker = {
 											if connection234 then connection234:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid100 = player.Character:WaitForChild("Humanoid", 8)
 											local Animator84 = Humanoid100:FindFirstChildOfClass("Animator")
-											local connection237 = Animator84.AnimationPlayed:Connect(function(arg1177)
+											local connection237 = Animator84 and Animator84.AnimationPlayed:Connect(function(arg1177)
 											end)
 											local attributeChangedSignal57 = player.Character:GetAttributeChangedSignal("SkinName")
 											local connection238 = attributeChangedSignal57:Connect(function(arg1178)
@@ -6514,7 +6769,7 @@ getgenv().ghostBlocker = {
 												if connection246 then connection246:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid106 = player.Character:WaitForChild("Humanoid", 8)
 												local Animator90 = Humanoid106:FindFirstChildOfClass("Animator")
-												local connection249 = Animator90.AnimationPlayed:Connect(function(arg1190)
+												local connection249 = Animator90 and Animator90.AnimationPlayed:Connect(function(arg1190)
 												end)
 												local attributeChangedSignal63 = player.Character:GetAttributeChangedSignal("SkinName")
 												local connection250 = attributeChangedSignal63:Connect(function(arg1191)
@@ -6523,7 +6778,7 @@ getgenv().ghostBlocker = {
 													if connection258 then connection258:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid112 = player.Character:WaitForChild("Humanoid", 8)
 													local Animator96 = Humanoid112:FindFirstChildOfClass("Animator")
-													local connection261 = Animator96.AnimationPlayed:Connect(function(arg1203)
+													local connection261 = Animator96 and Animator96.AnimationPlayed:Connect(function(arg1203)
 													end)
 													local attributeChangedSignal69 = player.Character:GetAttributeChangedSignal("SkinName")
 													local connection262 = attributeChangedSignal69:Connect(function(arg1204)
@@ -6532,7 +6787,7 @@ getgenv().ghostBlocker = {
 														if connection270 then connection270:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid118 = player.Character:WaitForChild("Humanoid", 8)
 														local Animator102 = Humanoid118:FindFirstChildOfClass("Animator")
-														local connection273 = Animator102.AnimationPlayed:Connect(function(arg1216)
+														local connection273 = Animator102 and Animator102.AnimationPlayed:Connect(function(arg1216)
 														end)
 														local attributeChangedSignal75 = player.Character:GetAttributeChangedSignal("SkinName")
 														local connection274 = attributeChangedSignal75:Connect(function(arg1217)
@@ -6541,7 +6796,7 @@ getgenv().ghostBlocker = {
 															if connection282 then connection282:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid124 = player.Character:WaitForChild("Humanoid", 8)
 															local Animator108 = Humanoid124:FindFirstChildOfClass("Animator")
-															local connection285 = Animator108.AnimationPlayed:Connect(function(arg1229)
+															local connection285 = Animator108 and Animator108.AnimationPlayed:Connect(function(arg1229)
 															end)
 															local attributeChangedSignal81 = player.Character:GetAttributeChangedSignal("SkinName")
 															local connection286 = attributeChangedSignal81:Connect(function(arg1230)
@@ -6550,7 +6805,7 @@ getgenv().ghostBlocker = {
 																if connection294 then connection294:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid130 = player.Character:WaitForChild("Humanoid", 8)
 																local Animator114 = Humanoid130:FindFirstChildOfClass("Animator")
-																local connection297 = Animator114.AnimationPlayed:Connect(function(arg1242)
+																local connection297 = Animator114 and Animator114.AnimationPlayed:Connect(function(arg1242)
 																end)
 																local attributeChangedSignal87 = player.Character:GetAttributeChangedSignal("SkinName")
 																local connection298 = attributeChangedSignal87:Connect(function(arg1243)
@@ -6559,7 +6814,7 @@ getgenv().ghostBlocker = {
 																	if connection306 then connection306:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid136 = player.Character:WaitForChild("Humanoid", 8)
 																	local Animator120 = Humanoid136:FindFirstChildOfClass("Animator")
-																	local connection309 = Animator120.AnimationPlayed:Connect(function(arg1255)
+																	local connection309 = Animator120 and Animator120.AnimationPlayed:Connect(function(arg1255)
 																	end)
 																	local attributeChangedSignal93 = player.Character:GetAttributeChangedSignal("SkinName")
 																	local connection310 = attributeChangedSignal93:Connect(function(arg1256)
@@ -6568,7 +6823,7 @@ getgenv().ghostBlocker = {
 																		if connection318 then connection318:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid142 = player.Character:WaitForChild("Humanoid", 8)
 																		local Animator126 = Humanoid142:FindFirstChildOfClass("Animator")
-																		local connection321 = Animator126.AnimationPlayed:Connect(function(arg1268)
+																		local connection321 = Animator126 and Animator126.AnimationPlayed:Connect(function(arg1268)
 																		end)
 																		local attributeChangedSignal99 = player.Character:GetAttributeChangedSignal("SkinName")
 																		local connection322 = attributeChangedSignal99:Connect(function(arg1269)
@@ -6577,7 +6832,7 @@ getgenv().ghostBlocker = {
 																			if connection330 then connection330:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid148 = player.Character:WaitForChild("Humanoid", 8)
 																			local Animator132 = Humanoid148:FindFirstChildOfClass("Animator")
-																			local connection333 = Animator132.AnimationPlayed:Connect(function(arg1281)
+																			local connection333 = Animator132 and Animator132.AnimationPlayed:Connect(function(arg1281)
 																			end)
 																			local attributeChangedSignal105 = player.Character:GetAttributeChangedSignal("SkinName")
 																			local connection334 = attributeChangedSignal105:Connect(function(arg1282)
@@ -6586,7 +6841,7 @@ getgenv().ghostBlocker = {
 			if connection342 then connection342:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid154 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator138 = Humanoid154:FindFirstChildOfClass("Animator")
-			local connection345 = Animator138.AnimationPlayed:Connect(function(arg1294)
+			local connection345 = Animator138 and Animator138.AnimationPlayed:Connect(function(arg1294)
 			end)
 			local attributeChangedSignal111 = player.Character:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1007 more lines of repeated iterations removed]
@@ -6614,7 +6869,7 @@ getgenv().ghostBlocker = {
 			if connection142 then connection142:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid49 = character22:WaitForChild("Humanoid", 8)
 			local Animator35 = Humanoid49:FindFirstChildOfClass("Animator")
-			local connection143 = Animator35.AnimationPlayed:Connect(function(arg1067)
+			local connection143 = Animator35 and Animator35.AnimationPlayed:Connect(function(arg1067)
 			end)
 			local attributeChangedSignal9 = character22:GetAttributeChangedSignal("SkinName")
 			local connection144 = attributeChangedSignal9:Connect(function(arg1068)
@@ -6623,7 +6878,7 @@ getgenv().ghostBlocker = {
 				if connection154 then connection154:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid59 = character22:WaitForChild("Humanoid", 8)
 				local Animator43 = Humanoid59:FindFirstChildOfClass("Animator")
-				local connection155 = Animator43.AnimationPlayed:Connect(function(arg1087)
+				local connection155 = Animator43 and Animator43.AnimationPlayed:Connect(function(arg1087)
 				end)
 				local attributeChangedSignal16 = character22:GetAttributeChangedSignal("SkinName")
 				local connection156 = attributeChangedSignal16:Connect(function(arg1088)
@@ -6632,7 +6887,7 @@ getgenv().ghostBlocker = {
 					if connection166 then connection166:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid65 = character22:WaitForChild("Humanoid", 8)
 					local Animator49 = Humanoid65:FindFirstChildOfClass("Animator")
-					local connection167 = Animator49.AnimationPlayed:Connect(function(arg1101)
+					local connection167 = Animator49 and Animator49.AnimationPlayed:Connect(function(arg1101)
 					end)
 					local attributeChangedSignal22 = character22:GetAttributeChangedSignal("SkinName")
 					local connection168 = attributeChangedSignal22:Connect(function(arg1102)
@@ -6641,7 +6896,7 @@ getgenv().ghostBlocker = {
 						if connection178 then connection178:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid71 = character22:WaitForChild("Humanoid", 8)
 						local Animator55 = Humanoid71:FindFirstChildOfClass("Animator")
-						local connection179 = Animator55.AnimationPlayed:Connect(function(arg1114)
+						local connection179 = Animator55 and Animator55.AnimationPlayed:Connect(function(arg1114)
 						end)
 						local attributeChangedSignal28 = character22:GetAttributeChangedSignal("SkinName")
 						local connection180 = attributeChangedSignal28:Connect(function(arg1115)
@@ -6650,7 +6905,7 @@ getgenv().ghostBlocker = {
 							if connection190 then connection190:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid77 = character22:WaitForChild("Humanoid", 8)
 							local Animator61 = Humanoid77:FindFirstChildOfClass("Animator")
-							local connection191 = Animator61.AnimationPlayed:Connect(function(arg1127)
+							local connection191 = Animator61 and Animator61.AnimationPlayed:Connect(function(arg1127)
 							end)
 							local attributeChangedSignal34 = character22:GetAttributeChangedSignal("SkinName")
 							local connection192 = attributeChangedSignal34:Connect(function(arg1128)
@@ -6659,7 +6914,7 @@ getgenv().ghostBlocker = {
 								if connection202 then connection202:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid83 = character22:WaitForChild("Humanoid", 8)
 								local Animator67 = Humanoid83:FindFirstChildOfClass("Animator")
-								local connection203 = Animator67.AnimationPlayed:Connect(function(arg1140)
+								local connection203 = Animator67 and Animator67.AnimationPlayed:Connect(function(arg1140)
 								end)
 								local attributeChangedSignal40 = character22:GetAttributeChangedSignal("SkinName")
 								local connection204 = attributeChangedSignal40:Connect(function(arg1141)
@@ -6668,7 +6923,7 @@ getgenv().ghostBlocker = {
 									if connection214 then connection214:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid89 = character22:WaitForChild("Humanoid", 8)
 									local Animator73 = Humanoid89:FindFirstChildOfClass("Animator")
-									local connection215 = Animator73.AnimationPlayed:Connect(function(arg1153)
+									local connection215 = Animator73 and Animator73.AnimationPlayed:Connect(function(arg1153)
 									end)
 									local attributeChangedSignal46 = character22:GetAttributeChangedSignal("SkinName")
 									local connection216 = attributeChangedSignal46:Connect(function(arg1154)
@@ -6677,7 +6932,7 @@ getgenv().ghostBlocker = {
 										if connection226 then connection226:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid95 = character22:WaitForChild("Humanoid", 8)
 										local Animator79 = Humanoid95:FindFirstChildOfClass("Animator")
-										local connection227 = Animator79.AnimationPlayed:Connect(function(arg1166)
+										local connection227 = Animator79 and Animator79.AnimationPlayed:Connect(function(arg1166)
 										end)
 										local attributeChangedSignal52 = character22:GetAttributeChangedSignal("SkinName")
 										local connection228 = attributeChangedSignal52:Connect(function(arg1167)
@@ -6686,7 +6941,7 @@ getgenv().ghostBlocker = {
 											if connection238 then connection238:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid101 = character22:WaitForChild("Humanoid", 8)
 											local Animator85 = Humanoid101:FindFirstChildOfClass("Animator")
-											local connection239 = Animator85.AnimationPlayed:Connect(function(arg1179)
+											local connection239 = Animator85 and Animator85.AnimationPlayed:Connect(function(arg1179)
 											end)
 											local attributeChangedSignal58 = character22:GetAttributeChangedSignal("SkinName")
 											local connection240 = attributeChangedSignal58:Connect(function(arg1180)
@@ -6695,7 +6950,7 @@ getgenv().ghostBlocker = {
 												if connection250 then connection250:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid107 = character22:WaitForChild("Humanoid", 8)
 												local Animator91 = Humanoid107:FindFirstChildOfClass("Animator")
-												local connection251 = Animator91.AnimationPlayed:Connect(function(arg1192)
+												local connection251 = Animator91 and Animator91.AnimationPlayed:Connect(function(arg1192)
 												end)
 												local attributeChangedSignal64 = character22:GetAttributeChangedSignal("SkinName")
 												local connection252 = attributeChangedSignal64:Connect(function(arg1193)
@@ -6704,7 +6959,7 @@ getgenv().ghostBlocker = {
 													if connection262 then connection262:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid113 = character22:WaitForChild("Humanoid", 8)
 													local Animator97 = Humanoid113:FindFirstChildOfClass("Animator")
-													local connection263 = Animator97.AnimationPlayed:Connect(function(arg1205)
+													local connection263 = Animator97 and Animator97.AnimationPlayed:Connect(function(arg1205)
 													end)
 													local attributeChangedSignal70 = character22:GetAttributeChangedSignal("SkinName")
 													local connection264 = attributeChangedSignal70:Connect(function(arg1206)
@@ -6713,7 +6968,7 @@ getgenv().ghostBlocker = {
 														if connection274 then connection274:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid119 = character22:WaitForChild("Humanoid", 8)
 														local Animator103 = Humanoid119:FindFirstChildOfClass("Animator")
-														local connection275 = Animator103.AnimationPlayed:Connect(function(arg1218)
+														local connection275 = Animator103 and Animator103.AnimationPlayed:Connect(function(arg1218)
 														end)
 														local attributeChangedSignal76 = character22:GetAttributeChangedSignal("SkinName")
 														local connection276 = attributeChangedSignal76:Connect(function(arg1219)
@@ -6722,7 +6977,7 @@ getgenv().ghostBlocker = {
 															if connection286 then connection286:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid125 = character22:WaitForChild("Humanoid", 8)
 															local Animator109 = Humanoid125:FindFirstChildOfClass("Animator")
-															local connection287 = Animator109.AnimationPlayed:Connect(function(arg1231)
+															local connection287 = Animator109 and Animator109.AnimationPlayed:Connect(function(arg1231)
 															end)
 															local attributeChangedSignal82 = character22:GetAttributeChangedSignal("SkinName")
 															local connection288 = attributeChangedSignal82:Connect(function(arg1232)
@@ -6731,7 +6986,7 @@ getgenv().ghostBlocker = {
 																if connection298 then connection298:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid131 = character22:WaitForChild("Humanoid", 8)
 																local Animator115 = Humanoid131:FindFirstChildOfClass("Animator")
-																local connection299 = Animator115.AnimationPlayed:Connect(function(arg1244)
+																local connection299 = Animator115 and Animator115.AnimationPlayed:Connect(function(arg1244)
 																end)
 																local attributeChangedSignal88 = character22:GetAttributeChangedSignal("SkinName")
 																local connection300 = attributeChangedSignal88:Connect(function(arg1245)
@@ -6740,7 +6995,7 @@ getgenv().ghostBlocker = {
 																	if connection310 then connection310:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid137 = character22:WaitForChild("Humanoid", 8)
 																	local Animator121 = Humanoid137:FindFirstChildOfClass("Animator")
-																	local connection311 = Animator121.AnimationPlayed:Connect(function(arg1257)
+																	local connection311 = Animator121 and Animator121.AnimationPlayed:Connect(function(arg1257)
 																	end)
 																	local attributeChangedSignal94 = character22:GetAttributeChangedSignal("SkinName")
 																	local connection312 = attributeChangedSignal94:Connect(function(arg1258)
@@ -6749,7 +7004,7 @@ getgenv().ghostBlocker = {
 																		if connection322 then connection322:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid143 = character22:WaitForChild("Humanoid", 8)
 																		local Animator127 = Humanoid143:FindFirstChildOfClass("Animator")
-																		local connection323 = Animator127.AnimationPlayed:Connect(function(arg1270)
+																		local connection323 = Animator127 and Animator127.AnimationPlayed:Connect(function(arg1270)
 																		end)
 																		local attributeChangedSignal100 = character22:GetAttributeChangedSignal("SkinName")
 																		local connection324 = attributeChangedSignal100:Connect(function(arg1271)
@@ -6758,7 +7013,7 @@ getgenv().ghostBlocker = {
 																			if connection334 then connection334:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid149 = character22:WaitForChild("Humanoid", 8)
 																			local Animator133 = Humanoid149:FindFirstChildOfClass("Animator")
-																			local connection335 = Animator133.AnimationPlayed:Connect(function(arg1283)
+																			local connection335 = Animator133 and Animator133.AnimationPlayed:Connect(function(arg1283)
 																			end)
 																			local attributeChangedSignal106 = character22:GetAttributeChangedSignal("SkinName")
 																			local connection336 = attributeChangedSignal106:Connect(function(arg1284)
@@ -6767,7 +7022,7 @@ getgenv().ghostBlocker = {
 			if connection346 then connection346:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid155 = character22:WaitForChild("Humanoid", 8)
 			local Animator139 = Humanoid155:FindFirstChildOfClass("Animator")
-			local connection347 = Animator139.AnimationPlayed:Connect(function(arg1296)
+			local connection347 = Animator139 and Animator139.AnimationPlayed:Connect(function(arg1296)
 			end)
 			local attributeChangedSignal112 = character22:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1007 more lines of repeated iterations removed]
@@ -6804,10 +7059,10 @@ getgenv().ghostPuncher = {
 	Enable = function(arg682, arg683)
 		local Humanoid23 = player.Character:WaitForChild("Humanoid", 8)
 		local Animator16 = Humanoid23:FindFirstChildOfClass("Animator")
-		local connection109 = Animator16.AnimationPlayed:Connect(function(arg684)
+		local connection109 = Animator16 and Animator16.AnimationPlayed:Connect(function(arg684)
 		end)
-		local tracks3 = Animator16:GetPlayingAnimationTracks()
-		for i157, v283 in ipairs(tracks3) do
+		local tracks3 = Animator16 and Animator16:GetPlayingAnimationTracks()
+		for i157, v283 in ipairs(tracks3 or {}) do -- [[deobf: guard]]
 			tostring(v283.Animation.AnimationId):match("%d+")
 			task.defer(function(...)
 			end)
@@ -6819,7 +7074,7 @@ getgenv().ghostPuncher = {
 			if connection114 then connection114:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid50 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator36 = Humanoid50:FindFirstChildOfClass("Animator")
-			local connection145 = Animator36.AnimationPlayed:Connect(function(arg1069)
+			local connection145 = Animator36 and Animator36.AnimationPlayed:Connect(function(arg1069)
 			end)
 			local attributeChangedSignal10 = player.Character:GetAttributeChangedSignal("SkinName")
 			local connection146 = attributeChangedSignal10:Connect(function(arg1070)
@@ -6828,7 +7083,7 @@ getgenv().ghostPuncher = {
 				if connection152 then connection152:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid60 = player.Character:WaitForChild("Humanoid", 8)
 				local Animator44 = Humanoid60:FindFirstChildOfClass("Animator")
-				local connection157 = Animator44.AnimationPlayed:Connect(function(arg1089)
+				local connection157 = Animator44 and Animator44.AnimationPlayed:Connect(function(arg1089)
 				end)
 				local attributeChangedSignal17 = player.Character:GetAttributeChangedSignal("SkinName")
 				local connection158 = attributeChangedSignal17:Connect(function(arg1090)
@@ -6837,7 +7092,7 @@ getgenv().ghostPuncher = {
 					if connection164 then connection164:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid66 = player.Character:WaitForChild("Humanoid", 8)
 					local Animator50 = Humanoid66:FindFirstChildOfClass("Animator")
-					local connection169 = Animator50.AnimationPlayed:Connect(function(arg1103)
+					local connection169 = Animator50 and Animator50.AnimationPlayed:Connect(function(arg1103)
 					end)
 					local attributeChangedSignal23 = player.Character:GetAttributeChangedSignal("SkinName")
 					local connection170 = attributeChangedSignal23:Connect(function(arg1104)
@@ -6846,7 +7101,7 @@ getgenv().ghostPuncher = {
 						if connection176 then connection176:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid72 = player.Character:WaitForChild("Humanoid", 8)
 						local Animator56 = Humanoid72:FindFirstChildOfClass("Animator")
-						local connection181 = Animator56.AnimationPlayed:Connect(function(arg1116)
+						local connection181 = Animator56 and Animator56.AnimationPlayed:Connect(function(arg1116)
 						end)
 						local attributeChangedSignal29 = player.Character:GetAttributeChangedSignal("SkinName")
 						local connection182 = attributeChangedSignal29:Connect(function(arg1117)
@@ -6855,7 +7110,7 @@ getgenv().ghostPuncher = {
 							if connection188 then connection188:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid78 = player.Character:WaitForChild("Humanoid", 8)
 							local Animator62 = Humanoid78:FindFirstChildOfClass("Animator")
-							local connection193 = Animator62.AnimationPlayed:Connect(function(arg1129)
+							local connection193 = Animator62 and Animator62.AnimationPlayed:Connect(function(arg1129)
 							end)
 							local attributeChangedSignal35 = player.Character:GetAttributeChangedSignal("SkinName")
 							local connection194 = attributeChangedSignal35:Connect(function(arg1130)
@@ -6864,7 +7119,7 @@ getgenv().ghostPuncher = {
 								if connection200 then connection200:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid84 = player.Character:WaitForChild("Humanoid", 8)
 								local Animator68 = Humanoid84:FindFirstChildOfClass("Animator")
-								local connection205 = Animator68.AnimationPlayed:Connect(function(arg1142)
+								local connection205 = Animator68 and Animator68.AnimationPlayed:Connect(function(arg1142)
 								end)
 								local attributeChangedSignal41 = player.Character:GetAttributeChangedSignal("SkinName")
 								local connection206 = attributeChangedSignal41:Connect(function(arg1143)
@@ -6873,7 +7128,7 @@ getgenv().ghostPuncher = {
 									if connection212 then connection212:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid90 = player.Character:WaitForChild("Humanoid", 8)
 									local Animator74 = Humanoid90:FindFirstChildOfClass("Animator")
-									local connection217 = Animator74.AnimationPlayed:Connect(function(arg1155)
+									local connection217 = Animator74 and Animator74.AnimationPlayed:Connect(function(arg1155)
 									end)
 									local attributeChangedSignal47 = player.Character:GetAttributeChangedSignal("SkinName")
 									local connection218 = attributeChangedSignal47:Connect(function(arg1156)
@@ -6882,7 +7137,7 @@ getgenv().ghostPuncher = {
 										if connection224 then connection224:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid96 = player.Character:WaitForChild("Humanoid", 8)
 										local Animator80 = Humanoid96:FindFirstChildOfClass("Animator")
-										local connection229 = Animator80.AnimationPlayed:Connect(function(arg1168)
+										local connection229 = Animator80 and Animator80.AnimationPlayed:Connect(function(arg1168)
 										end)
 										local attributeChangedSignal53 = player.Character:GetAttributeChangedSignal("SkinName")
 										local connection230 = attributeChangedSignal53:Connect(function(arg1169)
@@ -6891,7 +7146,7 @@ getgenv().ghostPuncher = {
 											if connection236 then connection236:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid102 = player.Character:WaitForChild("Humanoid", 8)
 											local Animator86 = Humanoid102:FindFirstChildOfClass("Animator")
-											local connection241 = Animator86.AnimationPlayed:Connect(function(arg1181)
+											local connection241 = Animator86 and Animator86.AnimationPlayed:Connect(function(arg1181)
 											end)
 											local attributeChangedSignal59 = player.Character:GetAttributeChangedSignal("SkinName")
 											local connection242 = attributeChangedSignal59:Connect(function(arg1182)
@@ -6900,7 +7155,7 @@ getgenv().ghostPuncher = {
 												if connection248 then connection248:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid108 = player.Character:WaitForChild("Humanoid", 8)
 												local Animator92 = Humanoid108:FindFirstChildOfClass("Animator")
-												local connection253 = Animator92.AnimationPlayed:Connect(function(arg1194)
+												local connection253 = Animator92 and Animator92.AnimationPlayed:Connect(function(arg1194)
 												end)
 												local attributeChangedSignal65 = player.Character:GetAttributeChangedSignal("SkinName")
 												local connection254 = attributeChangedSignal65:Connect(function(arg1195)
@@ -6909,7 +7164,7 @@ getgenv().ghostPuncher = {
 													if connection260 then connection260:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid114 = player.Character:WaitForChild("Humanoid", 8)
 													local Animator98 = Humanoid114:FindFirstChildOfClass("Animator")
-													local connection265 = Animator98.AnimationPlayed:Connect(function(arg1207)
+													local connection265 = Animator98 and Animator98.AnimationPlayed:Connect(function(arg1207)
 													end)
 													local attributeChangedSignal71 = player.Character:GetAttributeChangedSignal("SkinName")
 													local connection266 = attributeChangedSignal71:Connect(function(arg1208)
@@ -6918,7 +7173,7 @@ getgenv().ghostPuncher = {
 														if connection272 then connection272:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid120 = player.Character:WaitForChild("Humanoid", 8)
 														local Animator104 = Humanoid120:FindFirstChildOfClass("Animator")
-														local connection277 = Animator104.AnimationPlayed:Connect(function(arg1220)
+														local connection277 = Animator104 and Animator104.AnimationPlayed:Connect(function(arg1220)
 														end)
 														local attributeChangedSignal77 = player.Character:GetAttributeChangedSignal("SkinName")
 														local connection278 = attributeChangedSignal77:Connect(function(arg1221)
@@ -6927,7 +7182,7 @@ getgenv().ghostPuncher = {
 															if connection284 then connection284:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid126 = player.Character:WaitForChild("Humanoid", 8)
 															local Animator110 = Humanoid126:FindFirstChildOfClass("Animator")
-															local connection289 = Animator110.AnimationPlayed:Connect(function(arg1233)
+															local connection289 = Animator110 and Animator110.AnimationPlayed:Connect(function(arg1233)
 															end)
 															local attributeChangedSignal83 = player.Character:GetAttributeChangedSignal("SkinName")
 															local connection290 = attributeChangedSignal83:Connect(function(arg1234)
@@ -6936,7 +7191,7 @@ getgenv().ghostPuncher = {
 																if connection296 then connection296:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid132 = player.Character:WaitForChild("Humanoid", 8)
 																local Animator116 = Humanoid132:FindFirstChildOfClass("Animator")
-																local connection301 = Animator116.AnimationPlayed:Connect(function(arg1246)
+																local connection301 = Animator116 and Animator116.AnimationPlayed:Connect(function(arg1246)
 																end)
 																local attributeChangedSignal89 = player.Character:GetAttributeChangedSignal("SkinName")
 																local connection302 = attributeChangedSignal89:Connect(function(arg1247)
@@ -6945,7 +7200,7 @@ getgenv().ghostPuncher = {
 																	if connection308 then connection308:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid138 = player.Character:WaitForChild("Humanoid", 8)
 																	local Animator122 = Humanoid138:FindFirstChildOfClass("Animator")
-																	local connection313 = Animator122.AnimationPlayed:Connect(function(arg1259)
+																	local connection313 = Animator122 and Animator122.AnimationPlayed:Connect(function(arg1259)
 																	end)
 																	local attributeChangedSignal95 = player.Character:GetAttributeChangedSignal("SkinName")
 																	local connection314 = attributeChangedSignal95:Connect(function(arg1260)
@@ -6954,7 +7209,7 @@ getgenv().ghostPuncher = {
 																		if connection320 then connection320:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid144 = player.Character:WaitForChild("Humanoid", 8)
 																		local Animator128 = Humanoid144:FindFirstChildOfClass("Animator")
-																		local connection325 = Animator128.AnimationPlayed:Connect(function(arg1272)
+																		local connection325 = Animator128 and Animator128.AnimationPlayed:Connect(function(arg1272)
 																		end)
 																		local attributeChangedSignal101 = player.Character:GetAttributeChangedSignal("SkinName")
 																		local connection326 = attributeChangedSignal101:Connect(function(arg1273)
@@ -6963,7 +7218,7 @@ getgenv().ghostPuncher = {
 																			if connection332 then connection332:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid150 = player.Character:WaitForChild("Humanoid", 8)
 																			local Animator134 = Humanoid150:FindFirstChildOfClass("Animator")
-																			local connection337 = Animator134.AnimationPlayed:Connect(function(arg1285)
+																			local connection337 = Animator134 and Animator134.AnimationPlayed:Connect(function(arg1285)
 																			end)
 																			local attributeChangedSignal107 = player.Character:GetAttributeChangedSignal("SkinName")
 																			local connection338 = attributeChangedSignal107:Connect(function(arg1286)
@@ -6972,7 +7227,7 @@ getgenv().ghostPuncher = {
 			if connection344 then connection344:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid156 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator140 = Humanoid156:FindFirstChildOfClass("Animator")
-			local connection349 = Animator140.AnimationPlayed:Connect(function(arg1298)
+			local connection349 = Animator140 and Animator140.AnimationPlayed:Connect(function(arg1298)
 			end)
 			local attributeChangedSignal113 = player.Character:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1007 more lines of repeated iterations removed]
@@ -7000,7 +7255,7 @@ getgenv().ghostPuncher = {
 			if connection146 then connection146:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid51 = character23:WaitForChild("Humanoid", 8)
 			local Animator37 = Humanoid51:FindFirstChildOfClass("Animator")
-			local connection147 = Animator37.AnimationPlayed:Connect(function(arg1071)
+			local connection147 = Animator37 and Animator37.AnimationPlayed:Connect(function(arg1071)
 			end)
 			local attributeChangedSignal11 = character23:GetAttributeChangedSignal("SkinName")
 			local connection148 = attributeChangedSignal11:Connect(function(arg1072)
@@ -7009,7 +7264,7 @@ getgenv().ghostPuncher = {
 				if connection158 then connection158:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid61 = character23:WaitForChild("Humanoid", 8)
 				local Animator45 = Humanoid61:FindFirstChildOfClass("Animator")
-				local connection159 = Animator45.AnimationPlayed:Connect(function(arg1091)
+				local connection159 = Animator45 and Animator45.AnimationPlayed:Connect(function(arg1091)
 				end)
 				local attributeChangedSignal18 = character23:GetAttributeChangedSignal("SkinName")
 				local connection160 = attributeChangedSignal18:Connect(function(arg1092)
@@ -7018,7 +7273,7 @@ getgenv().ghostPuncher = {
 					if connection170 then connection170:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid67 = character23:WaitForChild("Humanoid", 8)
 					local Animator51 = Humanoid67:FindFirstChildOfClass("Animator")
-					local connection171 = Animator51.AnimationPlayed:Connect(function(arg1105)
+					local connection171 = Animator51 and Animator51.AnimationPlayed:Connect(function(arg1105)
 					end)
 					local attributeChangedSignal24 = character23:GetAttributeChangedSignal("SkinName")
 					local connection172 = attributeChangedSignal24:Connect(function(arg1106)
@@ -7027,7 +7282,7 @@ getgenv().ghostPuncher = {
 						if connection182 then connection182:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid73 = character23:WaitForChild("Humanoid", 8)
 						local Animator57 = Humanoid73:FindFirstChildOfClass("Animator")
-						local connection183 = Animator57.AnimationPlayed:Connect(function(arg1118)
+						local connection183 = Animator57 and Animator57.AnimationPlayed:Connect(function(arg1118)
 						end)
 						local attributeChangedSignal30 = character23:GetAttributeChangedSignal("SkinName")
 						local connection184 = attributeChangedSignal30:Connect(function(arg1119)
@@ -7036,7 +7291,7 @@ getgenv().ghostPuncher = {
 							if connection194 then connection194:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid79 = character23:WaitForChild("Humanoid", 8)
 							local Animator63 = Humanoid79:FindFirstChildOfClass("Animator")
-							local connection195 = Animator63.AnimationPlayed:Connect(function(arg1131)
+							local connection195 = Animator63 and Animator63.AnimationPlayed:Connect(function(arg1131)
 							end)
 							local attributeChangedSignal36 = character23:GetAttributeChangedSignal("SkinName")
 							local connection196 = attributeChangedSignal36:Connect(function(arg1132)
@@ -7045,7 +7300,7 @@ getgenv().ghostPuncher = {
 								if connection206 then connection206:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid85 = character23:WaitForChild("Humanoid", 8)
 								local Animator69 = Humanoid85:FindFirstChildOfClass("Animator")
-								local connection207 = Animator69.AnimationPlayed:Connect(function(arg1144)
+								local connection207 = Animator69 and Animator69.AnimationPlayed:Connect(function(arg1144)
 								end)
 								local attributeChangedSignal42 = character23:GetAttributeChangedSignal("SkinName")
 								local connection208 = attributeChangedSignal42:Connect(function(arg1145)
@@ -7054,7 +7309,7 @@ getgenv().ghostPuncher = {
 									if connection218 then connection218:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid91 = character23:WaitForChild("Humanoid", 8)
 									local Animator75 = Humanoid91:FindFirstChildOfClass("Animator")
-									local connection219 = Animator75.AnimationPlayed:Connect(function(arg1157)
+									local connection219 = Animator75 and Animator75.AnimationPlayed:Connect(function(arg1157)
 									end)
 									local attributeChangedSignal48 = character23:GetAttributeChangedSignal("SkinName")
 									local connection220 = attributeChangedSignal48:Connect(function(arg1158)
@@ -7063,7 +7318,7 @@ getgenv().ghostPuncher = {
 										if connection230 then connection230:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid97 = character23:WaitForChild("Humanoid", 8)
 										local Animator81 = Humanoid97:FindFirstChildOfClass("Animator")
-										local connection231 = Animator81.AnimationPlayed:Connect(function(arg1170)
+										local connection231 = Animator81 and Animator81.AnimationPlayed:Connect(function(arg1170)
 										end)
 										local attributeChangedSignal54 = character23:GetAttributeChangedSignal("SkinName")
 										local connection232 = attributeChangedSignal54:Connect(function(arg1171)
@@ -7072,7 +7327,7 @@ getgenv().ghostPuncher = {
 											if connection242 then connection242:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid103 = character23:WaitForChild("Humanoid", 8)
 											local Animator87 = Humanoid103:FindFirstChildOfClass("Animator")
-											local connection243 = Animator87.AnimationPlayed:Connect(function(arg1183)
+											local connection243 = Animator87 and Animator87.AnimationPlayed:Connect(function(arg1183)
 											end)
 											local attributeChangedSignal60 = character23:GetAttributeChangedSignal("SkinName")
 											local connection244 = attributeChangedSignal60:Connect(function(arg1184)
@@ -7081,7 +7336,7 @@ getgenv().ghostPuncher = {
 												if connection254 then connection254:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid109 = character23:WaitForChild("Humanoid", 8)
 												local Animator93 = Humanoid109:FindFirstChildOfClass("Animator")
-												local connection255 = Animator93.AnimationPlayed:Connect(function(arg1196)
+												local connection255 = Animator93 and Animator93.AnimationPlayed:Connect(function(arg1196)
 												end)
 												local attributeChangedSignal66 = character23:GetAttributeChangedSignal("SkinName")
 												local connection256 = attributeChangedSignal66:Connect(function(arg1197)
@@ -7090,7 +7345,7 @@ getgenv().ghostPuncher = {
 													if connection266 then connection266:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid115 = character23:WaitForChild("Humanoid", 8)
 													local Animator99 = Humanoid115:FindFirstChildOfClass("Animator")
-													local connection267 = Animator99.AnimationPlayed:Connect(function(arg1209)
+													local connection267 = Animator99 and Animator99.AnimationPlayed:Connect(function(arg1209)
 													end)
 													local attributeChangedSignal72 = character23:GetAttributeChangedSignal("SkinName")
 													local connection268 = attributeChangedSignal72:Connect(function(arg1210)
@@ -7099,7 +7354,7 @@ getgenv().ghostPuncher = {
 														if connection278 then connection278:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid121 = character23:WaitForChild("Humanoid", 8)
 														local Animator105 = Humanoid121:FindFirstChildOfClass("Animator")
-														local connection279 = Animator105.AnimationPlayed:Connect(function(arg1222)
+														local connection279 = Animator105 and Animator105.AnimationPlayed:Connect(function(arg1222)
 														end)
 														local attributeChangedSignal78 = character23:GetAttributeChangedSignal("SkinName")
 														local connection280 = attributeChangedSignal78:Connect(function(arg1223)
@@ -7108,7 +7363,7 @@ getgenv().ghostPuncher = {
 															if connection290 then connection290:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid127 = character23:WaitForChild("Humanoid", 8)
 															local Animator111 = Humanoid127:FindFirstChildOfClass("Animator")
-															local connection291 = Animator111.AnimationPlayed:Connect(function(arg1235)
+															local connection291 = Animator111 and Animator111.AnimationPlayed:Connect(function(arg1235)
 															end)
 															local attributeChangedSignal84 = character23:GetAttributeChangedSignal("SkinName")
 															local connection292 = attributeChangedSignal84:Connect(function(arg1236)
@@ -7117,7 +7372,7 @@ getgenv().ghostPuncher = {
 																if connection302 then connection302:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid133 = character23:WaitForChild("Humanoid", 8)
 																local Animator117 = Humanoid133:FindFirstChildOfClass("Animator")
-																local connection303 = Animator117.AnimationPlayed:Connect(function(arg1248)
+																local connection303 = Animator117 and Animator117.AnimationPlayed:Connect(function(arg1248)
 																end)
 																local attributeChangedSignal90 = character23:GetAttributeChangedSignal("SkinName")
 																local connection304 = attributeChangedSignal90:Connect(function(arg1249)
@@ -7126,7 +7381,7 @@ getgenv().ghostPuncher = {
 																	if connection314 then connection314:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid139 = character23:WaitForChild("Humanoid", 8)
 																	local Animator123 = Humanoid139:FindFirstChildOfClass("Animator")
-																	local connection315 = Animator123.AnimationPlayed:Connect(function(arg1261)
+																	local connection315 = Animator123 and Animator123.AnimationPlayed:Connect(function(arg1261)
 																	end)
 																	local attributeChangedSignal96 = character23:GetAttributeChangedSignal("SkinName")
 																	local connection316 = attributeChangedSignal96:Connect(function(arg1262)
@@ -7135,7 +7390,7 @@ getgenv().ghostPuncher = {
 																		if connection326 then connection326:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid145 = character23:WaitForChild("Humanoid", 8)
 																		local Animator129 = Humanoid145:FindFirstChildOfClass("Animator")
-																		local connection327 = Animator129.AnimationPlayed:Connect(function(arg1274)
+																		local connection327 = Animator129 and Animator129.AnimationPlayed:Connect(function(arg1274)
 																		end)
 																		local attributeChangedSignal102 = character23:GetAttributeChangedSignal("SkinName")
 																		local connection328 = attributeChangedSignal102:Connect(function(arg1275)
@@ -7144,7 +7399,7 @@ getgenv().ghostPuncher = {
 																			if connection338 then connection338:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid151 = character23:WaitForChild("Humanoid", 8)
 																			local Animator135 = Humanoid151:FindFirstChildOfClass("Animator")
-																			local connection339 = Animator135.AnimationPlayed:Connect(function(arg1287)
+																			local connection339 = Animator135 and Animator135.AnimationPlayed:Connect(function(arg1287)
 																			end)
 																			local attributeChangedSignal108 = character23:GetAttributeChangedSignal("SkinName")
 																			local connection340 = attributeChangedSignal108:Connect(function(arg1288)
@@ -7153,7 +7408,7 @@ getgenv().ghostPuncher = {
 			if connection350 then connection350:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid157 = character23:WaitForChild("Humanoid", 8)
 			local Animator141 = Humanoid157:FindFirstChildOfClass("Animator")
-			local connection351 = Animator141.AnimationPlayed:Connect(function(arg1300)
+			local connection351 = Animator141 and Animator141.AnimationPlayed:Connect(function(arg1300)
 			end)
 			local attributeChangedSignal114 = character23:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1007 more lines of repeated iterations removed]
@@ -7189,10 +7444,10 @@ Tab29:AddCheckbox("VX_flag_204", {
 			if connection108 then connection108:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid24 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator17 = Humanoid24:FindFirstChildOfClass("Animator")
-			local connection111 = Animator17.AnimationPlayed:Connect(function(arg690)
+			local connection111 = Animator17 and Animator17.AnimationPlayed:Connect(function(arg690)
 			end)
-			local tracks4 = Animator17:GetPlayingAnimationTracks()
-			for i158, v284 in ipairs(tracks4) do
+			local tracks4 = Animator17 and Animator17:GetPlayingAnimationTracks()
+			for i158, v284 in ipairs(tracks4 or {}) do -- [[deobf: guard]]
 				tostring(v284.Animation.AnimationId):match("%d+")
 				task.defer(function(...)
 				end)
@@ -7204,7 +7459,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 				if connection144 then connection144:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid52 = player.Character:WaitForChild("Humanoid", 8)
 				local Animator38 = Humanoid52:FindFirstChildOfClass("Animator")
-				local connection149 = Animator38.AnimationPlayed:Connect(function(arg1073)
+				local connection149 = Animator38 and Animator38.AnimationPlayed:Connect(function(arg1073)
 				end)
 				local attributeChangedSignal12 = player.Character:GetAttributeChangedSignal("SkinName")
 				local connection150 = attributeChangedSignal12:Connect(function(arg1074)
@@ -7213,7 +7468,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 					if connection156 then connection156:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid62 = player.Character:WaitForChild("Humanoid", 8)
 					local Animator46 = Humanoid62:FindFirstChildOfClass("Animator")
-					local connection161 = Animator46.AnimationPlayed:Connect(function(arg1093)
+					local connection161 = Animator46 and Animator46.AnimationPlayed:Connect(function(arg1093)
 					end)
 					local attributeChangedSignal19 = player.Character:GetAttributeChangedSignal("SkinName")
 					local connection162 = attributeChangedSignal19:Connect(function(arg1094)
@@ -7222,7 +7477,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 						if connection168 then connection168:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid68 = player.Character:WaitForChild("Humanoid", 8)
 						local Animator52 = Humanoid68:FindFirstChildOfClass("Animator")
-						local connection173 = Animator52.AnimationPlayed:Connect(function(arg1107)
+						local connection173 = Animator52 and Animator52.AnimationPlayed:Connect(function(arg1107)
 						end)
 						local attributeChangedSignal25 = player.Character:GetAttributeChangedSignal("SkinName")
 						local connection174 = attributeChangedSignal25:Connect(function(arg1108)
@@ -7231,7 +7486,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 							if connection180 then connection180:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid74 = player.Character:WaitForChild("Humanoid", 8)
 							local Animator58 = Humanoid74:FindFirstChildOfClass("Animator")
-							local connection185 = Animator58.AnimationPlayed:Connect(function(arg1120)
+							local connection185 = Animator58 and Animator58.AnimationPlayed:Connect(function(arg1120)
 							end)
 							local attributeChangedSignal31 = player.Character:GetAttributeChangedSignal("SkinName")
 							local connection186 = attributeChangedSignal31:Connect(function(arg1121)
@@ -7240,7 +7495,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 								if connection192 then connection192:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid80 = player.Character:WaitForChild("Humanoid", 8)
 								local Animator64 = Humanoid80:FindFirstChildOfClass("Animator")
-								local connection197 = Animator64.AnimationPlayed:Connect(function(arg1133)
+								local connection197 = Animator64 and Animator64.AnimationPlayed:Connect(function(arg1133)
 								end)
 								local attributeChangedSignal37 = player.Character:GetAttributeChangedSignal("SkinName")
 								local connection198 = attributeChangedSignal37:Connect(function(arg1134)
@@ -7249,7 +7504,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 									if connection204 then connection204:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid86 = player.Character:WaitForChild("Humanoid", 8)
 									local Animator70 = Humanoid86:FindFirstChildOfClass("Animator")
-									local connection209 = Animator70.AnimationPlayed:Connect(function(arg1146)
+									local connection209 = Animator70 and Animator70.AnimationPlayed:Connect(function(arg1146)
 									end)
 									local attributeChangedSignal43 = player.Character:GetAttributeChangedSignal("SkinName")
 									local connection210 = attributeChangedSignal43:Connect(function(arg1147)
@@ -7258,7 +7513,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 										if connection216 then connection216:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid92 = player.Character:WaitForChild("Humanoid", 8)
 										local Animator76 = Humanoid92:FindFirstChildOfClass("Animator")
-										local connection221 = Animator76.AnimationPlayed:Connect(function(arg1159)
+										local connection221 = Animator76 and Animator76.AnimationPlayed:Connect(function(arg1159)
 										end)
 										local attributeChangedSignal49 = player.Character:GetAttributeChangedSignal("SkinName")
 										local connection222 = attributeChangedSignal49:Connect(function(arg1160)
@@ -7267,7 +7522,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 											if connection228 then connection228:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid98 = player.Character:WaitForChild("Humanoid", 8)
 											local Animator82 = Humanoid98:FindFirstChildOfClass("Animator")
-											local connection233 = Animator82.AnimationPlayed:Connect(function(arg1172)
+											local connection233 = Animator82 and Animator82.AnimationPlayed:Connect(function(arg1172)
 											end)
 											local attributeChangedSignal55 = player.Character:GetAttributeChangedSignal("SkinName")
 											local connection234 = attributeChangedSignal55:Connect(function(arg1173)
@@ -7276,7 +7531,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 												if connection240 then connection240:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid104 = player.Character:WaitForChild("Humanoid", 8)
 												local Animator88 = Humanoid104:FindFirstChildOfClass("Animator")
-												local connection245 = Animator88.AnimationPlayed:Connect(function(arg1185)
+												local connection245 = Animator88 and Animator88.AnimationPlayed:Connect(function(arg1185)
 												end)
 												local attributeChangedSignal61 = player.Character:GetAttributeChangedSignal("SkinName")
 												local connection246 = attributeChangedSignal61:Connect(function(arg1186)
@@ -7285,7 +7540,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 													if connection252 then connection252:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid110 = player.Character:WaitForChild("Humanoid", 8)
 													local Animator94 = Humanoid110:FindFirstChildOfClass("Animator")
-													local connection257 = Animator94.AnimationPlayed:Connect(function(arg1198)
+													local connection257 = Animator94 and Animator94.AnimationPlayed:Connect(function(arg1198)
 													end)
 													local attributeChangedSignal67 = player.Character:GetAttributeChangedSignal("SkinName")
 													local connection258 = attributeChangedSignal67:Connect(function(arg1199)
@@ -7294,7 +7549,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 														if connection264 then connection264:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid116 = player.Character:WaitForChild("Humanoid", 8)
 														local Animator100 = Humanoid116:FindFirstChildOfClass("Animator")
-														local connection269 = Animator100.AnimationPlayed:Connect(function(arg1211)
+														local connection269 = Animator100 and Animator100.AnimationPlayed:Connect(function(arg1211)
 														end)
 														local attributeChangedSignal73 = player.Character:GetAttributeChangedSignal("SkinName")
 														local connection270 = attributeChangedSignal73:Connect(function(arg1212)
@@ -7303,7 +7558,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 															if connection276 then connection276:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid122 = player.Character:WaitForChild("Humanoid", 8)
 															local Animator106 = Humanoid122:FindFirstChildOfClass("Animator")
-															local connection281 = Animator106.AnimationPlayed:Connect(function(arg1224)
+															local connection281 = Animator106 and Animator106.AnimationPlayed:Connect(function(arg1224)
 															end)
 															local attributeChangedSignal79 = player.Character:GetAttributeChangedSignal("SkinName")
 															local connection282 = attributeChangedSignal79:Connect(function(arg1225)
@@ -7312,7 +7567,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 																if connection288 then connection288:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid128 = player.Character:WaitForChild("Humanoid", 8)
 																local Animator112 = Humanoid128:FindFirstChildOfClass("Animator")
-																local connection293 = Animator112.AnimationPlayed:Connect(function(arg1237)
+																local connection293 = Animator112 and Animator112.AnimationPlayed:Connect(function(arg1237)
 																end)
 																local attributeChangedSignal85 = player.Character:GetAttributeChangedSignal("SkinName")
 																local connection294 = attributeChangedSignal85:Connect(function(arg1238)
@@ -7321,7 +7576,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 																	if connection300 then connection300:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid134 = player.Character:WaitForChild("Humanoid", 8)
 																	local Animator118 = Humanoid134:FindFirstChildOfClass("Animator")
-																	local connection305 = Animator118.AnimationPlayed:Connect(function(arg1250)
+																	local connection305 = Animator118 and Animator118.AnimationPlayed:Connect(function(arg1250)
 																	end)
 																	local attributeChangedSignal91 = player.Character:GetAttributeChangedSignal("SkinName")
 																	local connection306 = attributeChangedSignal91:Connect(function(arg1251)
@@ -7330,7 +7585,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 																		if connection312 then connection312:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid140 = player.Character:WaitForChild("Humanoid", 8)
 																		local Animator124 = Humanoid140:FindFirstChildOfClass("Animator")
-																		local connection317 = Animator124.AnimationPlayed:Connect(function(arg1263)
+																		local connection317 = Animator124 and Animator124.AnimationPlayed:Connect(function(arg1263)
 																		end)
 																		local attributeChangedSignal97 = player.Character:GetAttributeChangedSignal("SkinName")
 																		local connection318 = attributeChangedSignal97:Connect(function(arg1264)
@@ -7339,7 +7594,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 																			if connection324 then connection324:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid146 = player.Character:WaitForChild("Humanoid", 8)
 																			local Animator130 = Humanoid146:FindFirstChildOfClass("Animator")
-																			local connection329 = Animator130.AnimationPlayed:Connect(function(arg1276)
+																			local connection329 = Animator130 and Animator130.AnimationPlayed:Connect(function(arg1276)
 																			end)
 																			local attributeChangedSignal103 = player.Character:GetAttributeChangedSignal("SkinName")
 																			local connection330 = attributeChangedSignal103:Connect(function(arg1277)
@@ -7348,7 +7603,7 @@ Tab29:AddCheckbox("VX_flag_204", {
 			if connection336 then connection336:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid152 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator136 = Humanoid152:FindFirstChildOfClass("Animator")
-			local connection341 = Animator136.AnimationPlayed:Connect(function(arg1289)
+			local connection341 = Animator136 and Animator136.AnimationPlayed:Connect(function(arg1289)
 			end)
 			local attributeChangedSignal109 = player.Character:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1017 more lines of repeated iterations removed]
@@ -7382,10 +7637,10 @@ Tab29:AddCheckbox("VX_flag_205", {
 			if connection110 then connection110:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid25 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator18 = Humanoid25:FindFirstChildOfClass("Animator")
-			local connection113 = Animator18.AnimationPlayed:Connect(function(arg694)
+			local connection113 = Animator18 and Animator18.AnimationPlayed:Connect(function(arg694)
 			end)
-			local tracks5 = Animator18:GetPlayingAnimationTracks()
-			for i159, v285 in ipairs(tracks5) do
+			local tracks5 = Animator18 and Animator18:GetPlayingAnimationTracks()
+			for i159, v285 in ipairs(tracks5 or {}) do -- [[deobf: guard]]
 				tostring(v285.Animation.AnimationId):match("%d+")
 				task.defer(function(...)
 				end)
@@ -7397,7 +7652,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 				if connection148 then connection148:Disconnect() end -- [[deobf: guard — определение в другой области]]
 				local Humanoid53 = player.Character:WaitForChild("Humanoid", 8)
 				local Animator39 = Humanoid53:FindFirstChildOfClass("Animator")
-				local connection151 = Animator39.AnimationPlayed:Connect(function(arg1075)
+				local connection151 = Animator39 and Animator39.AnimationPlayed:Connect(function(arg1075)
 				end)
 				local attributeChangedSignal13 = player.Character:GetAttributeChangedSignal("SkinName")
 				local connection152 = attributeChangedSignal13:Connect(function(arg1076)
@@ -7406,7 +7661,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 					if connection160 then connection160:Disconnect() end -- [[deobf: guard — определение в другой области]]
 					local Humanoid63 = player.Character:WaitForChild("Humanoid", 8)
 					local Animator47 = Humanoid63:FindFirstChildOfClass("Animator")
-					local connection163 = Animator47.AnimationPlayed:Connect(function(arg1095)
+					local connection163 = Animator47 and Animator47.AnimationPlayed:Connect(function(arg1095)
 					end)
 					local attributeChangedSignal20 = player.Character:GetAttributeChangedSignal("SkinName")
 					local connection164 = attributeChangedSignal20:Connect(function(arg1096)
@@ -7415,7 +7670,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 						if connection172 then connection172:Disconnect() end -- [[deobf: guard — определение в другой области]]
 						local Humanoid69 = player.Character:WaitForChild("Humanoid", 8)
 						local Animator53 = Humanoid69:FindFirstChildOfClass("Animator")
-						local connection175 = Animator53.AnimationPlayed:Connect(function(arg1109)
+						local connection175 = Animator53 and Animator53.AnimationPlayed:Connect(function(arg1109)
 						end)
 						local attributeChangedSignal26 = player.Character:GetAttributeChangedSignal("SkinName")
 						local connection176 = attributeChangedSignal26:Connect(function(arg1110)
@@ -7424,7 +7679,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 							if connection184 then connection184:Disconnect() end -- [[deobf: guard — определение в другой области]]
 							local Humanoid75 = player.Character:WaitForChild("Humanoid", 8)
 							local Animator59 = Humanoid75:FindFirstChildOfClass("Animator")
-							local connection187 = Animator59.AnimationPlayed:Connect(function(arg1122)
+							local connection187 = Animator59 and Animator59.AnimationPlayed:Connect(function(arg1122)
 							end)
 							local attributeChangedSignal32 = player.Character:GetAttributeChangedSignal("SkinName")
 							local connection188 = attributeChangedSignal32:Connect(function(arg1123)
@@ -7433,7 +7688,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 								if connection196 then connection196:Disconnect() end -- [[deobf: guard — определение в другой области]]
 								local Humanoid81 = player.Character:WaitForChild("Humanoid", 8)
 								local Animator65 = Humanoid81:FindFirstChildOfClass("Animator")
-								local connection199 = Animator65.AnimationPlayed:Connect(function(arg1135)
+								local connection199 = Animator65 and Animator65.AnimationPlayed:Connect(function(arg1135)
 								end)
 								local attributeChangedSignal38 = player.Character:GetAttributeChangedSignal("SkinName")
 								local connection200 = attributeChangedSignal38:Connect(function(arg1136)
@@ -7442,7 +7697,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 									if connection208 then connection208:Disconnect() end -- [[deobf: guard — определение в другой области]]
 									local Humanoid87 = player.Character:WaitForChild("Humanoid", 8)
 									local Animator71 = Humanoid87:FindFirstChildOfClass("Animator")
-									local connection211 = Animator71.AnimationPlayed:Connect(function(arg1148)
+									local connection211 = Animator71 and Animator71.AnimationPlayed:Connect(function(arg1148)
 									end)
 									local attributeChangedSignal44 = player.Character:GetAttributeChangedSignal("SkinName")
 									local connection212 = attributeChangedSignal44:Connect(function(arg1149)
@@ -7451,7 +7706,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 										if connection220 then connection220:Disconnect() end -- [[deobf: guard — определение в другой области]]
 										local Humanoid93 = player.Character:WaitForChild("Humanoid", 8)
 										local Animator77 = Humanoid93:FindFirstChildOfClass("Animator")
-										local connection223 = Animator77.AnimationPlayed:Connect(function(arg1161)
+										local connection223 = Animator77 and Animator77.AnimationPlayed:Connect(function(arg1161)
 										end)
 										local attributeChangedSignal50 = player.Character:GetAttributeChangedSignal("SkinName")
 										local connection224 = attributeChangedSignal50:Connect(function(arg1162)
@@ -7460,7 +7715,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 											if connection232 then connection232:Disconnect() end -- [[deobf: guard — определение в другой области]]
 											local Humanoid99 = player.Character:WaitForChild("Humanoid", 8)
 											local Animator83 = Humanoid99:FindFirstChildOfClass("Animator")
-											local connection235 = Animator83.AnimationPlayed:Connect(function(arg1174)
+											local connection235 = Animator83 and Animator83.AnimationPlayed:Connect(function(arg1174)
 											end)
 											local attributeChangedSignal56 = player.Character:GetAttributeChangedSignal("SkinName")
 											local connection236 = attributeChangedSignal56:Connect(function(arg1175)
@@ -7469,7 +7724,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 												if connection244 then connection244:Disconnect() end -- [[deobf: guard — определение в другой области]]
 												local Humanoid105 = player.Character:WaitForChild("Humanoid", 8)
 												local Animator89 = Humanoid105:FindFirstChildOfClass("Animator")
-												local connection247 = Animator89.AnimationPlayed:Connect(function(arg1187)
+												local connection247 = Animator89 and Animator89.AnimationPlayed:Connect(function(arg1187)
 												end)
 												local attributeChangedSignal62 = player.Character:GetAttributeChangedSignal("SkinName")
 												local connection248 = attributeChangedSignal62:Connect(function(arg1188)
@@ -7478,7 +7733,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 													if connection256 then connection256:Disconnect() end -- [[deobf: guard — определение в другой области]]
 													local Humanoid111 = player.Character:WaitForChild("Humanoid", 8)
 													local Animator95 = Humanoid111:FindFirstChildOfClass("Animator")
-													local connection259 = Animator95.AnimationPlayed:Connect(function(arg1200)
+													local connection259 = Animator95 and Animator95.AnimationPlayed:Connect(function(arg1200)
 													end)
 													local attributeChangedSignal68 = player.Character:GetAttributeChangedSignal("SkinName")
 													local connection260 = attributeChangedSignal68:Connect(function(arg1201)
@@ -7487,7 +7742,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 														if connection268 then connection268:Disconnect() end -- [[deobf: guard — определение в другой области]]
 														local Humanoid117 = player.Character:WaitForChild("Humanoid", 8)
 														local Animator101 = Humanoid117:FindFirstChildOfClass("Animator")
-														local connection271 = Animator101.AnimationPlayed:Connect(function(arg1213)
+														local connection271 = Animator101 and Animator101.AnimationPlayed:Connect(function(arg1213)
 														end)
 														local attributeChangedSignal74 = player.Character:GetAttributeChangedSignal("SkinName")
 														local connection272 = attributeChangedSignal74:Connect(function(arg1214)
@@ -7496,7 +7751,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 															if connection280 then connection280:Disconnect() end -- [[deobf: guard — определение в другой области]]
 															local Humanoid123 = player.Character:WaitForChild("Humanoid", 8)
 															local Animator107 = Humanoid123:FindFirstChildOfClass("Animator")
-															local connection283 = Animator107.AnimationPlayed:Connect(function(arg1226)
+															local connection283 = Animator107 and Animator107.AnimationPlayed:Connect(function(arg1226)
 															end)
 															local attributeChangedSignal80 = player.Character:GetAttributeChangedSignal("SkinName")
 															local connection284 = attributeChangedSignal80:Connect(function(arg1227)
@@ -7505,7 +7760,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 																if connection292 then connection292:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																local Humanoid129 = player.Character:WaitForChild("Humanoid", 8)
 																local Animator113 = Humanoid129:FindFirstChildOfClass("Animator")
-																local connection295 = Animator113.AnimationPlayed:Connect(function(arg1239)
+																local connection295 = Animator113 and Animator113.AnimationPlayed:Connect(function(arg1239)
 																end)
 																local attributeChangedSignal86 = player.Character:GetAttributeChangedSignal("SkinName")
 																local connection296 = attributeChangedSignal86:Connect(function(arg1240)
@@ -7514,7 +7769,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 																	if connection304 then connection304:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																	local Humanoid135 = player.Character:WaitForChild("Humanoid", 8)
 																	local Animator119 = Humanoid135:FindFirstChildOfClass("Animator")
-																	local connection307 = Animator119.AnimationPlayed:Connect(function(arg1252)
+																	local connection307 = Animator119 and Animator119.AnimationPlayed:Connect(function(arg1252)
 																	end)
 																	local attributeChangedSignal92 = player.Character:GetAttributeChangedSignal("SkinName")
 																	local connection308 = attributeChangedSignal92:Connect(function(arg1253)
@@ -7523,7 +7778,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 																		if connection316 then connection316:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																		local Humanoid141 = player.Character:WaitForChild("Humanoid", 8)
 																		local Animator125 = Humanoid141:FindFirstChildOfClass("Animator")
-																		local connection319 = Animator125.AnimationPlayed:Connect(function(arg1265)
+																		local connection319 = Animator125 and Animator125.AnimationPlayed:Connect(function(arg1265)
 																		end)
 																		local attributeChangedSignal98 = player.Character:GetAttributeChangedSignal("SkinName")
 																		local connection320 = attributeChangedSignal98:Connect(function(arg1266)
@@ -7532,7 +7787,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 																			if connection328 then connection328:Disconnect() end -- [[deobf: guard — определение в другой области]]
 																			local Humanoid147 = player.Character:WaitForChild("Humanoid", 8)
 																			local Animator131 = Humanoid147:FindFirstChildOfClass("Animator")
-																			local connection331 = Animator131.AnimationPlayed:Connect(function(arg1278)
+																			local connection331 = Animator131 and Animator131.AnimationPlayed:Connect(function(arg1278)
 																			end)
 																			local attributeChangedSignal104 = player.Character:GetAttributeChangedSignal("SkinName")
 																			local connection332 = attributeChangedSignal104:Connect(function(arg1279)
@@ -7541,7 +7796,7 @@ Tab29:AddCheckbox("VX_flag_205", {
 			if connection340 then connection340:Disconnect() end -- [[deobf: guard — определение в другой области]]
 			local Humanoid153 = player.Character:WaitForChild("Humanoid", 8)
 			local Animator137 = Humanoid153:FindFirstChildOfClass("Animator")
-			local connection343 = Animator137.AnimationPlayed:Connect(function(arg1291)
+			local connection343 = Animator137 and Animator137.AnimationPlayed:Connect(function(arg1291)
 			end)
 			local attributeChangedSignal110 = player.Character:GetAttributeChangedSignal("SkinName")
 			-- [deobf: unrolled loop/chain truncated: 1017 more lines of repeated iterations removed]
@@ -7870,8 +8125,8 @@ end
 RunService.RenderStepped:Connect(function(deltaTime43)
 	local Humanoid54 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid")
 	local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
-	local tracks12 = Humanoid54:GetPlayingAnimationTracks()
-	for k147, v357 in pairs(tracks12) do
+	local tracks12 = Humanoid54 and Humanoid54:GetPlayingAnimationTracks()
+	for k147, v357 in pairs(tracks12 or {}) do -- [[deobf: guard]]
 		tostring(v357.Animation.AnimationId):match("%d+")
 	end
 end)
@@ -8095,12 +8350,16 @@ getgenv().setHRPVelocitySafe = function(arg750, arg751)
 	arg750.AssemblyLinearVelocity = arg751
 end
 getgenv().isBlockReady = function(arg752, arg753)
-	local PlayerGui5 = Players.LocalPlayer:FindFirstChild("PlayerGui")
-	local MainUI3 = PlayerGui5:FindFirstChild("MainUI")
-	local AbilityContainer = MainUI3:FindFirstChild("AbilityContainer")
-	local Block = AbilityContainer:FindFirstChild("Block")
-	local CooldownTime = Block:FindFirstChild("CooldownTime")
+	local PlayerGui5 = (Players and Players.LocalPlayer) and Players.LocalPlayer:FindFirstChild("PlayerGui") or nil -- [[deobf: nil-chain guard]]
+	local MainUI3 = PlayerGui5 and PlayerGui5:FindFirstChild("MainUI")
+	local AbilityContainer = MainUI3 and MainUI3:FindFirstChild("AbilityContainer")
+	local Block = AbilityContainer and AbilityContainer:FindFirstChild("Block")
+	local CooldownTime = Block and Block:FindFirstChild("CooldownTime")
+	if CooldownTime then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if CooldownTime then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	CooldownTime.Text:match("[%d%.]+")
+	end
+	end
 end
 getgenv().get_ping_seconds = function(arg754, arg755)
 	Stats.Network.ServerStatsItem["Data Ping"]:GetValue()
@@ -8123,9 +8382,9 @@ getgenv().is_guest1337_unblockable = function(arg758, arg759)
 end
 getgenv().resolve_ability_name = function(arg760, arg761)
 	local Humanoid26 = arg760:FindFirstChildOfClass("Humanoid")
-	local Animator19 = Humanoid26:FindFirstChildOfClass("Animator")
-	local tracks6 = Animator19:GetPlayingAnimationTracks()
-	for i164, v290 in ipairs(tracks6) do
+	local Animator19 = Humanoid26 and Humanoid26:FindFirstChildOfClass("Animator")
+	local tracks6 = Animator19 and Animator19:GetPlayingAnimationTracks()
+	for i164, v290 in ipairs(tracks6 or {}) do -- [[deobf: guard]]
 	end
 end
 getgenv().get_windup = function(arg762, arg763)
@@ -8164,8 +8423,8 @@ getgenv().fire_block = function(arg776, arg777)
 end
 getgenv().hdtIsBlockTriggered = function(arg778, arg779)
 	local Humanoid27 = arg778:FindFirstChildOfClass("Humanoid")
-	local tracks7 = Humanoid27:GetPlayingAnimationTracks()
-	for i165, v291 in ipairs(tracks7) do
+	local tracks7 = Humanoid27 and Humanoid27:GetPlayingAnimationTracks()
+	for i165, v291 in ipairs(tracks7 or {}) do -- [[deobf: guard]]
 		tostring(v291.Animation.AnimationId):match("%d+")
 	end
 	local descendants68 = arg778:GetDescendants()
@@ -8275,10 +8534,14 @@ for i168, v294 in ipairs(children186) do
 		end)
 	end)
 	local Humanoid28 = v294:FindFirstChildOfClass("Humanoid")
-	local Animator20 = Humanoid28:FindFirstChildOfClass("Animator")
+	local Animator20 = Humanoid28 and Humanoid28:FindFirstChildOfClass("Animator")
+	if Animator20 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Animator20 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Animator20.AnimationPlayed:Connect(function(arg793)
 		tostring(arg793.Animation.AnimationId):match("%d+")
 	end)
+	end
+	end
 end
 Killers53.ChildAdded:Connect(function(child42)
 	local descendants82 = child42:GetDescendants()
@@ -8317,10 +8580,14 @@ Killers53.ChildAdded:Connect(function(child42)
 		end)
 	end)
 	local Humanoid55 = child42:FindFirstChildOfClass("Humanoid")
-	local Animator40 = Humanoid55:FindFirstChildOfClass("Animator")
+	local Animator40 = Humanoid55 and Humanoid55:FindFirstChildOfClass("Animator")
+	if Animator40 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Animator40 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Animator40.AnimationPlayed:Connect(function(arg1080)
 		tostring(arg1080.Animation.AnimationId):match("%d+")
 	end)
+	end
+	end
 end)
 RunService.Heartbeat:Connect(function(deltaTime47)
 end)
@@ -8494,8 +8761,8 @@ Tab32:AddCheckbox("VX_flag_218", {
 							ReplicatedStorage.Assets:FindFirstChild("Skins")
 							ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 							local Nosferatu = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Nosferatu")
-							local children187 = Nosferatu:GetChildren()
-							for i171, v297 in ipairs(children187) do
+							local children187 = Nosferatu and Nosferatu:GetChildren()
+							for i171, v297 in ipairs(children187 or {}) do -- [[deobf: guard]]
 								local Config3 = v297:FindFirstChild("Config")
 								require(Config3)
 							end
@@ -8507,8 +8774,8 @@ Tab32:AddCheckbox("VX_flag_218", {
 							ReplicatedStorage.Assets:FindFirstChild("Skins")
 							ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 							local v1x1x1x1 = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("1x1x1x1")
-							local children188 = v1x1x1x1:GetChildren()
-							for i172, v298 in ipairs(children188) do
+							local children188 = v1x1x1x1 and v1x1x1x1:GetChildren()
+							for i172, v298 in ipairs(children188 or {}) do -- [[deobf: guard]]
 								local Config4 = v298:FindFirstChild("Config")
 								require(Config4)
 							end
@@ -8651,8 +8918,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local Azure4 = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Azure")
-	local children189 = Azure4:GetChildren()
-	for i174, v300 in ipairs(children189) do
+	local children189 = Azure4 and Azure4:GetChildren()
+	for i174, v300 in ipairs(children189 or {}) do -- [[deobf: guard]]
 		local Config5 = v300:FindFirstChild("Config")
 		require(Config5)
 	end
@@ -8664,8 +8931,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local v1x1x1x12 = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("1x1x1x1")
-	local children190 = v1x1x1x12:GetChildren()
-	for i175, v301 in ipairs(children190) do
+	local children190 = v1x1x1x12 and v1x1x1x12:GetChildren()
+	for i175, v301 in ipairs(children190 or {}) do -- [[deobf: guard]]
 		local Config6 = v301:FindFirstChild("Config")
 		require(Config6)
 	end
@@ -8676,8 +8943,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local Slasher2 = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Slasher")
-	local children191 = Slasher2:GetChildren()
-	for i176, v302 in ipairs(children191) do
+	local children191 = Slasher2 and Slasher2:GetChildren()
+	for i176, v302 in ipairs(children191 or {}) do -- [[deobf: guard]]
 		local Config7 = v302:FindFirstChild("Config")
 		require(Config7)
 	end
@@ -8688,8 +8955,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local JohnDoe = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("JohnDoe")
-	local children192 = JohnDoe:GetChildren()
-	for i177, v303 in ipairs(children192) do
+	local children192 = JohnDoe and JohnDoe:GetChildren()
+	for i177, v303 in ipairs(children192 or {}) do -- [[deobf: guard]]
 		local Config8 = v303:FindFirstChild("Config")
 		require(Config8)
 	end
@@ -8700,8 +8967,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local c00lkidd = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("c00lkidd")
-	local children193 = c00lkidd:GetChildren()
-	for i178, v304 in ipairs(children193) do
+	local children193 = c00lkidd and c00lkidd:GetChildren()
+	for i178, v304 in ipairs(children193 or {}) do -- [[deobf: guard]]
 		local Config9 = v304:FindFirstChild("Config")
 		require(Config9)
 	end
@@ -8712,8 +8979,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local Noli = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Noli")
-	local children194 = Noli:GetChildren()
-	for i179, v305 in ipairs(children194) do
+	local children194 = Noli and Noli:GetChildren()
+	for i179, v305 in ipairs(children194 or {}) do -- [[deobf: guard]]
 		local Config10 = v305:FindFirstChild("Config")
 		require(Config10)
 	end
@@ -8724,8 +8991,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Survivors")
 	local Shedletsky = ReplicatedStorage.Assets.Skins.Survivors:FindFirstChild("Shedletsky")
-	local children195 = Shedletsky:GetChildren()
-	for i180, v306 in ipairs(children195) do
+	local children195 = Shedletsky and Shedletsky:GetChildren()
+	for i180, v306 in ipairs(children195 or {}) do -- [[deobf: guard]]
 		local Config11 = v306:FindFirstChild("Config")
 		require(Config11)
 	end
@@ -8736,8 +9003,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Survivors")
 	local Elliot = ReplicatedStorage.Assets.Skins.Survivors:FindFirstChild("Elliot")
-	local children196 = Elliot:GetChildren()
-	for i181, v307 in ipairs(children196) do
+	local children196 = Elliot and Elliot:GetChildren()
+	for i181, v307 in ipairs(children196 or {}) do -- [[deobf: guard]]
 		local Config12 = v307:FindFirstChild("Config")
 		require(Config12)
 	end
@@ -8748,8 +9015,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Survivors")
 	local JaneDoe = ReplicatedStorage.Assets.Skins.Survivors:FindFirstChild("JaneDoe")
-	local children197 = JaneDoe:GetChildren()
-	for i182, v308 in ipairs(children197) do
+	local children197 = JaneDoe and JaneDoe:GetChildren()
+	for i182, v308 in ipairs(children197 or {}) do -- [[deobf: guard]]
 		local Config13 = v308:FindFirstChild("Config")
 		require(Config13)
 	end
@@ -8760,8 +9027,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local Nosferatu2 = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Nosferatu")
-	local children198 = Nosferatu2:GetChildren()
-	for i183, v309 in ipairs(children198) do
+	local children198 = Nosferatu2 and Nosferatu2:GetChildren()
+	for i183, v309 in ipairs(children198 or {}) do -- [[deobf: guard]]
 		local Config14 = v309:FindFirstChild("Config")
 		require(Config14)
 	end
@@ -8772,8 +9039,8 @@ task.spawn(function(...)
 	ReplicatedStorage.Assets:FindFirstChild("Skins")
 	ReplicatedStorage.Assets.Skins:FindFirstChild("Killers")
 	local Sixer = ReplicatedStorage.Assets.Skins.Killers:FindFirstChild("Sixer")
-	local children199 = Sixer:GetChildren()
-	for i184, v310 in ipairs(children199) do
+	local children199 = Sixer and Sixer:GetChildren()
+	for i184, v310 in ipairs(children199 or {}) do -- [[deobf: guard]]
 		local Config15 = v310:FindFirstChild("Config")
 		require(Config15)
 	end
@@ -8879,31 +9146,31 @@ task.spawn(function(...)
 	getgenv().GetNearestKiller = function(arg854, arg855)
 		local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
 		workspace:FindFirstChild("Players")
-		local Killers54 = workspace.Players:FindFirstChild("Killers")
-		local children200 = Killers54:GetChildren()
-		for k127, v311 in pairs(children200) do
+		local Killers54 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Killers") or nil -- [[deobf: nil-chain guard]]
+		local children200 = Killers54 and Killers54:GetChildren()
+		for k127, v311 in pairs(children200 or {}) do -- [[deobf: guard]]
 			v311:FindFirstChild("HumanoidRootPart")
 		end
 	end
 	getgenv().GetNearestSurvivor = function(arg856, arg857)
 		local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
 		workspace:FindFirstChild("Players")
-		local Survivors26 = workspace.Players:FindFirstChild("Survivors")
-		local children201 = Survivors26:GetChildren()
-		for k128, v312 in pairs(children201) do
+		local Survivors26 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Survivors") or nil -- [[deobf: nil-chain guard]]
+		local children201 = Survivors26 and Survivors26:GetChildren()
+		for k128, v312 in pairs(children201 or {}) do -- [[deobf: guard]]
 			v312:FindFirstChild("HumanoidRootPart")
 		end
 	end
 	getgenv().GetNearestLowestHPSurvivor = function(arg858, arg859)
 		local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
 		workspace:FindFirstChild("Players")
-		local Survivors27 = workspace.Players:FindFirstChild("Survivors")
-		local children202 = Survivors27:GetChildren()
-		for k129, v313 in pairs(children202) do
+		local Survivors27 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Survivors") or nil -- [[deobf: nil-chain guard]]
+		local children202 = Survivors27 and Survivors27:GetChildren()
+		for k129, v313 in pairs(children202 or {}) do -- [[deobf: guard]]
 			v313:FindFirstChild("HumanoidRootPart")
 		end
-		local children203 = Survivors27:GetChildren()
-		for k130, v314 in pairs(children203) do
+		local children203 = Survivors27 and Survivors27:GetChildren()
+		for k130, v314 in pairs(children203 or {}) do -- [[deobf: guard]]
 			v314:FindFirstChild("HumanoidRootPart")
 			v314:FindFirstChildOfClass("Humanoid")
 		end
@@ -8912,16 +9179,16 @@ task.spawn(function(...)
 	end
 	getgenv().SA_GetClosestToCrosshair = function(arg862, arg863)
 		workspace:FindFirstChild("Players")
-		local Survivors28 = workspace.Players:FindFirstChild("Survivors")
+		local Survivors28 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Survivors") or nil -- [[deobf: nil-chain guard]]
 		workspace:FindFirstChild("Players")
-		local Killers55 = workspace.Players:FindFirstChild("Killers")
-		local children204 = Survivors28:GetChildren()
-		for k131, v315 in pairs(children204) do
+		local Killers55 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Killers") or nil -- [[deobf: nil-chain guard]]
+		local children204 = Survivors28 and Survivors28:GetChildren()
+		for k131, v315 in pairs(children204 or {}) do -- [[deobf: guard]]
 			local HumanoidRootPart3 = v315:FindFirstChild("HumanoidRootPart")
 			workspace.CurrentCamera:WorldToViewportPoint(HumanoidRootPart3.Position)
 		end
-		local children205 = Killers55:GetChildren()
-		for k132, v316 in pairs(children205) do
+		local children205 = Killers55 and Killers55:GetChildren()
+		for k132, v316 in pairs(children205 or {}) do -- [[deobf: guard]]
 			local HumanoidRootPart4 = v316:FindFirstChild("HumanoidRootPart")
 			workspace.CurrentCamera:WorldToViewportPoint(HumanoidRootPart4.Position)
 		end
@@ -8963,10 +9230,10 @@ task.spawn(function(...)
 				getgenv().MouseModule.GetMousePos = function(arg876, arg877)
 					getgenv().SilentAimEnabled = state
 					workspace:FindFirstChild("Players")
-					local Survivors29 = workspace.Players:FindFirstChild("Survivors")
+					local Survivors29 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Survivors") or nil -- [[deobf: nil-chain guard]]
 					local _ = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("HumanoidRootPart")
-					local children206 = Survivors29:GetChildren()
-					for k133, v317 in pairs(children206) do
+					local children206 = Survivors29 and Survivors29:GetChildren()
+					for k133, v317 in pairs(children206 or {}) do -- [[deobf: guard]]
 					end
 				end
 			else
@@ -9065,9 +9332,9 @@ local RightTabbox8 = Tab36:AddRightTabbox()
 local Tab40 = RightTabbox8:AddTab("Solver")
 local Tab41 = RightTabbox8:AddTab("Settings")
 local Modules9 = ReplicatedStorage:FindFirstChild("Modules")
-local Minigames = Modules9:FindFirstChild("Minigames")
-local FlowGameManager = Minigames:FindFirstChild("FlowGameManager")
-local FlowGame = FlowGameManager:FindFirstChild("FlowGame")
+local Minigames = Modules9 and Modules9:FindFirstChild("Minigames")
+local FlowGameManager = Minigames and Minigames:FindFirstChild("FlowGameManager")
+local FlowGame = FlowGameManager and FlowGameManager:FindFirstChild("FlowGame")
 local module27 = require(FlowGame)
 local __orig_new27 = module27.new -- [[reconstructed: сохранение оригинала]]
 module27.new = function(arg892, arg893)
@@ -9135,9 +9402,9 @@ task.spawn(function(...)
 	getgenv().LineThickness = 30
 	getgenv().fh_hooked = true
 	local Modules10 = ReplicatedStorage:FindFirstChild("Modules")
-	local Minigames2 = Modules10:FindFirstChild("Minigames")
-	local FlowGameManager2 = Minigames2:FindFirstChild("FlowGameManager")
-	local FlowGame2 = FlowGameManager2:FindFirstChild("FlowGame")
+	local Minigames2 = Modules10 and Modules10:FindFirstChild("Minigames")
+	local FlowGameManager2 = Minigames2 and Minigames2:FindFirstChild("FlowGameManager")
+	local FlowGame2 = FlowGameManager2 and FlowGameManager2:FindFirstChild("FlowGame")
 	local module28 = require(FlowGame2)
 	local __orig_new28 = module28.new -- [[reconstructed: сохранение оригинала — без него бесконечная рекурсия]]
 	module28.new = function(arg916, arg917)
@@ -9157,7 +9424,7 @@ task.spawn(function(...)
 				local children207 = result63.gridFrame:GetChildren()
 				for i190, v323 in ipairs(children207) do
 					local Effects = v323:FindFirstChild("Effects")
-					local HintFX = Effects:FindFirstChild("HintFX")
+					local HintFX = Effects and Effects:FindFirstChild("HintFX")
 					if HintFX then HintFX:Destroy() end -- [[deobf: guard]]
 				end
 				for i191, v324 in ipairs(result63.Solution) do
@@ -9171,7 +9438,7 @@ task.spawn(function(...)
 				local children208 = result63.gridFrame:GetChildren()
 				for i194, v327 in ipairs(children208) do
 					local Effects2 = v327:FindFirstChild("Effects")
-					local HintFX2 = Effects2:FindFirstChild("HintFX")
+					local HintFX2 = Effects2 and Effects2:FindFirstChild("HintFX")
 					if HintFX2 then HintFX2:Destroy() end -- [[deobf: guard]]
 				end
 			end
@@ -9186,8 +9453,8 @@ task.spawn(function(...)
 				workspace:FindFirstChild("Map")
 				workspace.Map:FindFirstChild("Ingame")
 				local Map99 = workspace.Map.Ingame:FindFirstChild("Map")
-				local children209 = Map99:GetChildren()
-				for k134, v328 in pairs(children209) do
+				local children209 = Map99 and Map99:GetChildren()
+				for k134, v328 in pairs(children209 or {}) do -- [[deobf: guard]]
 				end
 			end
 		end
@@ -9206,9 +9473,17 @@ task.spawn(function(...)
 				getgenv().CloseGeneratorsUI = state
 				local PuzzleUI = Players.LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI")
 				local TemporaryUI3 = Players.LocalPlayer.PlayerGui:FindFirstChild("TemporaryUI")
-				local BackgroundUI = TemporaryUI3:FindFirstChild("BackgroundUI")
+				local BackgroundUI = TemporaryUI3 and TemporaryUI3:FindFirstChild("BackgroundUI")
+				if PuzzleUI then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if PuzzleUI then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				PuzzleUI.Enabled = false
+				end
+				end
+				if BackgroundUI then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if BackgroundUI then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				BackgroundUI.Enabled = false
+				end
+				end
 				local connection124 = RunService.Heartbeat:Connect(function(deltaTime57)
 				end)
 				getgenv().CloseGeneratorsUILoop = connection124
@@ -9218,9 +9493,17 @@ task.spawn(function(...)
 				getgenv().CloseGeneratorsUILoop = nil
 				local PuzzleUI2 = Players.LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI")
 				local TemporaryUI4 = Players.LocalPlayer.PlayerGui:FindFirstChild("TemporaryUI")
-				local BackgroundUI2 = TemporaryUI4:FindFirstChild("BackgroundUI")
+				local BackgroundUI2 = TemporaryUI4 and TemporaryUI4:FindFirstChild("BackgroundUI")
+				if PuzzleUI2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if PuzzleUI2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				PuzzleUI2.Enabled = true
+				end
+				end
+				if BackgroundUI2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if BackgroundUI2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				BackgroundUI2.Enabled = true
+				end
+				end
 			end
 		end
 })
@@ -9236,10 +9519,10 @@ task.spawn(function(...)
 					getgenv().autoEnterGenEnabled = state
 					task.wait(0.2)
 					local Map100 = workspace:FindFirstChild("Map")
-					local Ingame119 = Map100:FindFirstChild("Ingame")
-					local Map101 = Ingame119:FindFirstChild("Map")
-					local children210 = Map101:GetChildren()
-					for k135, v329 in pairs(children210) do
+					local Ingame119 = Map100 and Map100:FindFirstChild("Ingame")
+					local Map101 = Ingame119 and Ingame119:FindFirstChild("Map")
+					local children210 = Map101 and Map101:GetChildren()
+					for k135, v329 in pairs(children210 or {}) do -- [[deobf: guard]]
 					end
 					task.wait(0.2)
 				end)
@@ -9292,23 +9575,23 @@ task.spawn(function(...)
 			if state then
 				getgenv()._anti007n7CloneEnabled = state
 				local Map102 = workspace:FindFirstChild("Map")
-				local Ingame120 = Map102:FindFirstChild("Ingame")
-				local v007n7 = Ingame120:FindFirstChild("007n7")
+				local Ingame120 = Map102 and Map102:FindFirstChild("Ingame")
+				local v007n7 = Ingame120 and Ingame120:FindFirstChild("007n7")
 				if v007n7 then v007n7:Destroy() end -- [[deobf: guard]]
 				local Map103 = workspace:FindFirstChild("Map")
-				local Ingame121 = Map103:FindFirstChild("Ingame")
-				local connection126 = Ingame121.ChildAdded:Connect(function(child44)
+				local Ingame121 = Map103 and Map103:FindFirstChild("Ingame")
+				local connection126 = Ingame121 and Ingame121.ChildAdded:Connect(function(child44)
 				end)
 				getgenv()._anti007n7CloneConn = connection126
 				task.spawn(function(...)
 					local Map104 = workspace:FindFirstChild("Map")
-					local Ingame122 = Map104:FindFirstChild("Ingame")
-					local v007n72 = Ingame122:FindFirstChild("007n7")
+					local Ingame122 = Map104 and Map104:FindFirstChild("Ingame")
+					local v007n72 = Ingame122 and Ingame122:FindFirstChild("007n7")
 					if v007n72 then v007n72:Destroy() end -- [[deobf: guard]]
 					task.wait(0.5)
 					local Map105 = workspace:FindFirstChild("Map")
-					local Ingame123 = Map105:FindFirstChild("Ingame")
-					local v007n73 = Ingame123:FindFirstChild("007n7")
+					local Ingame123 = Map105 and Map105:FindFirstChild("Ingame")
+					local v007n73 = Ingame123 and Ingame123:FindFirstChild("007n7")
 					if v007n73 then v007n73:Destroy() end -- [[deobf: guard]]
 					task.wait(0.5)
 				end)
@@ -9348,9 +9631,9 @@ task.spawn(function(...)
 				getgenv().NoliDeleting = state
 				local connection128 = RunService.Heartbeat:Connect(function(deltaTime60)
 					workspace:FindFirstChild("Players")
-					local Killers58 = workspace.Players:FindFirstChild("Killers")
-					local children222 = Killers58:GetChildren()
-					for k149, v360 in pairs(children222) do
+					local Killers58 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Killers") or nil -- [[deobf: nil-chain guard]]
+					local children222 = Killers58 and Killers58:GetChildren()
+					for k149, v360 in pairs(children222 or {}) do -- [[deobf: guard]]
 					end
 				end)
 				getgenv().NoliConnection = connection128
@@ -9371,9 +9654,9 @@ task.spawn(function(...)
 				getgenv().GeneratorDeleting = state
 				local connection129 = RunService.Heartbeat:Connect(function(deltaTime61)
 					workspace:FindFirstChild("Map")
-					local Ingame124 = workspace.Map:FindFirstChild("Ingame")
-					local children223 = Ingame124:GetChildren()
-					for k150, v361 in pairs(children223) do
+					local Ingame124 = (workspace and workspace.Map) and workspace.Map:FindFirstChild("Ingame") or nil -- [[deobf: nil-chain guard]]
+					local children223 = Ingame124 and Ingame124:GetChildren()
+					for k150, v361 in pairs(children223 or {}) do -- [[deobf: guard]]
 					end
 				end)
 				getgenv().GeneratorConnection = connection129
@@ -9458,8 +9741,8 @@ task.spawn(function(...)
 				workspace.Map.Ingame:FindFirstChild("Map")
 				workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 				local KillerDoors = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-				local descendants74 = KillerDoors:GetDescendants()
-				for i195, v331 in ipairs(descendants74) do
+				local descendants74 = KillerDoors and KillerDoors:GetDescendants()
+				for i195, v331 in ipairs(descendants74 or {}) do -- [[deobf: guard]]
 					if v331:IsA("BasePart") then v331.CanCollide = false end -- [[deobf: guard — prop валиден только на BasePart]]
 					if v331:IsA("BasePart") then v331.CanTouch = false end -- [[deobf: guard — prop валиден только на BasePart]]
 				end
@@ -9468,7 +9751,7 @@ task.spawn(function(...)
 				workspace.Map.Ingame:FindFirstChild("Map")
 				workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 				local KillerDoors2 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-				local connection132 = KillerDoors2.DescendantAdded:Connect(function(descendant66)
+				local connection132 = KillerDoors2 and KillerDoors2.DescendantAdded:Connect(function(descendant66)
 				end)
 				task.spawn(function(...)
 					workspace:FindFirstChild("Map")
@@ -9476,8 +9759,8 @@ task.spawn(function(...)
 					workspace.Map.Ingame:FindFirstChild("Map")
 					workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 					local KillerDoors3 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-					local descendants75 = KillerDoors3:GetDescendants()
-					for i196, v332 in ipairs(descendants75) do
+					local descendants75 = KillerDoors3 and KillerDoors3:GetDescendants()
+					for i196, v332 in ipairs(descendants75 or {}) do -- [[deobf: guard]]
 						if v332:IsA("BasePart") then v332.CanCollide = false end -- [[deobf: guard — prop валиден только на BasePart]]
 						if v332:IsA("BasePart") then v332.CanTouch = false end -- [[deobf: guard — prop валиден только на BasePart]]
 					end
@@ -9487,7 +9770,7 @@ task.spawn(function(...)
 					workspace.Map.Ingame:FindFirstChild("Map")
 					workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 					local KillerDoors4 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-					local connection133 = KillerDoors4.DescendantAdded:Connect(function(descendant67)
+					local connection133 = KillerDoors4 and KillerDoors4.DescendantAdded:Connect(function(descendant67)
 					end)
 					task.wait(0.5)
 					workspace:FindFirstChild("Map")
@@ -9495,8 +9778,8 @@ task.spawn(function(...)
 					workspace.Map.Ingame:FindFirstChild("Map")
 					workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 					local KillerDoors5 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-					local descendants76 = KillerDoors5:GetDescendants()
-					for i197, v333 in ipairs(descendants76) do
+					local descendants76 = KillerDoors5 and KillerDoors5:GetDescendants()
+					for i197, v333 in ipairs(descendants76 or {}) do -- [[deobf: guard]]
 						if v333:IsA("BasePart") then v333.CanCollide = false end -- [[deobf: guard — prop валиден только на BasePart]]
 						if v333:IsA("BasePart") then v333.CanTouch = false end -- [[deobf: guard — prop валиден только на BasePart]]
 					end
@@ -9506,8 +9789,12 @@ task.spawn(function(...)
 					workspace.Map.Ingame:FindFirstChild("Map")
 					workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 					local KillerDoors6 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
+					if KillerDoors6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if KillerDoors6 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					KillerDoors6.DescendantAdded:Connect(function(descendant68)
 					end)
+					end
+					end
 					task.wait(0.5)
 				end)
 			else
@@ -9517,8 +9804,8 @@ task.spawn(function(...)
 				workspace.Map.Ingame:FindFirstChild("Map")
 				workspace.Map.Ingame.Map:FindFirstChild("MapBoundaries")
 				local KillerDoors7 = workspace.Map.Ingame.Map.MapBoundaries:FindFirstChild("KillerDoors")
-				local descendants77 = KillerDoors7:GetDescendants()
-				for i199, v335 in ipairs(descendants77) do
+				local descendants77 = KillerDoors7 and KillerDoors7:GetDescendants()
+				for i199, v335 in ipairs(descendants77 or {}) do -- [[deobf: guard]]
 					if v335:IsA("BasePart") then v335.CanCollide = true end -- [[deobf: guard — prop валиден только на BasePart]]
 					if v335:IsA("BasePart") then v335.CanTouch = true end -- [[deobf: guard — prop валиден только на BasePart]]
 				end
@@ -9534,8 +9821,16 @@ task.spawn(function(...)
 				task.spawn(function(...)
 					task.wait()
 					local Humanoid29 = (Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()):FindFirstChild("Humanoid")
+					if Humanoid29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Humanoid29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Humanoid29.UseJumpPower = true
+					end
+					end
+					if Humanoid29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if Humanoid29 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					Humanoid29.JumpPower = 50
+					end
+					end
 					task.wait()
 				end)
 			else
@@ -9588,11 +9883,19 @@ task.spawn(function(...)
 					v339:FindFirstChild("PlayerData")
 					v339.PlayerData:FindFirstChild("Settings")
 					local Privacy = v339.PlayerData.Settings:FindFirstChild("Privacy")
-					local HideSurvivorWins = Privacy:FindFirstChild("HideSurvivorWins")
+					local HideSurvivorWins = Privacy and Privacy:FindFirstChild("HideSurvivorWins")
+					if HideSurvivorWins then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if HideSurvivorWins then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					HideSurvivorWins.Value = false
-					local HidePlaytime = Privacy:FindFirstChild("HidePlaytime")
+					end
+					end
+					local HidePlaytime = Privacy and Privacy:FindFirstChild("HidePlaytime")
+					if HidePlaytime then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+					if HidePlaytime then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 					HidePlaytime.Value = false
-					local HideKillerWins = Privacy:FindFirstChild("HideKillerWins")
+					end
+					end
+					local HideKillerWins = Privacy and Privacy:FindFirstChild("HideKillerWins")
 					if HideKillerWins then HideKillerWins.Value = false end -- [[deobf: перенесено внутрь цикла (mis-nest)]]
 				end
 			else
@@ -9601,11 +9904,11 @@ task.spawn(function(...)
 				local PlayerData5 = v340:FindFirstChild("PlayerData")
 				local Privacy5 = PlayerData5 and PlayerData5:FindFirstChild("Settings") and PlayerData5.Settings:FindFirstChild("Privacy")
 				if Privacy5 then
-					local HideSurvivorWins5 = Privacy5:FindFirstChild("HideSurvivorWins")
+					local HideSurvivorWins5 = Privacy5 and Privacy5:FindFirstChild("HideSurvivorWins")
 					if HideSurvivorWins5 then HideSurvivorWins5.Value = true end
-					local HidePlaytime5 = Privacy5:FindFirstChild("HidePlaytime")
+					local HidePlaytime5 = Privacy5 and Privacy5:FindFirstChild("HidePlaytime")
 					if HidePlaytime5 then HidePlaytime5.Value = true end
-					local HideKillerWins5 = Privacy5:FindFirstChild("HideKillerWins")
+					local HideKillerWins5 = Privacy5 and Privacy5:FindFirstChild("HideKillerWins")
 					if HideKillerWins5 then HideKillerWins5.Value = true end
 				end
 			end
@@ -9700,20 +10003,24 @@ task.spawn(function(...)
 end)
 task.spawn(function(...)
 	workspace:FindFirstChild("Players")
-	local Survivors30 = workspace.Players:FindFirstChild("Survivors")
+	local Survivors30 = (workspace and workspace.Players) and workspace.Players:FindFirstChild("Survivors") or nil -- [[deobf: nil-chain guard]]
 	RightGroupbox8:AddCheckbox("VX_flag_271", {
 	Text = "Anti Speed Slowness",
 	Default = false,
 	Callback = function(state, arg965)
 			if state then
-				local children213 = Survivors30:GetChildren()
-				for k137, v341 in pairs(children213) do
+				local children213 = Survivors30 and Survivors30:GetChildren()
+				for k137, v341 in pairs(children213 or {}) do -- [[deobf: guard]]
 					v341:GetAttribute("Username")
 				end
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				Survivors30.ChildAdded:Connect(function(child45)
 					task.wait(0.1)
 					child45:GetAttribute("Username")
 				end)
+				end
+				end
 			end
 		end
 })
@@ -9722,14 +10029,18 @@ task.spawn(function(...)
 	Default = false,
 	Callback = function(state, arg967)
 			if state then
-				local children214 = Survivors30:GetChildren()
-				for k138, v342 in pairs(children214) do
+				local children214 = Survivors30 and Survivors30:GetChildren()
+				for k138, v342 in pairs(children214 or {}) do -- [[deobf: guard]]
 					v342:GetAttribute("Username")
 				end
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				Survivors30.ChildAdded:Connect(function(child46)
 					task.wait(0.1)
 					child46:GetAttribute("Username")
 				end)
+				end
+				end
 			end
 		end
 })
@@ -9739,14 +10050,18 @@ task.spawn(function(...)
 	Default = false,
 	Callback = function(state, arg969)
 			if state then
-				local children215 = Survivors30:GetChildren()
-				for k139, v343 in pairs(children215) do
+				local children215 = Survivors30 and Survivors30:GetChildren()
+				for k139, v343 in pairs(children215 or {}) do -- [[deobf: guard]]
 					v343:GetAttribute("Username")
 				end
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				Survivors30.ChildAdded:Connect(function(child47)
 					task.wait(0.1)
 					child47:GetAttribute("Username")
 				end)
+				end
+				end
 				local descendants79 = game:GetDescendants()
 				for k140, v344 in pairs(descendants79) do
 				end
@@ -9763,14 +10078,18 @@ task.spawn(function(...)
 	Default = false,
 	Callback = function(state, arg971)
 			if state then
-				local children216 = Survivors30:GetChildren()
-				for k141, v345 in pairs(children216) do
+				local children216 = Survivors30 and Survivors30:GetChildren()
+				for k141, v345 in pairs(children216 or {}) do -- [[deobf: guard]]
 					v345:GetAttribute("Username")
 				end
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				Survivors30.ChildAdded:Connect(function(child48)
 					task.wait(0.1)
 					child48:GetAttribute("Username")
 				end)
+				end
+				end
 			end
 		end
 })
@@ -9779,14 +10098,18 @@ task.spawn(function(...)
 	Default = false,
 	Callback = function(state, arg973)
 			if state then
-				local children217 = Survivors30:GetChildren()
-				for k142, v346 in pairs(children217) do
+				local children217 = Survivors30 and Survivors30:GetChildren()
+				for k142, v346 in pairs(children217 or {}) do -- [[deobf: guard]]
 					v346:GetAttribute("Username")
 				end
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if Survivors30 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				Survivors30.ChildAdded:Connect(function(child49)
 					task.wait(0.1)
 					child49:GetAttribute("Username")
 				end)
+				end
+				end
 			end
 		end
 })
@@ -9824,8 +10147,12 @@ task.spawn(function(...)
 		local Animator21 = Humanoid30:FindFirstChildOfClass("Animator")
 		RunService.Heartbeat:Connect(function(deltaTime64)
 		end)
+		if Animator21 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Animator21 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Animator21.AnimationPlayed:Connect(function(arg984)
 		end)
+		end
+		end
 	end
 	Players.LocalPlayer.CharacterRemoving:Connect(function(character28)
 	end)
@@ -9833,15 +10160,23 @@ task.spawn(function(...)
 	local Animator22 = Humanoid31:FindFirstChildOfClass("Animator")
 	RunService.Heartbeat:Connect(function(deltaTime65)
 	end)
+	if Animator22 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Animator22 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Animator22.AnimationPlayed:Connect(function(arg985)
 	end)
+	end
+	end
 	Players.LocalPlayer.CharacterAdded:Connect(function(character29)
 		local Humanoid56 = character29:WaitForChild("Humanoid")
 		local Animator41 = Humanoid56:FindFirstChildOfClass("Animator")
 		RunService.Heartbeat:Connect(function(deltaTime67)
 		end)
+		if Animator41 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if Animator41 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		Animator41.AnimationPlayed:Connect(function(arg1081)
 		end)
+		end
+		end
 	end)
 	LeftGroupbox9:AddCheckbox("VX_flag_276", {
 	Text = "Fake Injured",
@@ -9884,15 +10219,15 @@ task.spawn(function(...)
 				Animation7.AnimationId = "rbxassetid://95213748170889"
 				local Animation8 = Instance.new("Animation")
 				Animation8.AnimationId = "rbxassetid://75409814098993"
-				local track6 = Humanoid32:LoadAnimation(Animation6)
+				local track6 = Humanoid32 and Humanoid32:LoadAnimation(Animation6)
 				getgenv()._customAnim_idleTrack = track6
-				local track7 = Humanoid32:LoadAnimation(Animation7)
+				local track7 = Humanoid32 and Humanoid32:LoadAnimation(Animation7)
 				getgenv()._customAnim_walkTrack = track7
-				local track8 = Humanoid32:LoadAnimation(Animation8)
+				local track8 = Humanoid32 and Humanoid32:LoadAnimation(Animation8)
 				getgenv()._customAnim_runTrack = track8
-				local Animator23 = Humanoid32:FindFirstChildOfClass("Animator")
-				local tracks8 = Animator23:GetPlayingAnimationTracks()
-				for i205, v347 in ipairs(tracks8) do
+				local Animator23 = Humanoid32 and Humanoid32:FindFirstChildOfClass("Animator")
+				local tracks8 = Animator23 and Animator23:GetPlayingAnimationTracks()
+				for i205, v347 in ipairs(tracks8 or {}) do -- [[deobf: guard]]
 					v347:Stop(0)
 				end
 				local connection137 = RunService.Heartbeat:Connect(function(deltaTime66)
@@ -10059,12 +10394,20 @@ getgenv().MusicSetLMS = function(arg1012, arg1013)
 	task.spawn(function(...)
 		getgenv().lmsProcessing = true
 		local Themes4 = workspace:FindFirstChild("Themes")
-		local LastSurvivor = Themes4:FindFirstChild("LastSurvivor")
+		local LastSurvivor = Themes4 and Themes4:FindFirstChild("LastSurvivor")
 		getgenv().originalSongId = LastSurvivor.SoundId
 		local response6 = http_request({ Method = "GET", Url = arg1012 })
 		writefile("Vexsaken/Music/Themes/Custom_LMS.mp3", response6.Body)
+		if LastSurvivor then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if LastSurvivor then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		LastSurvivor.SoundId = "rbxasset://Vexsaken/Music/Themes/Custom_LMS.mp3"
+		end
+		end
+		if LastSurvivor then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if LastSurvivor then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		LastSurvivor:Play()
+		end
+		end
 		getgenv().lastLMSApplied = "Custom"
 		task.wait(0.5)
 	end)
@@ -10072,7 +10415,7 @@ end
 getgenv().MusicSetupLMSMonitor = function(arg1014, arg1015)
 	getgenv().lmsConnections = {}
 	local Themes5 = workspace:FindFirstChild("Themes")
-	local connection138 = Themes5.ChildAdded:Connect(function(child50)
+	local connection138 = Themes5 and Themes5.ChildAdded:Connect(function(child50)
 	end)
 end
 getgenv().MusicSetLobby = function(arg1016, arg1017)
@@ -10080,12 +10423,20 @@ getgenv().MusicSetLobby = function(arg1016, arg1017)
 	task.spawn(function(...)
 		getgenv().lobbyProcessing = true
 		local Themes6 = workspace:FindFirstChild("Themes")
-		local oldLobby = Themes6:FindFirstChild("oldLobby")
+		local oldLobby = Themes6 and Themes6:FindFirstChild("oldLobby")
 		getgenv().originalLobbySongId = oldLobby.SoundId
 		local response7 = http_request({ Method = "GET", Url = arg1016 })
 		writefile("Vexsaken/Music/Themes/Custom_Lobby.mp3", response7.Body)
+		if oldLobby then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if oldLobby then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		oldLobby.SoundId = "rbxasset://Vexsaken/Music/Themes/Custom_Lobby.mp3"
+		end
+		end
+		if oldLobby then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if oldLobby then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		oldLobby:Play()
+		end
+		end
 		getgenv().lastLobbyApplied = "Custom"
 		task.wait(0.5)
 	end)
@@ -10093,7 +10444,7 @@ end
 getgenv().MusicSetupLobbyMonitor = function(arg1018, arg1019)
 	getgenv().lobbyConnections = {}
 	local Themes7 = workspace:FindFirstChild("Themes")
-	local connection139 = Themes7.ChildAdded:Connect(function(child51)
+	local connection139 = Themes7 and Themes7.ChildAdded:Connect(function(child51)
 	end)
 end
 getgenv().MusicSetAmbience = function(arg1020, arg1021)
@@ -10101,12 +10452,20 @@ getgenv().MusicSetAmbience = function(arg1020, arg1021)
 	task.spawn(function(...)
 		getgenv().processingAmbience = true
 		local Themes8 = workspace:FindFirstChild("Themes")
-		local MapAmbience = Themes8:FindFirstChild("MapAmbience")
+		local MapAmbience = Themes8 and Themes8:FindFirstChild("MapAmbience")
 		getgenv().originalAmbienceId = MapAmbience.SoundId
 		local response8 = http_request({ Method = "GET", Url = arg1020 })
 		writefile("Vexsaken/Music/Ambience/Custom_Ambience.mp3", response8.Body)
+		if MapAmbience then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if MapAmbience then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		MapAmbience.SoundId = "rbxasset://Vexsaken/Music/Ambience/Custom_Ambience.mp3"
+		end
+		end
+		if MapAmbience then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if MapAmbience then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		MapAmbience:Play()
+		end
+		end
 		getgenv().lastAmbienceApplied = "Custom"
 	end)
 end
@@ -10114,14 +10473,22 @@ getgenv().lastAmbienceApplied = nil
 getgenv().originalAmbienceId = nil
 getgenv().MusicRestoreAmbience = function(arg1022, arg1023)
 	local Themes9 = workspace:FindFirstChild("Themes")
-	local MapAmbience2 = Themes9:FindFirstChild("MapAmbience")
+	local MapAmbience2 = Themes9 and Themes9:FindFirstChild("MapAmbience")
+	if MapAmbience2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if MapAmbience2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	MapAmbience2.SoundId = MapAmbience.SoundId
+	end
+	end
+	if MapAmbience2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if MapAmbience2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	MapAmbience2:Play()
+	end
+	end
 end
 getgenv().MusicSetupAmbienceMonitor = function(arg1024, arg1025)
 	getgenv().ambienceConnections = {}
 	local Themes10 = workspace:FindFirstChild("Themes")
-	local connection140 = Themes10.ChildAdded:Connect(function(child52)
+	local connection140 = Themes10 and Themes10.ChildAdded:Connect(function(child52)
 	end)
 end
 task.spawn(function(...)
@@ -10129,18 +10496,30 @@ task.spawn(function(...)
 	if connection138 then connection138:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().lmsConnections = {}
 	local Themes11 = workspace:FindFirstChild("Themes")
+	if Themes11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Themes11 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Themes11.ChildAdded:Connect(function(child53)
 	end)
+	end
+	end
 	if connection139 then connection139:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().lobbyConnections = {}
 	local Themes12 = workspace:FindFirstChild("Themes")
+	if Themes12 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Themes12 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Themes12.ChildAdded:Connect(function(child54)
 	end)
+	end
+	end
 	if connection140 then connection140:Disconnect() end -- [[deobf: guard, определение в другой области]]
 	getgenv().ambienceConnections = {}
 	local Themes13 = workspace:FindFirstChild("Themes")
+	if Themes13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+	if Themes13 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 	Themes13.ChildAdded:Connect(function(child55)
 	end)
+	end
+	end
 end)
 getgenv().originalSongId = nil
 Tab46:AddCheckbox("VX_flag_283", {
@@ -10154,25 +10533,41 @@ Tab46:AddCheckbox("VX_flag_283", {
 			task.spawn(function(...)
 				getgenv().lmsProcessing = true
 				local Themes15 = workspace:FindFirstChild("Themes")
-				local LastSurvivor2 = Themes15:FindFirstChild("LastSurvivor")
+				local LastSurvivor2 = Themes15 and Themes15:FindFirstChild("LastSurvivor")
 				local response9 = http_request({
 		Method = "GET",
 		Url = "https://github.com/NyanRescript/NyansakenHub/raw/refs/heads/main/A%20GRAVE%20SOUL%20(NOW,%20RUN)%20%5BAll%20Killers%20Vs%20All%20Survivors%5D.mp3"
 	})
 				writefile("Vexsaken/Music/Themes/A_GRAVE_SOUL__Default_Lms_Song_.mp3", response9.Body)
 				getgenv().originalSongId = LastSurvivor2.SoundId -- [[reconstructed: сохранение оригинала перед заменой]]
+				if LastSurvivor2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if LastSurvivor2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				LastSurvivor2.SoundId = "rbxasset://Vexsaken/Music/Themes/A_GRAVE_SOUL__Default_Lms_Song_.mp3"
+				end
+				end
+				if LastSurvivor2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if LastSurvivor2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				LastSurvivor2:Play()
+				end
+				end
 				getgenv().lastLMSApplied = "A GRAVE SOUL (Default Lms Song)"
 				task.wait(0.5)
 			end)
 		else
 			getgenv().isToggleOn = false
 			local Themes16 = workspace:FindFirstChild("Themes")
-			local LastSurvivor3 = Themes16:FindFirstChild("LastSurvivor")
+			local LastSurvivor3 = Themes16 and Themes16:FindFirstChild("LastSurvivor")
 			getgenv().lastLMSApplied = nil
+			if LastSurvivor3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if LastSurvivor3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			LastSurvivor3.SoundId = getgenv().originalSongId or LastSurvivor3.SoundId -- [[reconstructed]]
+			end
+			end
+			if LastSurvivor3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if LastSurvivor3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			LastSurvivor3:Play()
+			end
+			end
 		end
 	end
 })
@@ -10188,23 +10583,39 @@ Tab46:AddCheckbox("VX_flag_284", {
 				getgenv().ambienceToggleOn = state
 				getgenv().processingAmbience = true
 				local Themes17 = workspace:FindFirstChild("Themes")
-				local MapAmbience3 = Themes17:FindFirstChild("MapAmbience")
+				local MapAmbience3 = Themes17 and Themes17:FindFirstChild("MapAmbience")
 				getgenv().originalAmbienceId = MapAmbience3.SoundId
 				local response10 = http_request({
 		Method = "GET",
 		Url = "https://raw.githubusercontent.com/NilTransfer/DataBase/main/sounds/1770285763068_Gaiety_in_the_Golden_Age.mp3"
 	})
 				writefile("Vexsaken/Music/Ambience/Gaiety_Golden_Age.mp3", response10.Body)
+				if MapAmbience3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if MapAmbience3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				MapAmbience3.SoundId = "rbxasset://Vexsaken/Music/Ambience/Gaiety_Golden_Age.mp3"
+				end
+				end
+				if MapAmbience3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if MapAmbience3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				MapAmbience3:Play()
+				end
+				end
 				getgenv().lastAmbienceApplied = "Gaiety Golden Age"
 			end)
 		else
 			getgenv().ambienceToggleOn = false
 			local Themes18 = workspace:FindFirstChild("Themes")
-			local MapAmbience4 = Themes18:FindFirstChild("MapAmbience")
+			local MapAmbience4 = Themes18 and Themes18:FindFirstChild("MapAmbience")
+			if MapAmbience4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if MapAmbience4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			MapAmbience4.SoundId = getgenv().originalAmbienceId or MapAmbience4.SoundId -- [[reconstructed]]
+			end
+			end
+			if MapAmbience4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if MapAmbience4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			MapAmbience4:Play()
+			end
+			end
 		end
 	end
 })
@@ -10220,24 +10631,40 @@ Tab46:AddCheckbox("VX_flag_285", {
 			task.spawn(function(...)
 				getgenv().lobbyProcessing = true
 				local Themes20 = workspace:FindFirstChild("Themes")
-				local oldLobby2 = Themes20:FindFirstChild("oldLobby")
+				local oldLobby2 = Themes20 and Themes20:FindFirstChild("oldLobby")
 				local response11 = http_request({
 		Method = "GET",
 		Url = "https://github.com/articbeatles0-ship-it/fuckyouretard/raw/refs/heads/main/Mysterious%20Place.mp3"
 	})
 				writefile("Vexsaken/Music/Themes/Lost_Media_Lobby.mp3", response11.Body)
+				if oldLobby2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if oldLobby2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				oldLobby2.SoundId = "rbxasset://Vexsaken/Music/Themes/Lost_Media_Lobby.mp3"
+				end
+				end
+				if oldLobby2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+				if oldLobby2 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 				oldLobby2:Play()
+				end
+				end
 				getgenv().lastLobbyApplied = "Lost Media"
 				task.wait(0.5)
 			end)
 		else
 			getgenv().isLobbyToggleOn = false
 			local Themes21 = workspace:FindFirstChild("Themes")
-			local oldLobby3 = Themes21:FindFirstChild("oldLobby")
+			local oldLobby3 = Themes21 and Themes21:FindFirstChild("oldLobby")
 			getgenv().lastLobbyApplied = nil
+			if oldLobby3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if oldLobby3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			oldLobby3.SoundId = getgenv().originalLobbySongId or oldLobby3.SoundId -- [[reconstructed]]
+			end
+			end
+			if oldLobby3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+			if oldLobby3 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 			oldLobby3:Play()
+			end
+			end
 		end
 	end
 })
@@ -10316,14 +10743,26 @@ Tab47:AddSlider("VX_flag_290", {
 	Rounding = 0,
 	Callback = function(arg1040, arg1041)
 		local Themes22 = workspace:FindFirstChild("Themes")
-		local LastSurvivor4 = Themes22:FindFirstChild("LastSurvivor")
+		local LastSurvivor4 = Themes22 and Themes22:FindFirstChild("LastSurvivor")
 		local Themes23 = workspace:FindFirstChild("Themes")
-		local oldLobby4 = Themes23:FindFirstChild("oldLobby")
+		local oldLobby4 = Themes23 and Themes23:FindFirstChild("oldLobby")
 		local Themes24 = workspace:FindFirstChild("Themes")
-		local MapAmbience5 = Themes24:FindFirstChild("MapAmbience")
+		local MapAmbience5 = Themes24 and Themes24:FindFirstChild("MapAmbience")
+		if LastSurvivor4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if LastSurvivor4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		LastSurvivor4.Volume = (tonumber(arg1040) / 100)
+		end
+		end
+		if oldLobby4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if oldLobby4 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		oldLobby4.Volume = (tonumber(arg1040) / 100)
+		end
+		end
+		if MapAmbience5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
+		if MapAmbience5 then -- [[deobf: guard — объекта может не быть (лобби/не в раунде)]]
 		MapAmbience5.Volume = (tonumber(arg1040) / 100)
+		end
+		end
 	end
 })
 local Tab48 = Window:AddTab("UI Settings", "settings", "theme and config management")
